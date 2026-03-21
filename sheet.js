@@ -198,6 +198,14 @@ function buildFeats(feats) {
 }
 
 function buildSkills(skills, note) {
+  const hasBonus = skills.some(s => s.bonus);
+
+  // Add Misc column to header only if at least one skill has a bonus
+  const thead = document.querySelector('#skills-table thead tr');
+  thead.innerHTML = hasBonus
+    ? '<th>Skill</th><th>Ranks</th><th>Stat</th><th>Class</th><th>Misc</th><th>Total</th>'
+    : '<th>Skill</th><th>Ranks</th><th>Stat</th><th>Class</th><th>Total</th>';
+
   const tbody = document.querySelector('#skills-table tbody');
   tbody.innerHTML = skills.map(s => `
     <tr>
@@ -205,6 +213,7 @@ function buildSkills(skills, note) {
       <td>${s.ranks}</td>
       <td>${s.stat}</td>
       <td>${s.class}</td>
+      ${hasBonus ? `<td style="color:var(--accent);font-size:0.85rem;">${s.bonus || '\u2014'}</td>` : ''}
       <td class="highlight">${s.total}</td>
     </tr>
   `).join('');
