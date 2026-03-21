@@ -4,7 +4,7 @@
     "ogTitle": "NIX",
     "ogDescription": "Fetchling · Barbarian // Alchemist · Gestalt Level 3 — \"This is not your party, Ember.\"",
     "ogUrl": "https://fleshbox.github.io/sheets/#nix",
-    "ogImage": "./images/nix.png"
+    "ogImage": "../images/nix.png"
   },
 
   "theme": {
@@ -29,7 +29,7 @@
   },
 
   "portrait": {
-    "src": "./images/nix.png",
+    "src": "../images/nix.png",
     "alt": "Nix"
   },
 
