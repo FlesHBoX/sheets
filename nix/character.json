@@ -113,7 +113,8 @@
   "skills": [
     { "name": "Perception",        "ranks": "3",  "stat": "−1", "class": "+3", "total": "+5" },
     { "name": "Intimidate",        "ranks": "3",  "stat": "+3", "class": "+3", "total": "+9" },
-    { "name": "Knowledge (Nature)","ranks": "3",  "stat": "+3", "class": "+3", "total": "+9" },
+    { "name": "Knowledge (Nature)","ranks": "1",  "stat": "+3", "class": "+3", "total": "+7" },
+    { "name": "Knowledge (Planes)","ranks": "2",  "stat": "+3", "class": "+3", "total": "+10" },
     { "name": "Disable Device",    "ranks": "3",  "stat": "+3", "class": "+3", "total": "+9" },
     { "name": "Acrobatics",        "ranks": "3",  "stat": "+3", "class": "+3", "total": "+9" },
     { "name": "Sleight of Hand",   "ranks": "3",  "stat": "+3", "class": "+3", "total": "+9" },
