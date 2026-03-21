@@ -287,12 +287,9 @@ function buildFooter(text) {
 
 // ─── Main loader ──────────────────────────────────────────────────────────────
 async function loadCharacter() {
-  const raw = window.CHARACTER || window.location.hash.slice(1) || 'nix';
-  const characterName = raw.toLowerCase().replace(/[^a-z0-9_-]/g, '');
-
   try {
-    const res = await fetch(`./characters/${characterName}.json`);
-    if (!res.ok) throw new Error(`Character "${characterName}" not found.`);
+    const res = await fetch('./character.json');
+    if (!res.ok) throw new Error('character.json not found.');
     const data = await res.json();
 
     applyTheme(data.theme);
@@ -327,6 +324,4 @@ async function loadCharacter() {
   }
 }
 
-// Reload on hash change (navigate between characters without page reload)
-window.addEventListener('hashchange', loadCharacter);
 document.addEventListener('DOMContentLoaded', loadCharacter);
