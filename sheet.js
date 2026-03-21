@@ -133,7 +133,7 @@ function buildAppearance(items) {
 function buildAbilityScores(scores, note) {
   const grid = document.querySelector('.stats-grid');
   grid.innerHTML = scores.map(s => {
-    const scoreColor = s.low ? 'var(--muted)' : s.primary ? 'var(--primary)' : 'var(--text)';
+    const scoreColor = s.low ? 'var(--accent)' : s.primary ? 'var(--primary)' : 'var(--text)';
     const modColor   = s.low ? 'var(--accent)' : 'var(--text-dim)';
     return `
       <div class="stat-box${s.primary ? ' primary' : ''}">
