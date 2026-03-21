@@ -7,5 +7,14 @@
     "href": "./nix/",
     "primary": "#f5e642",
     "accent": "#ff4d8f"
+  },
+  {
+    "name": "Atnas Greystag",
+    "subtitle": "Plumekith Aasimar · Warden · Level 5",
+    "quote": "\"The strong should protect the weak. And as long as the weak suffer, he will not rest.\"",
+    "portrait": "./atnas/portrait.png",
+    "href": "./atnas/",
+    "primary": "#7eb8e0",
+    "accent": "#e8c84a"
   }
 ]

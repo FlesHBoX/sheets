@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="ATNAS GREYSTAG" />
+<meta property="og:description" content="Plumekith Aasimar · Warden · Level 5 — &quot;Justice doesn't announce itself.&quot;" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://fleshbox.github.io/sheets/atnas/" />
+<meta property="og:image" content="https://fleshbox.github.io/sheets/atnas/portrait.png" />
+<title>ATNAS — Character Sheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../sheet.css">
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <h1 class="character-name"></h1>
+    <p class="character-subtitle"></p>
+    <p class="character-quote"></p>
+  </div>
+  <div class="section" style="text-align:center;">
+    <img id="portrait-img" src="" alt=""
+      style="max-width:420px;width:100%;border-radius:6px;border:1px solid var(--border);
+        box-shadow:0 0 40px var(--primary-dim), 0 0 80px var(--accent-dim);cursor:pointer;"
+      onclick="document.getElementById('lb').classList.add('active')">
+  </div>
+  <div class="section">
+    <div class="section-title">Identity</div>
+    <div class="identity-grid"></div>
+  </div>
+  <div class="section">
+    <div class="section-title">Appearance</div>
+    <div class="appearance-block"><ul></ul></div>
+  </div>
+  <div class="section">
+    <div class="section-title">Ability Scores</div>
+    <div class="stats-grid"></div>
+    <div class="note-box ability-scores-note"></div>
+  </div>
+  <div class="section">
+    <div class="section-title">Combat</div>
+    <div class="combat-grid"></div>
+    <table id="weapons-table">
+      <thead><tr><th>Weapon</th><th>Attack</th><th>Damage</th><th>Crit</th><th>Notes</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <div class="section">
+    <div class="section-title">Class Features</div>
+    <div class="class-features-grid"></div>
+    <div class="note-box class-features-note"></div>
+  </div>
+  <div class="section">
+    <div class="section-title">Feats</div>
+    <table id="feats-table">
+      <thead><tr><th>Level</th><th>Feat</th><th>Notes</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <div class="section">
+    <div class="section-title">Skills</div>
+    <table id="skills-table">
+      <thead><tr><th>Skill</th><th>Ranks</th><th>Stat</th><th>Class</th><th>Total</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <div class="note-box skills-note"></div>
+  </div>
+  <div class="section">
+    <div class="section-title racial-title">Racial Traits</div>
+    <ul class="feature-list racial-traits-list"></ul>
+  </div>
+  <div class="section">
+    <div class="section-title">Equipment</div>
+    <table id="equipment-table">
+      <thead><tr><th>Item</th><th>Notes</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <div class="section-title">Backstory &amp; Lore</div>
+    <div class="lore-container"></div>
+  </div>
+  <div class="footer"></div>
+</div>
+<div id="lb" class="lightbox-overlay" onclick="this.classList.remove('active')">
+  <img id="lightbox-img" src="" alt="">
+</div>
+<script src="../sheet.js"></script>
+</body>
+</html>
