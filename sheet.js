@@ -133,7 +133,7 @@ function buildAppearance(items) {
 function buildAbilityScores(scores, note) {
   const grid = document.querySelector('.stats-grid');
   grid.innerHTML = scores.map(s => {
-    const scoreColor = s.low ? 'var(--accent)' : s.primary ? 'var(--primary)' : 'var(--text)';
+    const scoreColor = s.low ? 'var(--muted)' : s.primary ? 'var(--primary)' : 'var(--text)';
     const modColor   = s.low ? 'var(--accent)' : 'var(--text-dim)';
     return `
       <div class="stat-box${s.primary ? ' primary' : ''}">
@@ -287,8 +287,8 @@ function buildFooter(text) {
 
 // ─── Main loader ──────────────────────────────────────────────────────────────
 async function loadCharacter() {
-  const hash = window.location.hash.slice(1) || 'nix';
-  const characterName = hash.toLowerCase().replace(/[^a-z0-9_-]/g, '');
+  const raw = window.CHARACTER || window.location.hash.slice(1) || 'nix';
+  const characterName = raw.toLowerCase().replace(/[^a-z0-9_-]/g, '');
 
   try {
     const res = await fetch(`./characters/${characterName}.json`);

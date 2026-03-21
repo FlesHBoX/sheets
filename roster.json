@@ -1,0 +1,11 @@
+[
+  {
+    "name": "Nix",
+    "subtitle": "Fetchling · Barbarian // Alchemist · Gestalt Level 3",
+    "quote": "\"This is not your party, Ember.\"",
+    "portrait": "./images/nix.png",
+    "href": "./nix.html",
+    "primary": "#f5e642",
+    "accent": "#ff4d8f"
+  }
+]

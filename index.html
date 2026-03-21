@@ -3,30 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:title" content="" />
-<meta property="og:description" content="" />
+<meta property="og:title" content="Character Roster" />
+<meta property="og:description" content="A collection of character sheets." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="" />
-<meta property="og:image" content="" />
-<title>Character Sheet</title>
+<title>Character Roster</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
-  /* ── CSS custom properties — defaults overridden by theme via JS ── */
   :root {
-    --shadow:       #0a0a0f;
-    --deep:         #0f0f1a;
-    --surface:      #141420;
-    --raised:       #1a1a2e;
-    --border:       #2a2a3e;
-    --muted:        #6a6a8a;
-    --text:         #c8c8d8;
-    --text-dim:     #7a7a9a;
-    --primary:      #ffffff;
-    --accent:       #aaaaaa;
-    --primary-dim:  rgba(255,255,255,0.15);
-    --primary-glow: rgba(255,255,255,0.4);
-    --accent-dim:   rgba(170,170,170,0.12);
-    --accent-glow:  rgba(170,170,170,0.4);
+    --shadow:  #0a0a0f;
+    --deep:    #0f0f1a;
+    --surface: #141420;
+    --raised:  #1a1a2e;
+    --border:  #2a2a3e;
+    --muted:   #4a4a6a;
+    --text:    #c8c8d8;
+    --text-dim:#7a7a9a;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -40,12 +31,11 @@
     min-height: 100vh;
     overflow-x: hidden;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s ease;
   }
 
   body.loaded { opacity: 1; }
 
-  /* Grain overlay */
   body::before {
     content: '';
     position: fixed;
@@ -57,557 +47,247 @@
   }
 
   .page {
-    max-width: 820px;
+    max-width: 860px;
     margin: 0 auto;
-    padding: 2rem 1.5rem 4rem;
+    padding: 4rem 1.5rem 6rem;
   }
 
-  /* ── HEADER ── */
-  .header {
+  .site-header {
     text-align: center;
-    padding: 3rem 0 2rem;
+    margin-bottom: 4rem;
     position: relative;
   }
 
-  .header::after {
+  .site-header::after {
     content: '';
     display: block;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--primary), var(--accent), transparent);
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
     margin-top: 2rem;
-    opacity: 0.6;
   }
 
-  .character-name {
+  .site-title {
     font-family: 'Cinzel', serif;
-    font-size: clamp(3rem, 10vw, 5.5rem);
-    font-weight: 900;
-    letter-spacing: 0.3em;
-    background: linear-gradient(135deg, var(--primary) 30%, var(--accent) 70%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    filter: drop-shadow(0 0 30px var(--primary-glow));
-    line-height: 1;
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    color: var(--text-dim);
+    text-transform: uppercase;
     margin-bottom: 0.5rem;
   }
 
-  .character-subtitle {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(0.65rem, 2vw, 0.8rem);
-    letter-spacing: 0.25em;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    margin-bottom: 0.75rem;
-  }
-
-  .character-quote {
+  .site-subtitle {
+    font-family: 'Crimson Pro', serif;
     font-style: italic;
-    color: var(--accent);
-    font-size: 1rem;
-    opacity: 0.8;
+    font-size: 0.95rem;
+    color: var(--muted);
   }
 
-  /* ── SECTIONS ── */
-  .section {
-    margin: 2rem 0;
-    animation: fadeUp 0.4s ease both;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .section:nth-child(2) { animation-delay: 0.05s; }
-  .section:nth-child(3) { animation-delay: 0.10s; }
-  .section:nth-child(4) { animation-delay: 0.15s; }
-  .section:nth-child(5) { animation-delay: 0.20s; }
-
-  .section-title {
-    font-family: 'Cinzel', serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--primary);
-    margin-bottom: 1rem;
-    padding-bottom: 0.4rem;
-    border-bottom: 1px solid var(--border);
-    position: relative;
-  }
-
-  .section-title::before {
-    content: '◆';
-    margin-right: 0.5rem;
-    color: var(--accent);
-    font-size: 0.6rem;
-  }
-
-  /* ── IDENTITY GRID ── */
-  .identity-grid {
+  .roster {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 0.75rem;
-  }
-
-  .identity-item {
-    background: var(--raised);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 0.6rem 0.8rem;
-  }
-
-  .identity-label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 0.2rem;
-  }
-
-  .identity-value { color: var(--text); font-size: 0.95rem; }
-
-  /* ── APPEARANCE ── */
-  .appearance-block {
-    background: var(--raised);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1.2rem;
-  }
-
-  .appearance-block ul { list-style: none; font-size: 0.9rem; }
-
-  .appearance-block ul li {
-    padding: 0.35rem 0 0.35rem 1.2rem;
-    position: relative;
-    border-bottom: 1px solid rgba(42,42,62,0.4);
-  }
-
-  .appearance-block ul li:last-child { border-bottom: none; }
-
-  .appearance-block ul li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-  }
-
-  /* ── STAT BLOCK ── */
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 0.75rem;
-  }
-
-  @media (max-width: 500px) { .stats-grid { grid-template-columns: repeat(3, 1fr); } }
-
-  .stat-box {
-    background: var(--raised);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 0.75rem 0.5rem;
-    text-align: center;
-  }
-
-  .stat-box.primary {
-    border-color: var(--primary);
-    box-shadow: 0 0 12px var(--primary-dim);
-  }
-
-  .stat-name {
-    font-family: 'Cinzel', serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 0.3rem;
-  }
-
-  .stat-score {
-    font-family: 'Cinzel', serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    line-height: 1;
-    display: block;
-  }
-
-  .stat-mod {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    margin-top: 0.2rem;
-    display: block;
-  }
-
-  /* ── TABLES ── */
-  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-
-  th {
-    font-family: 'Cinzel', serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    text-align: left;
-    padding: 0.4rem 0.6rem;
-    border-bottom: 1px solid var(--border);
-  }
-
-  td {
-    padding: 0.5rem 0.6rem;
-    border-bottom: 1px solid rgba(42,42,62,0.5);
-    vertical-align: top;
-  }
-
-  tr:last-child td { border-bottom: none; }
-  tr:hover td { background: var(--primary-dim); opacity: 0.5; }
-
-  .highlight { color: var(--primary); font-weight: 600; }
-
-  /* ── COMBAT ── */
-  .combat-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .combat-stat {
-    background: var(--raised);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 0.6rem 0.8rem;
-    text-align: center;
-  }
-
-  .combat-label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.55rem;
-    letter-spacing: 0.2em;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 0.2rem;
-  }
-
-  .combat-value {
-    font-family: 'Cinzel', serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-  }
-
-  /* ── CLASS FEATURES ── */
-  .class-features-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
     gap: 1.5rem;
   }
 
-  @media (max-width: 540px) { .class-features-grid { grid-template-columns: 1fr; } }
-
-  .class-label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    color: var(--primary);
-    text-transform: uppercase;
-    margin-bottom: 0.6rem;
+  @media (max-width: 500px) {
+    .roster { grid-template-columns: 1fr; }
   }
 
-  .feature-list { list-style: none; }
-
-  .feature-list li {
-    padding: 0.4rem 0;
-    border-bottom: 1px solid rgba(42,42,62,0.4);
-    font-size: 0.9rem;
-  }
-
-  .feature-list li:last-child { border-bottom: none; }
-  .feature-name { color: var(--primary); font-weight: 600; }
-
-  /* ── NOTE BOX ── */
-  .note-box {
-    background: var(--primary-dim);
-    border: 1px solid var(--primary);
-    /* opacity: 0.6; */
-    border-radius: 4px;
-    padding: 0.75rem 1rem;
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    font-style: italic;
-    margin-top: 0.75rem;
-  }
-
-  /* ── DIVIDER ── */
-  .divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border), transparent);
-    margin: 2rem 0;
-  }
-
-  /* ── LORE ── */
-  .lore-block {
+  .character-card {
+    display: flex;
+    align-items: stretch;
     background: var(--raised);
     border: 1px solid var(--border);
-    border-radius: 0 4px 4px 0;
-    padding: 1.2rem 1.4rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .lore-block.primary-accent { border-left: 3px solid var(--primary); }
-  .lore-block.accent-accent  { border-left: 3px solid var(--accent); }
-
-  .lore-title {
-    font-family: 'Cinzel', serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    color: var(--primary);
-    text-transform: uppercase;
-    margin-bottom: 0.75rem;
-  }
-
-  .lore-title-note {
-    font-family: 'Crimson Pro', serif;
-    font-size: 0.7rem;
-    color: var(--text-dim);
-    text-transform: none;
-    letter-spacing: 0;
-    font-style: normal;
-  }
-
-  .lore-block p {
-    font-size: 0.95rem;
-    color: var(--text);
-    margin-bottom: 0.6rem;
-    line-height: 1.7;
-  }
-
-  .lore-block p:last-child { margin-bottom: 0; }
-
-  .lore-block em  { color: var(--accent); font-style: italic; }
-  .lore-block strong { color: var(--primary); }
-
-  /* Binding items */
-  .binding-item {
-    background: var(--surface);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 4px;
-    padding: 0.8rem 1rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .binding-label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    color: var(--accent);
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 0.3rem;
-  }
-
-  .binding-name {
-    color: var(--accent);
-    font-weight: 600;
-    font-size: 0.95rem;
-    display: block;
-    margin-bottom: 0.3rem;
-  }
-
-  .binding-item p {
-    font-size: 0.88rem;
-    color: var(--text-dim);
-    margin-bottom: 0;
-  }
-
-  /* Incidents */
-  .incidents { margin-top: 0.75rem; }
-
-  .incident {
-    font-style: italic;
-    color: var(--text-dim);
-    padding: 0.3rem 0 0.3rem 1rem;
-    border-left: 2px solid var(--accent);
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-  }
-
-  .incident.accent {
-    color: var(--accent);
-    opacity: 0.7;
-  }
-
-  /* Hook list */
-  .hook-list { list-style: none; }
-
-  .hook-list li {
-    padding: 0.4rem 0 0.4rem 1.2rem;
+    border-radius: 6px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
     position: relative;
-    font-size: 0.9rem;
-    border-bottom: 1px solid rgba(42,42,62,0.4);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.3s ease;
+    animation: fadeUp 0.5s ease both;
   }
 
-  .hook-list li:last-child { border-bottom: none; }
+  .character-card:hover {
+    transform: translateY(-3px);
+  }
 
-  .hook-list li::before {
-    content: '◆';
+  .card-portrait {
+    width: 120px;
+    min-width: 120px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .card-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.4s ease;
+    filter: saturate(0.85);
+  }
+
+  .character-card:hover .card-portrait img {
+    transform: scale(1.04);
+    filter: saturate(1);
+  }
+
+  .card-portrait::after {
+    content: '';
     position: absolute;
-    left: 0;
-    color: var(--primary);
-    font-size: 0.5rem;
-    top: 0.65rem;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 60%, var(--raised) 100%);
   }
 
-  /* ── FOOTER ── */
-  .footer {
+  .card-body {
+    padding: 1.25rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.35rem;
+    flex: 1;
+  }
+
+  .card-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    line-height: 1;
+  }
+
+  .card-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+
+  .card-quote {
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+    line-height: 1.4;
+    opacity: 0.85;
+  }
+
+  .card-arrow {
+    position: absolute;
+    bottom: 1rem;
+    right: 1.1rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .character-card:hover .card-arrow {
+    opacity: 1;
+    transform: translateX(3px);
+  }
+
+  .empty-state {
     text-align: center;
-    margin-top: 3rem;
+    padding: 4rem 2rem;
+    color: var(--text-dim);
+    font-style: italic;
+    font-size: 0.95rem;
+  }
+
+  .site-footer {
+    text-align: center;
+    margin-top: 5rem;
     padding-top: 1.5rem;
     border-top: 1px solid var(--border);
     font-family: 'Cinzel', serif;
-    font-size: 0.6rem;
+    font-size: 0.55rem;
     letter-spacing: 0.3em;
     color: var(--muted);
     text-transform: uppercase;
   }
 
-  /* ── LIGHTBOX ── */
-  .lightbox-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    z-index: 2000;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .lightbox-overlay.active { display: flex; }
-
-  .lightbox-overlay img {
-    max-width: 90vw;
-    max-height: 90vh;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-    box-shadow: 0 0 60px var(--primary-glow);
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- HEADER -->
-  <div class="header">
-    <h1 class="character-name"></h1>
-    <p class="character-subtitle"></p>
-    <p class="character-quote"></p>
-  </div>
+  <header class="site-header">
+    <h1 class="site-title">Character Roster</h1>
+    <p class="site-subtitle">Select a character to view their sheet.</p>
+  </header>
 
-  <!-- PORTRAIT -->
-  <div class="section" style="text-align:center;">
-    <img id="portrait-img" src="" alt=""
-      style="max-width:420px;width:100%;border-radius:6px;border:1px solid var(--border);
-        box-shadow:0 0 40px var(--primary-dim), 0 0 80px var(--accent-dim);
-        cursor:pointer;"
-      onclick="document.getElementById('lb').classList.add('active')">
-  </div>
+  <div class="roster" id="roster"></div>
 
-  <!-- IDENTITY -->
-  <div class="section">
-    <div class="section-title">Identity</div>
-    <div class="identity-grid"></div>
-  </div>
-
-  <!-- APPEARANCE -->
-  <div class="section">
-    <div class="section-title">Appearance</div>
-    <div class="appearance-block">
-      <ul></ul>
-    </div>
-  </div>
-
-  <!-- ABILITY SCORES -->
-  <div class="section">
-    <div class="section-title">Ability Scores</div>
-    <div class="stats-grid"></div>
-    <div class="note-box ability-scores-note"></div>
-  </div>
-
-  <!-- COMBAT -->
-  <div class="section">
-    <div class="section-title">Combat</div>
-    <div class="combat-grid"></div>
-    <table id="weapons-table">
-      <thead>
-        <tr>
-          <th>Weapon</th><th>Attack</th><th>Damage</th><th>Crit</th><th>Notes</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-  </div>
-
-  <!-- CLASS FEATURES -->
-  <div class="section">
-    <div class="section-title">Class Features</div>
-    <div class="class-features-grid"></div>
-    <div class="note-box class-features-note"></div>
-  </div>
-
-  <!-- FEATS -->
-  <div class="section">
-    <div class="section-title">Feats</div>
-    <table id="feats-table">
-      <thead><tr><th>Level</th><th>Feat</th><th>Notes</th></tr></thead>
-      <tbody></tbody>
-    </table>
-  </div>
-
-  <!-- SKILLS -->
-  <div class="section">
-    <div class="section-title">Skills</div>
-    <table id="skills-table">
-      <thead><tr><th>Skill</th><th>Ranks</th><th>Stat</th><th>Class</th><th>Total</th></tr></thead>
-      <tbody></tbody>
-    </table>
-    <div class="note-box skills-note"></div>
-  </div>
-
-  <!-- RACIAL TRAITS -->
-  <div class="section">
-    <div class="section-title racial-title">Racial Traits</div>
-    <ul class="feature-list racial-traits-list"></ul>
-  </div>
-
-  <!-- EQUIPMENT -->
-  <div class="section">
-    <div class="section-title">Equipment</div>
-    <table id="equipment-table">
-      <thead><tr><th>Item</th><th>Notes</th></tr></thead>
-      <tbody></tbody>
-    </table>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- LORE -->
-  <div class="section">
-    <div class="section-title">Backstory &amp; Lore</div>
-    <div class="lore-container"></div>
-  </div>
-
-  <div class="footer"></div>
+  <footer class="site-footer">FlesHBoX &nbsp;·&nbsp; D&amp;D Character Sheets</footer>
 
 </div>
+<script>
+async function loadRoster() {
+  try {
+    const res = await fetch('./roster.json');
+    if (!res.ok) throw new Error('Could not load roster.');
+    const characters = await res.json();
+    const container = document.getElementById('roster');
 
-<!-- LIGHTBOX -->
-<div id="lb" class="lightbox-overlay" onclick="this.classList.remove('active')">
-  <img id="lightbox-img" src="" alt="">
-</div>
+    if (!characters.length) {
+      container.innerHTML = '<div class="empty-state">No characters yet.</div>';
+      document.body.classList.add('loaded');
+      return;
+    }
 
-<script src="./sheet.js"></script>
+    container.innerHTML = characters.map((c, i) => {
+      const pRgb = hexToRgb(c.primary);
+      const aRgb = hexToRgb(c.accent);
+      return `
+        <a class="character-card" href="${c.href}"
+          style="
+            border-color: rgba(${pRgb}, 0.25);
+            box-shadow: 0 0 20px rgba(${pRgb}, 0.06), 0 0 40px rgba(${aRgb}, 0.04);
+            animation-delay: ${i * 0.08}s;
+          "
+          onmouseenter="this.style.borderColor='rgba(${pRgb}, 0.6)'; this.style.boxShadow='0 0 30px rgba(${pRgb}, 0.2), 0 0 60px rgba(${aRgb}, 0.12)';"
+          onmouseleave="this.style.borderColor='rgba(${pRgb}, 0.25)'; this.style.boxShadow='0 0 20px rgba(${pRgb}, 0.06), 0 0 40px rgba(${aRgb}, 0.04)';"
+        >
+          <div class="card-portrait">
+            <img src="${c.portrait}" alt="${c.name}" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="card-name" style="color:${c.primary}">${c.name}</div>
+            <div class="card-subtitle">${c.subtitle}</div>
+            <div class="card-quote" style="color:${c.accent}">${c.quote}</div>
+          </div>
+          <span class="card-arrow" style="color:${c.primary}">View Sheet →</span>
+        </a>
+      `;
+    }).join('');
+
+    document.body.classList.add('loaded');
+
+  } catch (err) {
+    document.getElementById('roster').innerHTML =
+      `<div class="empty-state">${err.message}</div>`;
+    document.body.classList.add('loaded');
+  }
+}
+
+function hexToRgb(hex) {
+  const r = parseInt(hex.slice(1,3), 16);
+  const g = parseInt(hex.slice(3,5), 16);
+  const b = parseInt(hex.slice(5,7), 16);
+  return `${r}, ${g}, ${b}`;
+}
+
+document.addEventListener('DOMContentLoaded', loadRoster);
+</script>
 </body>
 </html>
