@@ -96,7 +96,8 @@
   "skills": [
     { "name": "Perception",        "stat": "WIS", "classSkill": true, "ranks": 3 },
     { "name": "Intimidate",        "stat": "CHA", "classSkill": true, "ranks": 3 },
-    { "name": "Knowledge (Nature)","stat": "INT", "classSkill": true, "ranks": 3 },
+    { "name": "Knowledge (Nature)","stat": "INT", "classSkill": true, "ranks": 1 },
+    { "name": "Knowledge (Planes)","stat": "INT", "classSkill": true, "ranks": 2, "misc": 2, "miscReason": "Racial +2" },
     { "name": "Disable Device",    "stat": "DEX", "classSkill": true, "ranks": 3 },
     { "name": "Acrobatics",        "stat": "DEX", "classSkill": true, "ranks": 3 },
     { "name": "Sleight of Hand",   "stat": "DEX", "classSkill": true, "ranks": 3 },
