@@ -279,7 +279,7 @@ async function loadRoster() {
           onmouseleave="this.style.borderColor='rgba(${pRgb}, 0.25)'; this.style.boxShadow='0 0 20px rgba(${pRgb}, 0.06), 0 0 40px rgba(${aRgb}, 0.04)';"
         >
           <div class="card-portrait">
-            <img src="${c.portrait}" alt="${c.name}" loading="lazy">
+            <img src="${c.portrait}" alt="${c.name}" loading="lazy" onerror="this.style.display='none'">
           </div>
           <div class="card-body">
             <div class="card-name" style="color:${c.primary}">${c.name}</div>

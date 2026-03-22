@@ -116,6 +116,9 @@ function buildPortrait(portrait) {
   img.src = lb.src = portrait.src;
   img.alt = portrait.alt;
   lb.alt  = portrait.alt + ' enlarged';
+  // Hide broken image icon if portrait is missing
+  img.onerror = () => { img.style.display = 'none'; };
+  lb.onerror  = () => { lb.style.display  = 'none'; };
 }
 
 function buildIdentity(items) {
