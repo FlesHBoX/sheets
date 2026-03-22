@@ -1,6 +1,6 @@
 # Character Sheets
 
-A static character sheet system built for a Pathfinder campaign — and anyone else who wants it.
+A static character sheet system built for a Pathfinder campaign. and anyone else who wants it.
 
 Each character gets their own folder, their own color scheme, and their own backstory rendered in a dark, typographically obsessive web interface. The sheet handles the math. You handle the lore.
 
@@ -37,7 +37,7 @@ Full documentation, including JSON schema reference and step-by-step setup for p
 
 ## Cloning this for your own campaign
 
-Fork or clone the repo, drop in your own characters, enable GitHub Pages on your fork, and you're live. The system is designed to be portable — there's nothing in here tied to a specific campaign or setting beyond the character data itself.
+Fork or clone the repo, drop in your own characters, enable GitHub Pages on your fork, and you're live. The system is designed to be portable, there's nothing in here tied to a specific campaign or setting beyond the character data itself.
 
 The `howto/` page walks through the full workflow, including GitHub setup, from scratch.
 
