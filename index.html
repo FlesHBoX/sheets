@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="color-scheme" content="dark">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:title" content="Character Roster" />
@@ -213,6 +212,25 @@
     text-transform: uppercase;
   }
 
+  .howto-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0.4rem 0.9rem;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .howto-link:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+  }
+
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(10px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -225,6 +243,7 @@
   <header class="site-header">
     <h1 class="site-title">Character Roster</h1>
     <p class="site-subtitle">Select a character to view their sheet.</p>
+    <a href="./howto/" class="howto-link">◆ How To Add a Character</a>
   </header>
 
   <div class="roster" id="roster"></div>

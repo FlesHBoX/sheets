@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How To — Character Sheet System</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --shadow:  #0a0a0f; --deep: #0f0f1a; --surface: #141420;
+    --raised:  #1a1a2e; --border: #2a2a3e; --muted: #4a4a6a;
+    --text:    #c8c8d8; --dim: #7a7a9a;
+    --primary: #f5e642; --accent: #ff4d8f;
+    --code-bg: #0d0d18; --code-border: #1e1e32;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--shadow); color:var(--text); font-family:'Crimson Pro',Georgia,serif; font-size:17px; line-height:1.7; min-height:100vh; opacity:0; transition:opacity 0.3s ease; }
+  body.loaded { opacity:1; }
+  body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events:none; z-index:1000; opacity:0.4; }
+
+  .layout { display:grid; grid-template-columns:220px 1fr; min-height:100vh; }
+  @media(max-width:720px){ .layout{grid-template-columns:1fr} .sidebar{display:none} }
+
+  .sidebar { position:sticky; top:0; height:100vh; overflow-y:auto; background:var(--deep); border-right:1px solid var(--border); padding:2rem 1.25rem; display:flex; flex-direction:column; gap:0.2rem; }
+  .sidebar-title { font-family:'Cinzel',serif; font-size:0.55rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--muted); margin-bottom:1rem; padding-bottom:0.75rem; border-bottom:1px solid var(--border); }
+  .sidebar a { display:block; font-family:'Cinzel',serif; font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--dim); text-decoration:none; padding:0.35rem 0.5rem; border-radius:3px; transition:color 0.15s,background 0.15s; }
+  .sidebar a:hover, .sidebar a.active { color:var(--primary); background:rgba(245,230,66,0.06); }
+  .sidebar-section { font-family:'Cinzel',serif; font-size:0.5rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-top:1.25rem; margin-bottom:0.25rem; padding-left:0.5rem; }
+  .sidebar-back { margin-top:auto; padding-top:1.5rem; border-top:1px solid var(--border); }
+  .sidebar-back a { color:var(--muted); font-size:0.55rem; }
+  .sidebar-back a:hover { color:var(--primary); }
+
+  .main { max-width:780px; padding:3rem 2.5rem 6rem; }
+
+  .page-header { margin-bottom:3rem; padding-bottom:2rem; border-bottom:1px solid var(--border); }
+  .page-eyebrow { font-family:'Cinzel',serif; font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent); margin-bottom:0.75rem; display:flex; align-items:center; gap:0.5rem; }
+  .page-eyebrow::before { content:'◆'; font-size:0.5rem; }
+  .page-title { font-family:'Cinzel',serif; font-size:clamp(1.8rem,5vw,2.8rem); font-weight:700; letter-spacing:0.1em; color:var(--primary); line-height:1.1; margin-bottom:0.75rem; }
+  .page-subtitle { font-size:1.05rem; color:var(--dim); font-style:italic; max-width:560px; }
+
+  .doc-section { margin-bottom:3.5rem; scroll-margin-top:2rem; }
+  .section-heading { font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--primary); margin-bottom:1.25rem; padding-bottom:0.5rem; border-bottom:1px solid var(--border); position:relative; }
+  .section-heading::before { content:'◆'; margin-right:0.5rem; color:var(--accent); font-size:0.55rem; }
+  .doc-section p { margin-bottom:1rem; color:var(--text); font-size:0.98rem; }
+  .doc-section p:last-child { margin-bottom:0; }
+  .doc-section a { color:var(--primary); }
+
+  .steps { display:flex; flex-direction:column; gap:1.25rem; }
+  .step { display:grid; grid-template-columns:2rem 1fr; gap:1rem; align-items:start; }
+  .step-number { width:2rem; height:2rem; background:var(--raised); border:1px solid var(--border); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Cinzel',serif; font-size:0.65rem; font-weight:700; color:var(--primary); flex-shrink:0; margin-top:0.15rem; }
+  .step-content h4 { font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text); margin-bottom:0.4rem; }
+  .step-content p { font-size:0.92rem; color:var(--dim); margin-bottom:0.5rem; }
+  .step-content p:last-child { margin-bottom:0; }
+
+  pre { background:var(--code-bg); border:1px solid var(--code-border); border-radius:4px; padding:1rem 1.2rem; overflow-x:auto; margin:0.75rem 0; }
+  pre code { font-family:'JetBrains Mono','Courier New',monospace; font-size:0.8rem; line-height:1.6; color:var(--text); }
+  .tok-key  { color:#7eb8e0; } .tok-str  { color:#a8d8a8; } .tok-num  { color:var(--primary); }
+  .tok-bool { color:var(--accent); } .tok-cmt { color:var(--muted); font-style:italic; } .tok-dim  { color:var(--dim); }
+  code { font-family:'JetBrains Mono','Courier New',monospace; font-size:0.82rem; background:var(--code-bg); border:1px solid var(--code-border); border-radius:3px; padding:0.1em 0.4em; color:var(--primary); }
+
+  .field-table { width:100%; border-collapse:collapse; font-size:0.88rem; margin:0.75rem 0; }
+  .field-table th { font-family:'Cinzel',serif; font-size:0.55rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--dim); text-align:left; padding:0.5rem 0.75rem; border-bottom:1px solid var(--border); white-space:nowrap; }
+  .field-table td { padding:0.55rem 0.75rem; border-bottom:1px solid rgba(42,42,62,0.4); vertical-align:top; line-height:1.5; }
+  .field-table tr:last-child td { border-bottom:none; }
+  .field-table tr:hover td { background:rgba(245,230,66,0.02); }
+  .field-name { color:var(--primary); font-family:'JetBrains Mono',monospace; font-size:0.78rem; }
+  .field-type { color:var(--accent);  font-family:'JetBrains Mono',monospace; font-size:0.75rem; }
+  .field-desc { color:var(--dim); }
+
+  .callout { background:var(--raised); border-left:3px solid var(--primary); border-radius:0 4px 4px 0; padding:0.9rem 1.2rem; margin:1rem 0; font-size:0.92rem; color:var(--dim); }
+  .callout.accent { border-left-color:var(--accent); }
+  .callout strong { color:var(--text); }
+
+  .file-tree { background:var(--code-bg); border:1px solid var(--code-border); border-radius:4px; padding:1rem 1.2rem; font-family:'JetBrains Mono',monospace; font-size:0.8rem; line-height:1.8; margin:0.75rem 0; }
+  .tree-dir  { color:var(--primary); } .tree-file { color:var(--text); } .tree-note { color:var(--muted); font-style:italic; }
+  .tree-i1 { padding-left:1.2rem; } .tree-i2 { padding-left:2.4rem; }
+
+  .badge { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.72rem; padding:0.1em 0.5em; border-radius:3px; margin:0.1em; }
+  .badge-primary { background:rgba(245,230,66,0.12); color:var(--primary); border:1px solid rgba(245,230,66,0.25); }
+  .badge-accent  { background:rgba(255,77,143,0.10);  color:var(--accent);  border:1px solid rgba(255,77,143,0.2); }
+  .badge-dim     { background:rgba(122,122,154,0.1);  color:var(--dim);     border:1px solid rgba(122,122,154,0.2); }
+
+  .divider { height:1px; background:linear-gradient(90deg,transparent,var(--border),transparent); margin:2.5rem 0; }
+
+  .doc-footer { margin-top:4rem; padding-top:1.5rem; border-top:1px solid var(--border); font-family:'Cinzel',serif; font-size:0.55rem; letter-spacing:0.3em; color:var(--muted); text-transform:uppercase; text-align:center; }
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <div class="sidebar-title">Contents</div>
+    <div class="sidebar-section">Getting Started</div>
+    <a href="#overview">Overview</a>
+    <a href="#prerequisites">Prerequisites</a>
+    <a href="#clone">Clone the Repo</a>
+    <a href="#structure">Folder Structure</a>
+    <div class="sidebar-section">Adding a Character</div>
+    <a href="#new-character">Create the Folder</a>
+    <a href="#stub">The index.html Stub</a>
+    <a href="#portrait">Portrait Image</a>
+    <a href="#roster">Update the Roster</a>
+    <div class="sidebar-section">character.json</div>
+    <a href="#schema-meta">meta</a>
+    <a href="#schema-theme">theme</a>
+    <a href="#schema-header">header</a>
+    <a href="#schema-identity">identity</a>
+    <a href="#schema-appearance">appearance</a>
+    <a href="#schema-stats">abilityScores</a>
+    <a href="#schema-combat">combat</a>
+    <a href="#schema-features">classFeatures</a>
+    <a href="#schema-feats">feats</a>
+    <a href="#schema-skills">skills</a>
+    <a href="#schema-racial">racialTraits</a>
+    <a href="#schema-equipment">equipment</a>
+    <a href="#schema-lore">lore</a>
+    <div class="sidebar-section">Publishing</div>
+    <a href="#commit">Commit &amp; Push</a>
+    <a href="#pages">GitHub Pages</a>
+    <div class="sidebar-back"><a href="../">← Back to Roster</a></div>
+  </nav>
+
+  <main class="main">
+    <div class="page-header">
+      <div class="page-eyebrow">Documentation</div>
+      <h1 class="page-title">Character Sheet System</h1>
+      <p class="page-subtitle">How to add characters, edit data, and publish changes — for people who've never done this before.</p>
+    </div>
+
+    <section class="doc-section" id="overview">
+      <div class="section-heading">Overview</div>
+      <p>This system is a set of static web pages hosted on GitHub Pages. Each character has their own folder containing three files: a stub HTML page, a JSON data file, and a portrait image. A shared JavaScript file reads the JSON and builds the sheet automatically — so you never touch the HTML to update a character.</p>
+      <p>The only files you'll ever edit for a character are <code>character.json</code> and occasionally <code>roster.json</code> when adding someone new.</p>
+    </section>
+
+    <section class="doc-section" id="prerequisites">
+      <div class="section-heading">Prerequisites</div>
+      <div class="steps">
+        <div class="step"><div class="step-number">1</div><div class="step-content">
+          <h4>A GitHub Account</h4>
+          <p>Free at <a href="https://github.com">github.com</a>. You'll need one to clone the repo and push changes.</p>
+        </div></div>
+        <div class="step"><div class="step-number">2</div><div class="step-content">
+          <h4>Git</h4>
+          <p>Download from <a href="https://git-scm.com">git-scm.com</a>. After installing, open a terminal and confirm with <code>git --version</code>. Then set your identity once:</p>
+          <pre><code>git config --global user.name "Your Name"
+git config --global user.email "you@example.com"</code></pre>
+        </div></div>
+        <div class="step"><div class="step-number">3</div><div class="step-content">
+          <h4>Visual Studio Code (recommended)</h4>
+          <p>Free at <a href="https://code.visualstudio.com">code.visualstudio.com</a>. Has Git built in so you can commit and push without the terminal.</p>
+        </div></div>
+      </div>
+    </section>
+
+    <section class="doc-section" id="clone">
+      <div class="section-heading">Clone the Repo</div>
+      <p>Cloning downloads a local copy of the repo that stays connected to GitHub so you can push changes back up.</p>
+      <div class="steps">
+        <div class="step"><div class="step-number">1</div><div class="step-content">
+          <h4>In VS Code</h4>
+          <p>Open the Command Palette (<code>Ctrl+Shift+P</code>), type <strong>Git: Clone</strong>, and paste the repo URL. Choose a local folder. VS Code will ask to open it — say yes.</p>
+        </div></div>
+        <div class="step"><div class="step-number">2</div><div class="step-content">
+          <h4>Trust the Workspace</h4>
+          <p>VS Code will ask if you trust the folder. Click <strong>Yes, I trust the authors</strong>. Without this the terminal and Git features won't work.</p>
+        </div></div>
+        <div class="step"><div class="step-number">3</div><div class="step-content">
+          <h4>Authenticate with GitHub</h4>
+          <p>The first time you push, VS Code opens a browser to authenticate. Follow the prompts — you only need to do this once per machine.</p>
+        </div></div>
+      </div>
+    </section>
+
+    <section class="doc-section" id="structure">
+      <div class="section-heading">Folder Structure</div>
+      <p>Every character lives in their own folder at the root of the repo. Shared files live at the root and are referenced by each character's stub.</p>
+      <div class="file-tree">
+        <div><span class="tree-dir">/</span></div>
+        <div class="tree-i1"><span class="tree-file">index.html</span> <span class="tree-note">— roster (the front page)</span></div>
+        <div class="tree-i1"><span class="tree-file">roster.json</span> <span class="tree-note">— list of characters</span></div>
+        <div class="tree-i1"><span class="tree-file">sheet.js</span> <span class="tree-note">— shared logic, don't edit</span></div>
+        <div class="tree-i1"><span class="tree-file">sheet.css</span> <span class="tree-note">— shared styles, don't edit</span></div>
+        <div class="tree-i1"><span class="tree-file">howto/</span> <span class="tree-note">— this page</span></div>
+        <div class="tree-i1"><span class="tree-dir">nix/</span></div>
+        <div class="tree-i2"><span class="tree-file">index.html</span> <span class="tree-note">— stub with OG tags</span></div>
+        <div class="tree-i2"><span class="tree-file">character.json</span> <span class="tree-note">— all character data</span></div>
+        <div class="tree-i2"><span class="tree-file">portrait.png</span> <span class="tree-note">— portrait image</span></div>
+        <div class="tree-i1"><span class="tree-dir">yourcharacter/</span> <span class="tree-note">— same structure for each</span></div>
+        <div class="tree-i2"><span class="tree-file">index.html</span></div>
+        <div class="tree-i2"><span class="tree-file">character.json</span></div>
+        <div class="tree-i2"><span class="tree-file">portrait.png</span></div>
+      </div>
+      <div class="callout"><strong>Rule of thumb:</strong> files inside a character folder are character-specific. Files at the root are shared. You'll mostly touch files inside character folders and <code>roster.json</code>.</div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="doc-section" id="new-character">
+      <div class="section-heading">Create the Character Folder</div>
+      <p>Each character needs their own folder. The folder name becomes part of the URL — keep it lowercase with no spaces (e.g. <code>thorvald</code>, not <code>Thorvald Ironbeard</code>).</p>
+      <div class="steps">
+        <div class="step"><div class="step-number">1</div><div class="step-content">
+          <h4>Create the folder</h4>
+          <p>In VS Code's file explorer, right-click the root of the project and choose <strong>New Folder</strong>. Name it after your character.</p>
+        </div></div>
+        <div class="step"><div class="step-number">2</div><div class="step-content">
+          <h4>Add three files</h4>
+          <p>Inside the folder you'll need: <code>index.html</code>, <code>character.json</code>, and <code>portrait.png</code>. The next three sections cover each one.</p>
+        </div></div>
+      </div>
+    </section>
+
+    <section class="doc-section" id="stub">
+      <div class="section-heading">The index.html Stub</div>
+      <p>Copy an existing character's <code>index.html</code> into your new folder. Then update only these five lines — the OG meta tags that control how the page looks when shared on Discord:</p>
+      <pre><code><span class="tok-key">&lt;meta property="og:title"</span>       <span class="tok-str">content="CHARACTER NAME"</span> <span class="tok-key">/&gt;</span>
+<span class="tok-key">&lt;meta property="og:description"</span> <span class="tok-str">content="Race · Class · Level — Quote"</span> <span class="tok-key">/&gt;</span>
+<span class="tok-key">&lt;meta property="og:type"</span>        <span class="tok-str">content="website"</span> <span class="tok-key">/&gt;</span>
+<span class="tok-key">&lt;meta property="og:url"</span>         <span class="tok-str">content="https://USERNAME.github.io/sheets/yourcharacter/"</span> <span class="tok-key">/&gt;</span>
+<span class="tok-key">&lt;meta property="og:image"</span>       <span class="tok-str">content="https://USERNAME.github.io/sheets/yourcharacter/portrait.png"</span> <span class="tok-key">/&gt;</span></code></pre>
+      <div class="callout accent">The paths <code>../sheet.css</code> and <code>../sheet.js</code> in the file use <code>../</code> because the stub is one folder deep. Don't change these.</div>
+    </section>
+
+    <section class="doc-section" id="portrait">
+      <div class="section-heading">Portrait Image</div>
+      <p>Save your character's portrait as <code>portrait.png</code> inside their folder. The sheet displays it up to 420px wide; the roster card crops it to a 120px thumbnail from the top center.</p>
+      <div class="callout"><strong>Tip:</strong> For best results on the roster card, use a portrait where the character's face is near the top of the image.</div>
+    </section>
+
+    <section class="doc-section" id="roster">
+      <div class="section-heading">Update roster.json</div>
+      <p>Add one entry per character to <code>roster.json</code>. The <code>primary</code> and <code>accent</code> colors should match the character's theme and control the card's border glow and quote color.</p>
+      <pre><code><span class="tok-dim">[</span>
+  <span class="tok-dim">{</span>
+    <span class="tok-key">"name"</span><span class="tok-dim">:</span>     <span class="tok-str">"Thorvald"</span><span class="tok-dim">,</span>
+    <span class="tok-key">"subtitle"</span><span class="tok-dim">:</span> <span class="tok-str">"Dwarf · Fighter · Level 4"</span><span class="tok-dim">,</span>
+    <span class="tok-key">"quote"</span><span class="tok-dim">:</span>    <span class="tok-str">"\"I've survived worse.\""</span><span class="tok-dim">,</span>
+    <span class="tok-key">"portrait"</span><span class="tok-dim">:</span> <span class="tok-str">"./thorvald/portrait.png"</span><span class="tok-dim">,</span>
+    <span class="tok-key">"href"</span><span class="tok-dim">:</span>     <span class="tok-str">"./thorvald/"</span><span class="tok-dim">,</span>
+    <span class="tok-key">"primary"</span><span class="tok-dim">:</span>  <span class="tok-str">"#c8a060"</span><span class="tok-dim">,</span>
+    <span class="tok-key">"accent"</span><span class="tok-dim">:</span>   <span class="tok-str">"#4a9aff"</span>
+  <span class="tok-dim">}</span>
+<span class="tok-dim">]</span></code></pre>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="doc-section" id="schema-meta">
+      <div class="section-heading">character.json — meta</div>
+      <p>Controls the page title and social embed previews (Discord, Slack, etc.).</p>
+      <table class="field-table">
+        <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="field-name">title</td><td class="field-type">string</td><td class="field-desc">Browser tab title. E.g. <code>"NIX — Character Sheet"</code></td></tr>
+          <tr><td class="field-name">ogTitle</td><td class="field-type">string</td><td class="field-desc">Embed title shown on Discord etc.</td></tr>
+          <tr><td class="field-name">ogDescription</td><td class="field-type">string</td><td class="field-desc">Embed subtitle. Typically Race · Class · Level — Quote.</td></tr>
+          <tr><td class="field-name">ogUrl</td><td class="field-type">string</td><td class="field-desc">Full URL to the character page.</td></tr>
+          <tr><td class="field-name">ogImage</td><td class="field-type">string</td><td class="field-desc">Full URL to the portrait. Used as embed thumbnail.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="doc-section" id="schema-theme">
+      <div class="section-heading">character.json — theme</div>
+      <p>Controls every color on the sheet. All values are hex codes. <code>primary</code> and <code>accent</code> are the most important — they define the character's visual identity.</p>
+      <table class="field-table">
+        <thead><tr><th>Field</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="field-name">primary</td><td class="field-desc">Main color — names, stat highlights, section titles.</td></tr>
+          <tr><td class="field-name">accent</td><td class="field-desc">Secondary color — warnings, quotes, emotional weight.</td></tr>
+          <tr><td class="field-name">_primary / _accent</td><td class="field-desc">Notes to yourself about what each color means. Never rendered.</td></tr>
+          <tr><td class="field-name">shadow / deep / surface / raised</td><td class="field-desc">Background layers. Adjust for a warmer or cooler dark tone.</td></tr>
+          <tr><td class="field-name">border / muted / text / textDim</td><td class="field-desc">UI chrome. Safe to leave as defaults.</td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><strong>Tip:</strong> Think about what the two colors <em>mean</em> for your character, not just how they look. Intentionality carries through the whole sheet.</div>
+    </section>
+
+    <section class="doc-section" id="schema-header">
+      <div class="section-heading">character.json — header</div>
+      <pre><code><span class="tok-key">"header"</span><span class="tok-dim">: {</span>
+  <span class="tok-key">"name"</span><span class="tok-dim">:</span>     <span class="tok-str">"NIX"</span><span class="tok-dim">,</span>        <span class="tok-cmt">// large title, usually all-caps</span>
+  <span class="tok-key">"subtitle"</span><span class="tok-dim">:</span> <span class="tok-str">"Fetchling · Barbarian // Alchemist · Gestalt Level 3"</span><span class="tok-dim">,</span>
+  <span class="tok-key">"quote"</span><span class="tok-dim">:</span>    <span class="tok-str">"\"This is not your party, Ember.\""</span>
+<span class="tok-dim">}</span></code></pre>
+    </section>
+
+    <section class="doc-section" id="schema-identity">
+      <div class="section-heading">character.json — identity</div>
+      <p>Label/value pairs shown in a grid. Add as many as you need. The optional <code>note</code> renders dimmed in parentheses after the value.</p>
+      <pre><code><span class="tok-key">"identity"</span><span class="tok-dim">: [</span>
+  <span class="tok-dim">{</span> <span class="tok-key">"label"</span><span class="tok-dim">:</span> <span class="tok-str">"Race"</span><span class="tok-dim">,</span>      <span class="tok-key">"value"</span><span class="tok-dim">:</span> <span class="tok-str">"Fetchling"</span> <span class="tok-dim">},</span>
+  <span class="tok-dim">{</span> <span class="tok-key">"label"</span><span class="tok-dim">:</span> <span class="tok-str">"True Name"</span><span class="tok-dim">,</span> <span class="tok-key">"value"</span><span class="tok-dim">:</span> <span class="tok-str">"Nix"</span><span class="tok-dim">,</span> <span class="tok-key">"note"</span><span class="tok-dim">:</span> <span class="tok-str">"formerly: Ember"</span> <span class="tok-dim">}</span>
+<span class="tok-dim">]</span></code></pre>
+    </section>
+
+    <section class="doc-section" id="schema-appearance">
+      <div class="section-heading">character.json — appearance</div>
+      <p>Physical description items. <code>labelVariant</code> controls the label color.</p>
+      <pre><code><span class="tok-key">"appearance"</span><span class="tok-dim">: [</span>
+  <span class="tok-dim">{</span> <span class="tok-key">"label"</span><span class="tok-dim">:</span> <span class="tok-str">"Build"</span><span class="tok-dim">,</span>   <span class="tok-key">"value"</span><span class="tok-dim">:</span> <span class="tok-str">"Lean."</span><span class="tok-dim">,</span>               <span class="tok-key">"labelVariant"</span><span class="tok-dim">:</span> <span class="tok-str">"primary"</span> <span class="tok-dim">},</span>
+  <span class="tok-dim">{</span> <span class="tok-key">"label"</span><span class="tok-dim">:</span> <span class="tok-str">"Warning"</span><span class="tok-dim">,</span> <span class="tok-key">"value"</span><span class="tok-dim">:</span> <span class="tok-str">"Goes still before violence."</span><span class="tok-dim">,</span> <span class="tok-key">"labelVariant"</span><span class="tok-dim">:</span> <span class="tok-str">"accent"</span>  <span class="tok-dim">}</span>
+<span class="tok-dim">]</span></code></pre>
+      <p><code>labelVariant</code>: <span class="badge badge-primary">primary</span> <span class="badge badge-accent">accent</span> <span class="badge badge-dim">dim</span></p>
+    </section>
+
+    <section class="doc-section" id="schema-stats">
+      <div class="section-heading">character.json — abilityScores</div>
+      <p>Enter the raw score only — modifiers are calculated automatically using <code>floor((score - 10) / 2)</code>. Negative mods display in accent color. Use <code>misc</code> for racial or item adjustments; they show in a hover tooltip.</p>
+      <pre><code><span class="tok-key">"abilityScores"</span><span class="tok-dim">: [</span>
+  <span class="tok-dim">{</span> <span class="tok-key">"name"</span><span class="tok-dim">:</span> <span class="tok-str">"STR"</span><span class="tok-dim">,</span> <span class="tok-key">"score"</span><span class="tok-dim">:</span> <span class="tok-num">18</span><span class="tok-dim">,</span> <span class="tok-key">"primary"</span><span class="tok-dim">:</span> <span class="tok-bool">true</span>  <span class="tok-dim">},</span> <span class="tok-cmt">// primary: true = highlighted border</span>
+  <span class="tok-dim">{</span> <span class="tok-key">"name"</span><span class="tok-dim">:</span> <span class="tok-str">"DEX"</span><span class="tok-dim">,</span> <span class="tok-key">"score"</span><span class="tok-dim">:</span> <span class="tok-num">17</span><span class="tok-dim">,</span> <span class="tok-key">"primary"</span><span class="tok-dim">:</span> <span class="tok-bool">true</span><span class="tok-dim">,</span>
+    <span class="tok-key">"misc"</span><span class="tok-dim">:</span> <span class="tok-num">2</span><span class="tok-dim">,</span> <span class="tok-key">"miscReason"</span><span class="tok-dim">:</span> <span class="tok-str">"Racial +2"</span> <span class="tok-dim">},</span> <span class="tok-cmt">// tooltip on hover</span>
+  <span class="tok-dim">{</span> <span class="tok-key">"name"</span><span class="tok-dim">:</span> <span class="tok-str">"WIS"</span><span class="tok-dim">,</span> <span class="tok-key">"score"</span><span class="tok-dim">:</span>  <span class="tok-num">8</span><span class="tok-dim">,</span> <span class="tok-key">"primary"</span><span class="tok-dim">:</span> <span class="tok-bool">false</span> <span class="tok-dim">}</span>  <span class="tok-cmt">// negative mod = accent color auto</span>
+<span class="tok-dim">]</span></code></pre>
+    </section>
+
+    <section class="doc-section" id="schema-combat">
+      <div class="section-heading">character.json — combat</div>
+      <p>Provide the raw components — initiative, AC, saves, and attack bonuses are all calculated automatically.</p>
+      <pre><code><span class="tok-key">"combat"</span><span class="tok-dim">: {</span>
+  <span class="tok-key">"bab"</span><span class="tok-dim">:</span>         <span class="tok-num">3</span><span class="tok-dim">,</span>         <span class="tok-cmt">// Base Attack Bonus</span>
+  <span class="tok-key">"armorBonus"</span><span class="tok-dim">:</span>  <span class="tok-num">4</span><span class="tok-dim">,</span>         <span class="tok-cmt">// armor's AC contribution</span>
+  <span class="tok-key">"armorMaxDex"</span><span class="tok-dim">:</span> <span class="tok-num">4</span><span class="tok-dim">,</span>         <span class="tok-cmt">// max DEX bonus (omit if no cap)</span>
+  <span class="tok-key">"hp"</span><span class="tok-dim">:</span>          <span class="tok-str">"45 / 45"</span><span class="tok-dim">,</span> <span class="tok-cmt">// displayed as-is</span>
+  <span class="tok-key">"speed"</span><span class="tok-dim">:</span>       <span class="tok-str">"30 ft"</span><span class="tok-dim">,</span>
+
+  <span class="tok-key">"saves"</span><span class="tok-dim">: [</span>
+    <span class="tok-dim">{</span> <span class="tok-key">"label"</span><span class="tok-dim">:</span> <span class="tok-str">"Fort"</span><span class="tok-dim">,</span> <span class="tok-key">"stat"</span><span class="tok-dim">:</span> <span class="tok-str">"CON"</span><span class="tok-dim">,</span> <span class="tok-key">"base"</span><span class="tok-dim">:</span> <span class="tok-num">3</span> <span class="tok-dim">},</span>
+    <span class="tok-dim">{</span> <span class="tok-key">"label"</span><span class="tok-dim">:</span> <span class="tok-str">"Will"</span><span class="tok-dim">,</span>  <span class="tok-key">"stat"</span><span class="tok-dim">:</span> <span class="tok-str">"WIS"</span><span class="tok-dim">,</span> <span class="tok-key">"base"</span><span class="tok-dim">:</span> <span class="tok-num">1</span><span class="tok-dim">,</span>
+      <span class="tok-key">"variant"</span><span class="tok-dim">:</span> <span class="tok-str">"accent"</span><span class="tok-dim">,</span>                  <span class="tok-cmt">// accent color (e.g. weak save)</span>
+      <span class="tok-key">"misc"</span><span class="tok-dim">:</span> <span class="tok-num">2</span><span class="tok-dim">,</span> <span class="tok-key">"miscReason"</span><span class="tok-dim">:</span> <span class="tok-str">"Iron Will"</span>  <span class="tok-cmt">// bonus + tooltip</span>
+    <span class="tok-dim">}</span>
+  <span class="tok-dim">],</span>
+
+  <span class="tok-key">"extraStats"</span><span class="tok-dim">: [</span>  <span class="tok-cmt">// any extra tiles — class resources, pools, etc.</span>
+    <span class="tok-dim">{</span> <span class="tok-key">"label"</span><span class="tok-dim">:</span> <span class="tok-str">"Rage Rounds"</span><span class="tok-dim">,</span> <span class="tok-key">"value"</span><span class="tok-dim">:</span> <span class="tok-str">"10"</span> <span class="tok-dim">}</span>
+  <span class="tok-dim">],</span>
+
+  <span class="tok-key">"weapons"</span><span class="tok-dim">: [</span>
+    <span class="tok-dim">{</span>
+      <span class="tok-key">"name"</span><span class="tok-dim">:</span>         <span class="tok-str">"Kukri"</span><span class="tok-dim">,</span>
+      <span class="tok-key">"stat"</span><span class="tok-dim">:</span>         <span class="tok-str">"STR"</span><span class="tok-dim">,</span>      <span class="tok-cmt">// governs attack bonus (STR or DEX)</span>
+      <span class="tok-key">"damage"</span><span class="tok-dim">:</span>       <span class="tok-str">"1d4+4"</span><span class="tok-dim">,</span>
+      <span class="tok-key">"crit"</span><span class="tok-dim">:</span>         <span class="tok-str">"18-20 x2"</span><span class="tok-dim">,</span>
+      <span class="tok-key">"notes"</span><span class="tok-dim">:</span>        <span class="tok-str">"Rule of Cool."</span><span class="tok-dim">,</span>
+      <span class="tok-key">"notesVariant"</span><span class="tok-dim">:</span> <span class="tok-str">"dim"</span><span class="tok-dim">,</span>     <span class="tok-cmt">// "dim", "primary", or "accent"</span>
+      <span class="tok-key">"misc"</span><span class="tok-dim">:</span>         <span class="tok-num">1</span><span class="tok-dim">,</span>         <span class="tok-cmt">// optional attack bonus (feats, magic)</span>
+      <span class="tok-key">"miscReason"</span><span class="tok-dim">:</span>   <span class="tok-str">"Masterwork"</span>
+    <span class="tok-dim">}</span>
+  <span class="tok-dim">]</span>
+<span class="tok-dim">}</span></code></pre>
+    </section>
+
+    <section class="doc-section" id="schema-features">
+      <div class="section-heading">character.json — classFeatures</div>
+      <p>One entry per class. For gestalt characters, use two entries — they render side by side. Descriptions support <code>**bold**</code> and <code>*italic*</code>.</p>
+      <pre><code><span class="tok-key">"classFeatures"</span><span class="tok-dim">: [</span>
+  <span class="tok-dim">{</span>
+    <span class="tok-key">"className"</span><span class="tok-dim">:</span> <span class="tok-str">"Fighter"</span><span class="tok-dim">,</span>
+    <span class="tok-key">"features"</span><span class="tok-dim">: [</span>
+      <span class="tok-dim">{</span> <span class="tok-key">"name"</span><span class="tok-dim">:</span> <span class="tok-str">"Bravery"</span><span class="tok-dim">,</span>       <span class="tok-key">"description"</span><span class="tok-dim">:</span> <span class="tok-str">"+1 Will saves vs. fear"</span> <span class="tok-dim">},</span>
+      <span class="tok-dim">{</span> <span class="tok-key">"name"</span><span class="tok-dim">:</span> <span class="tok-str">"Armor Training"</span><span class="tok-dim">,</span>  <span class="tok-key">"description"</span><span class="tok-dim">:</span> <span class="tok-str">""</span> <span class="tok-dim">}</span>
+    <span class="tok-dim">]</span>
+  <span class="tok-dim">}</span>
+<span class="tok-dim">]</span></code></pre>
+    </section>
+
+    <section class="doc-section" id="schema-feats">
+      <div class="section-heading">character.json — feats</div>
+      <pre><code><span class="tok-key">"feats"</span><span class="tok-dim">: [</span>
+  <span class="tok-dim">{</span> <span class="tok-key">"level"</span><span class="tok-dim">:</span> <span class="tok-str">"1st"</span><span class="tok-dim">,</span> <span class="tok-key">"name"</span><span class="tok-dim">:</span> <span class="tok-str">"Power Attack"</span><span class="tok-dim">,</span> <span class="tok-key">"notes"</span><span class="tok-dim">:</span> <span class="tok-str">"-1 attack / +2 damage"</span> <span class="tok-dim">}</span>
+<span class="tok-dim">]</span></code></pre>
+      <p>Use <code>"—"</code> for <code>level</code> if the feat wasn't gained at a specific level.</p>
+    </section>
+
+    <section class="doc-section" id="schema-skills">
+      <div class="section-heading">character.json — skills</div>
+      <p>Only list skills the character has invested in or has a notable bonus on. Totals are calculated automatically. A <code>●</code> indicator appears when the +3 class skill bonus is active.</p>
+      <p><strong>Formula:</strong> stat mod + ranks + class bonus (+3 if <code>classSkill: true</code> and ranks &gt; 0) + misc</p>
+      <pre><code><span class="tok-key">"skills"</span><span class="tok-dim">: [</span>
+  <span class="tok-dim">{</span>
+    <span class="tok-key">"name"</span><span class="tok-dim">:</span>        <span class="tok-str">"Perception"</span><span class="tok-dim">,</span>
+    <span class="tok-key">"stat"</span><span class="tok-dim">:</span>        <span class="tok-str">"WIS"</span><span class="tok-dim">,</span>         <span class="tok-cmt">// governing ability score</span>
+    <span class="tok-key">"classSkill"</span><span class="tok-dim">:</span>  <span class="tok-bool">true</span><span class="tok-dim">,</span>          <span class="tok-cmt">// +3 bonus if ranks > 0</span>
+    <span class="tok-key">"ranks"</span><span class="tok-dim">:</span>       <span class="tok-num">5</span><span class="tok-dim">,</span>
+    <span class="tok-key">"misc"</span><span class="tok-dim">:</span>        <span class="tok-num">2</span><span class="tok-dim">,</span>             <span class="tok-cmt">// optional bonus</span>
+    <span class="tok-key">"miscReason"</span><span class="tok-dim">:</span>  <span class="tok-str">"Racial bonus"</span> <span class="tok-cmt">// shown in hover tooltip</span>
+  <span class="tok-dim">}</span>
+<span class="tok-dim">]</span></code></pre>
+    </section>
+
+    <section class="doc-section" id="schema-racial">
+      <div class="section-heading">character.json — racialTraits</div>
+      <pre><code><span class="tok-key">"racialTraits"</span><span class="tok-dim">: {</span>
+  <span class="tok-key">"raceName"</span><span class="tok-dim">:</span> <span class="tok-str">"Fetchling"</span><span class="tok-dim">,</span>
+  <span class="tok-key">"traits"</span><span class="tok-dim">: [</span>
+    <span class="tok-dim">{</span> <span class="tok-key">"name"</span><span class="tok-dim">:</span> <span class="tok-str">"Darkvision"</span><span class="tok-dim">,</span>     <span class="tok-key">"description"</span><span class="tok-dim">:</span> <span class="tok-str">"60 ft"</span> <span class="tok-dim">},</span>
+    <span class="tok-dim">{</span> <span class="tok-key">"name"</span><span class="tok-dim">:</span> <span class="tok-str">"Shadow Blending"</span><span class="tok-dim">,</span> <span class="tok-key">"description"</span><span class="tok-dim">:</span> <span class="tok-str">"Miss chance in dim light increases to 50%"</span> <span class="tok-dim">}</span>
+  <span class="tok-dim">]</span>
+<span class="tok-dim">}</span></code></pre>
+    </section>
+
+    <section class="doc-section" id="schema-equipment">
+      <div class="section-heading">character.json — equipment</div>
+      <pre><code><span class="tok-key">"equipment"</span><span class="tok-dim">: [</span>
+  <span class="tok-dim">{</span> <span class="tok-key">"name"</span><span class="tok-dim">:</span> <span class="tok-str">"Chain Shirt"</span><span class="tok-dim">,</span>     <span class="tok-key">"notes"</span><span class="tok-dim">:</span> <span class="tok-str">"+4 AC"</span><span class="tok-dim">,</span>           <span class="tok-key">"notesVariant"</span><span class="tok-dim">:</span> <span class="tok-str">"dim"</span>     <span class="tok-dim">},</span>
+  <span class="tok-dim">{</span> <span class="tok-key">"name"</span><span class="tok-dim">:</span> <span class="tok-str">"Health Potion"</span><span class="tok-dim">,</span>   <span class="tok-key">"notes"</span><span class="tok-dim">:</span> <span class="tok-str">"Emergency only."</span><span class="tok-dim">,</span> <span class="tok-key">"notesVariant"</span><span class="tok-dim">:</span> <span class="tok-str">"accent"</span>  <span class="tok-dim">},</span>
+  <span class="tok-dim">{</span> <span class="tok-key">"name"</span><span class="tok-dim">:</span> <span class="tok-str">"Gold"</span><span class="tok-dim">,</span>             <span class="tok-key">"notes"</span><span class="tok-dim">:</span> <span class="tok-str">"150 gp"</span><span class="tok-dim">,</span>           <span class="tok-key">"notesVariant"</span><span class="tok-dim">:</span> <span class="tok-str">"primary"</span> <span class="tok-dim">}</span>
+<span class="tok-dim">]</span></code></pre>
+      <p><code>notesVariant</code>: <span class="badge badge-dim">dim</span> standard · <span class="badge badge-accent">accent</span> warnings/voice · <span class="badge badge-primary">primary</span> highlighted values</p>
+    </section>
+
+    <section class="doc-section" id="schema-lore">
+      <div class="section-heading">character.json — lore</div>
+      <p>A list of blocks making up the backstory section. Each has a title, border accent color, and one or more content types. Blocks render in order: content → bindings → incidents → hooks.</p>
+      <table class="field-table">
+        <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="field-name">title</td><td class="field-type">string</td><td class="field-desc">Block heading.</td></tr>
+          <tr><td class="field-name">titleNote</td><td class="field-type">string</td><td class="field-desc">Optional dimmed note after the title. E.g. <code>"(she/her)"</code></td></tr>
+          <tr><td class="field-name">accent</td><td class="field-type">"primary" | "accent"</td><td class="field-desc">Left border color. Alternate for visual rhythm.</td></tr>
+          <tr><td class="field-name">content</td><td class="field-type">string</td><td class="field-desc">Prose. Supports <code>**bold**</code>, <code>*italic*</code>. Use <code>\n\n</code> for paragraph breaks.</td></tr>
+          <tr><td class="field-name">incidents</td><td class="field-type">array</td><td class="field-desc">Quoted lines in left-border style. Each has <code>text</code> and <code>variant</code> ("default" or "accent").</td></tr>
+          <tr><td class="field-name">bindings</td><td class="field-type">array</td><td class="field-desc">Named ability/curse blocks. Each has <code>label</code>, <code>name</code>, <code>description</code>.</td></tr>
+          <tr><td class="field-name">hooks</td><td class="field-type">array</td><td class="field-desc">Campaign hook strings, rendered as a bulleted list.</td></tr>
+        </tbody>
+      </table>
+      <pre><code><span class="tok-key">"lore"</span><span class="tok-dim">: [</span>
+  <span class="tok-dim">{</span>
+    <span class="tok-key">"title"</span><span class="tok-dim">:</span>   <span class="tok-str">"The Beginning"</span><span class="tok-dim">,</span>
+    <span class="tok-key">"accent"</span><span class="tok-dim">:</span>  <span class="tok-str">"primary"</span><span class="tok-dim">,</span>
+    <span class="tok-key">"content"</span><span class="tok-dim">:</span> <span class="tok-str">"First paragraph.\n\nSecond paragraph. **Bold** and *italic* work."</span>
+  <span class="tok-dim">},</span>
+  <span class="tok-dim">{</span>
+    <span class="tok-key">"title"</span><span class="tok-dim">:</span>      <span class="tok-str">"Things They Say"</span><span class="tok-dim">,</span>
+    <span class="tok-key">"accent"</span><span class="tok-dim">:</span>     <span class="tok-str">"accent"</span><span class="tok-dim">,</span>
+    <span class="tok-key">"incidents"</span><span class="tok-dim">: [</span>
+      <span class="tok-dim">{</span> <span class="tok-key">"text"</span><span class="tok-dim">:</span> <span class="tok-str">"\"I've survived worse.\""</span><span class="tok-dim">,</span> <span class="tok-key">"variant"</span><span class="tok-dim">:</span> <span class="tok-str">"default"</span> <span class="tok-dim">},</span>
+      <span class="tok-dim">{</span> <span class="tok-key">"text"</span><span class="tok-dim">:</span> <span class="tok-str">"\"...barely.\""</span><span class="tok-dim">,</span>            <span class="tok-key">"variant"</span><span class="tok-dim">:</span> <span class="tok-str">"accent"</span>  <span class="tok-dim">}</span>
+    <span class="tok-dim">]</span>
+  <span class="tok-dim">},</span>
+  <span class="tok-dim">{</span>
+    <span class="tok-key">"title"</span><span class="tok-dim">:</span>  <span class="tok-str">"Campaign Hooks"</span><span class="tok-dim">,</span>
+    <span class="tok-key">"accent"</span><span class="tok-dim">:</span> <span class="tok-str">"primary"</span><span class="tok-dim">,</span>
+    <span class="tok-key">"hooks"</span><span class="tok-dim">:</span>  <span class="tok-dim">[</span><span class="tok-str">"Why did they leave?"</span><span class="tok-dim">,</span> <span class="tok-str">"What does the villain want?"</span><span class="tok-dim">]</span>
+  <span class="tok-dim">}</span>
+<span class="tok-dim">]</span></code></pre>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="doc-section" id="commit">
+      <div class="section-heading">Commit &amp; Push</div>
+      <p>Once you've made changes, commit them (save a snapshot) and push (send to GitHub).</p>
+      <div class="steps">
+        <div class="step"><div class="step-number">1</div><div class="step-content">
+          <h4>Open Source Control</h4>
+          <p>Click the branch icon in VS Code's left sidebar, or press <code>Ctrl+Shift+G</code>.</p>
+        </div></div>
+        <div class="step"><div class="step-number">2</div><div class="step-content">
+          <h4>Stage your changes</h4>
+          <p>Hover a changed file and click <strong>+</strong>, or click <strong>Stage All Changes</strong>.</p>
+        </div></div>
+        <div class="step"><div class="step-number">3</div><div class="step-content">
+          <h4>Write a commit message</h4>
+          <p>Type a brief description — e.g. <code>Add Thorvald character</code> or <code>Update Nix HP</code>. Click <strong>Commit</strong>.</p>
+        </div></div>
+        <div class="step"><div class="step-number">4</div><div class="step-content">
+          <h4>Push</h4>
+          <p>Click <strong>Sync Changes</strong> in the Source Control panel. This sends your commit to GitHub.</p>
+        </div></div>
+      </div>
+    </section>
+
+    <section class="doc-section" id="pages">
+      <div class="section-heading">GitHub Pages</div>
+      <p>After pushing, GitHub automatically rebuilds and deploys the site — usually 30–60 seconds. Watch progress under the <strong>Actions</strong> tab in your repo. A green checkmark means the deploy is live.</p>
+      <div class="callout"><strong>First time setup:</strong> Go to your repo on GitHub → <strong>Settings</strong> → <strong>Pages</strong> → Source: <em>Deploy from a branch</em> → Branch: <em>main</em> → Folder: <em>/ (root)</em> → Save. Only needed once.</div>
+      <p>Your roster will be live at <code>https://YOUR-USERNAME.github.io/sheets/</code> and each character at <code>https://YOUR-USERNAME.github.io/sheets/charactername/</code>.</p>
+    </section>
+
+    <div class="doc-footer">Character Sheet System &nbsp;·&nbsp; FlesHBoX</div>
+  </main>
+</div>
+<script>
+  const sections = document.querySelectorAll('.doc-section');
+  const links    = document.querySelectorAll('.sidebar a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.sidebar a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+  document.body.classList.add('loaded');
+</script>
+</body>
+</html>
