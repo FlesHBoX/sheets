@@ -327,6 +327,49 @@ tr:hover td { background: var(--primary-dim); }
   margin-top: 0.75rem;
 }
 
+/* ── TOOLTIPS ── */
+.has-tooltip {
+  position: relative;
+  cursor: help;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.2em;
+}
+
+.tooltip-indicator {
+  font-size: 0.45rem;
+  color: var(--accent);
+  opacity: 0.7;
+  vertical-align: super;
+  line-height: 1;
+}
+
+.has-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.35rem 0.65rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.has-tooltip:hover::after {
+  opacity: 1;
+}
+
 /* ── DIVIDER ── */
 .divider {
   height: 1px;

@@ -6,84 +6,68 @@
     "ogUrl": "https://fleshbox.github.io/sheets/atnas/",
     "ogImage": "https://fleshbox.github.io/sheets/atnas/portrait.png"
   },
-
   "theme": {
-    "shadow": "#080c10",
-    "deep":   "#0c1018",
-    "surface":"#101520",
-    "raised": "#151c28",
-    "border": "#222d3a",
-    "muted":  "#4a5a6a",
-    "text":   "#c8d0d8",
-    "textDim":"#6a7a8a",
-    "primary": "#7eb8e0",
-    "_primary": "Atnas — the detective, the warden, the man doing the work",
-    "accent":  "#e8c84a",
-    "_accent":  "The celestial — the light he didn't ask for and can't put down"
+    "shadow": "#080c10", "deep": "#0c1018", "surface": "#101520",
+    "raised": "#151c28", "border": "#222d3a", "muted": "#4a5a6a",
+    "text": "#c8d0d8", "textDim": "#6a7a8a",
+    "primary": "#7eb8e0", "_primary": "Atnas — the detective, the warden, the man doing the work",
+    "accent": "#e8c84a",  "_accent": "The celestial — the light he didn't ask for and can't put down"
   },
-
   "header": {
     "name": "ATNAS",
     "subtitle": "Plumekith Aasimar · Warden · Level 5",
     "quote": "\"The strong should protect the weak. And as long as the weak suffer, he will not rest.\""
   },
-
-  "portrait": {
-    "src": "./portrait.png",
-    "alt": "Atnas Greystag"
-  },
-
+  "portrait": { "src": "./portrait.png", "alt": "Atnas Greystag" },
   "identity": [
-    { "label": "Full Name",   "value": "Atnas Greystag" },
-    { "label": "Race",        "value": "Plumekith Aasimar" },
-    { "label": "Class",       "value": "Warden" },
-    { "label": "Level",       "value": "5" },
-    { "label": "Age",         "value": "23" },
-    { "label": "Alignment",   "value": "TBD" },
-    { "label": "Deity",       "value": "Follower of Tyr" },
-    { "label": "Languages",   "value": "Common, Celestial, Thieves' Cant" },
-    { "label": "XP",          "value": "3,000" }
+    { "label": "Full Name",  "value": "Atnas Greystag" },
+    { "label": "Race",       "value": "Plumekith Aasimar" },
+    { "label": "Class",      "value": "Warden" },
+    { "label": "Level",      "value": "5" },
+    { "label": "Age",        "value": "23" },
+    { "label": "Alignment",  "value": "TBD" },
+    { "label": "Deity",      "value": "Follower of Tyr" },
+    { "label": "Languages",  "value": "Common, Celestial, Thieves' Cant" },
+    { "label": "XP",         "value": "3,000" }
   ],
-
   "appearance": [
-    { "label": "Plumage",  "value": "Dark as starless space, with glimmers of teal catching the light. Full plumage by twelve.", "labelVariant": "primary" },
-    { "label": "Eyes",     "value": "Shimmer in the dark. Light dances on their surface. Teal at the edges.", "labelVariant": "primary" },
-    { "label": "Build",    "value": "Athletic. Moves like someone who's already mapped the room.", "labelVariant": "primary" },
-    { "label": "Gear",     "value": "Tacticool leather. Functional, worn in. The gear of someone who actually uses it.", "labelVariant": "primary" },
-    { "label": "Tell",     "value": "Watches exits. Always knows where everyone is standing.", "labelVariant": "primary" },
-    { "label": "Warning",  "value": "Goes very quiet when something doesn't add up.", "labelVariant": "accent" }
+    { "label": "Plumage", "value": "Dark as starless space, with glimmers of teal catching the light. Full plumage by twelve.", "labelVariant": "primary" },
+    { "label": "Eyes",    "value": "Shimmer in the dark. Light dances on their surface. Teal at the edges.", "labelVariant": "primary" },
+    { "label": "Build",   "value": "Athletic. Moves like someone who's already mapped the room.", "labelVariant": "primary" },
+    { "label": "Gear",    "value": "Tacticool leather. Functional, worn in. The gear of someone who actually uses it.", "labelVariant": "primary" },
+    { "label": "Tell",    "value": "Watches exits. Always knows where everyone is standing.", "labelVariant": "primary" },
+    { "label": "Warning", "value": "Goes very quiet when something doesn't add up.", "labelVariant": "accent" }
   ],
-
   "abilityScores": [
-    { "name": "STR", "score": 15, "mod": "+2", "primary": false },
-    { "name": "DEX", "score": 18, "mod": "+4", "primary": true },
-    { "name": "CON", "score": 16, "mod": "+3", "primary": false },
-    { "name": "INT", "score": 16, "mod": "+3", "primary": true },
-    { "name": "WIS", "score": 20, "mod": "+5", "primary": true },
-    { "name": "CHA", "score": 14, "mod": "+2", "primary": false }
+    { "name": "STR", "score": 15, "primary": false },
+    { "name": "DEX", "score": 18, "primary": true,  "misc": 2, "miscReason": "Item bonus" },
+    { "name": "CON", "score": 16, "primary": false },
+    { "name": "INT", "score": 16, "primary": true,  "misc": 1, "miscReason": "Item bonus" },
+    { "name": "WIS", "score": 20, "primary": true,  "misc": 2, "miscReason": "Item bonus" },
+    { "name": "CHA", "score": 14, "primary": false }
   ],
-  "abilityScoresNote": "Current scores include racial and item adjustments. Base rolls: STR 15, DEX 16, CON 16, INT 15, WIS 18, CHA 14.",
-
+  "abilityScoresNote": "Current scores include item adjustments. Base rolls: STR 15, DEX 16, CON 16, INT 15, WIS 18, CHA 14.",
   "combat": {
-    "stats": [
-      { "label": "BAB",        "value": "+5" },
-      { "label": "Initiative", "value": "+6" },
-      { "label": "AC",         "value": "16" },
-      { "label": "HP",         "value": "56 / 56" },
-      { "label": "Speed",      "value": "30 ft" },
-      { "label": "Fort",       "value": "+7" },
-      { "label": "Reflex",     "value": "+11" },
-      { "label": "Will",       "value": "+6" },
-      { "label": "Insight",    "value": "3" }
+    "bab": 5,
+    "armorBonus": 6,
+    "armorMaxDex": 99,
+    "hp": "56 / 56",
+    "speed": "30 ft",
+    "saves": [
+      { "label": "Fort",   "stat": "CON", "base": 4 },
+      { "label": "Reflex", "stat": "DEX", "base": 4, "misc": 3, "miscReason": "Evasion feat" },
+      { "label": "Will",   "stat": "WIS", "base": 1 }
+    ],
+    "extraStats": [
+      { "label": "Insight", "value": "3" }
     ],
     "weapons": [
-      { "name": "Sand Viper", "attack": "+9", "damage": "2d6+1", "crit": "—",        "notes": "Archaic · Hunter's Mark · 40 ft · Mag +17", "notesVariant": "dim" },
-      { "name": "Betsy",      "attack": "+9", "damage": "2d10",  "crit": "—",        "notes": "6.5 Creedmoor · 100 ft · Mag +10", "notesVariant": "dim" },
-      { "name": "Dracarys",   "attack": "+9", "damage": "2d10",  "crit": "—",        "notes": "12-gauge · 40 ft · Mag +10", "notesVariant": "dim" },
-      { "name": "Dagger",     "attack": "+7", "damage": "1d4+2", "crit": "19–20 ×2", "notes": "Mundane. Probably.", "notesVariant": "accent" }
+      { "name": "Sand Viper", "stat": "DEX", "damage": "2d6+1", "crit": "—",        "misc": 1, "miscReason": "Point Blank Shot", "notes": "Archaic · Hunter's Mark · 40 ft", "notesVariant": "dim" },
+      { "name": "Betsy",      "stat": "DEX", "damage": "2d10",  "crit": "—",        "misc": 1, "miscReason": "Point Blank Shot", "notes": "6.5 Creedmoor · 100 ft", "notesVariant": "dim" },
+      { "name": "Dracarys",   "stat": "DEX", "damage": "2d10",  "crit": "—",        "misc": 1, "miscReason": "Point Blank Shot", "notes": "12-gauge · 40 ft", "notesVariant": "dim" },
+      { "name": "Dagger",     "stat": "STR", "damage": "1d4+2", "crit": "19–20 ×2", "notes": "Mundane. Probably.", "notesVariant": "accent" }
     ]
   },
-
   "classFeatures": [
     {
       "className": "Warden",
@@ -101,29 +85,26 @@
     }
   ],
   "classFeaturesNote": "Warden is a custom class — Batman-influenced vigilante archetype with a firearms and tactical focus.",
-
   "feats": [
     { "level": "—", "name": "Quick Draw",       "notes": "Draw weapons as a free action" },
     { "level": "—", "name": "Point Blank Shot", "notes": "+1 attack and damage within 30 ft" },
     { "level": "—", "name": "Precise Shot",     "notes": "No penalty shooting into melee" }
   ],
-
   "skills": [
-    { "name": "Perception",         "ranks": "5", "stat": "+5", "class": "+3", "total": "+15" },
-    { "name": "Survival",           "ranks": "5", "stat": "+5", "class": "+3", "total": "+13" },
-    { "name": "Sleight of Hand",    "ranks": "5", "stat": "+4", "class": "+3", "total": "+12" },
-    { "name": "Acrobatics",         "ranks": "4", "stat": "+4", "class": "+3", "total": "+11" },
-    { "name": "Fly",                "ranks": "3", "stat": "+4", "class": "+3", "total": "+10" },
-    { "name": "Sense Motive",       "ranks": "4", "stat": "+5", "class": "—",  "total": "+9"  },
-    { "name": "Stealth",            "ranks": "5", "stat": "+4", "class": "—",  "total": "+9"  },
-    { "name": "Disguise",           "ranks": "3", "stat": "+2", "class": "+3", "total": "+8"  },
-    { "name": "Diplomacy",          "ranks": "3", "stat": "+2", "class": "—",  "total": "+7 (+2 racial)" },
-    { "name": "Knowledge (Eng.)",   "ranks": "1", "stat": "+3", "class": "+3", "total": "+7"  },
-    { "name": "Knowledge (Planes)", "ranks": "1", "stat": "+3", "class": "+3", "total": "+7"  },
-    { "name": "Bluff",              "ranks": "3", "stat": "+2", "class": "—",  "total": "+5"  }
+    { "name": "Perception",          "stat": "WIS", "classSkill": true,  "ranks": 5, "misc": 2, "miscReason": "Racial bonus" },
+    { "name": "Survival",            "stat": "WIS", "classSkill": true,  "ranks": 5 },
+    { "name": "Sleight of Hand",     "stat": "DEX", "classSkill": true,  "ranks": 5 },
+    { "name": "Acrobatics",          "stat": "DEX", "classSkill": true,  "ranks": 4 },
+    { "name": "Fly",                 "stat": "DEX", "classSkill": true,  "ranks": 3 },
+    { "name": "Sense Motive",        "stat": "WIS", "classSkill": false, "ranks": 4 },
+    { "name": "Stealth",             "stat": "DEX", "classSkill": false, "ranks": 5 },
+    { "name": "Disguise",            "stat": "CHA", "classSkill": true,  "ranks": 3 },
+    { "name": "Diplomacy",           "stat": "CHA", "classSkill": false, "ranks": 3, "misc": 2, "miscReason": "Racial bonus" },
+    { "name": "Knowledge (Eng.)",    "stat": "INT", "classSkill": true,  "ranks": 1 },
+    { "name": "Knowledge (Planes)",  "stat": "INT", "classSkill": true,  "ranks": 1 },
+    { "name": "Bluff",               "stat": "CHA", "classSkill": false, "ranks": 3 }
   ],
-  "skillsNote": "Notable skills shown. Perception includes +2 racial bonus.",
-
+  "skillsNote": "Notable skills shown · ● = class skill bonus applied",
   "racialTraits": {
     "raceName": "Plumekith Aasimar",
     "traits": [
@@ -135,12 +116,11 @@
       { "name": "Hunter's Insight",     "description": "+2 to knowledge or survival checks against lycanthropes or members of The Brand" }
     ]
   },
-
   "equipment": [
     { "name": "Sand Viper",                    "notes": "Taran Tactical archaic sidearm · Hunter's Mark weapon", "notesVariant": "dim" },
     { "name": "Betsy",                         "notes": "Custom 6.5 Creedmoor precision rifle · 100 ft range", "notesVariant": "dim" },
     { "name": "Dracarys",                      "notes": "12-gauge · 40 ft range · For when things get messy", "notesVariant": "dim" },
-    { "name": "Tacticool Leather",             "notes": "AC bonus +6 · +2 armor", "notesVariant": "dim" },
+    { "name": "Tacticool Leather",             "notes": "AC bonus +6 · No check penalty", "notesVariant": "dim" },
     { "name": "Light Amplification Eyepiece", "notes": "Low-light and darkvision enhancement", "notesVariant": "dim" },
     { "name": "Grappling Hook & Launcher",    "notes": "Gets used more than expected.", "notesVariant": "dim" },
     { "name": "Magic Tent",                   "notes": "Extradimensional shelter", "notesVariant": "dim" },
@@ -149,65 +129,28 @@
     { "name": "Mundane Dagger",               "notes": "Not a primary weapon. Probably.", "notesVariant": "accent" },
     { "name": "Gold",                         "notes": "400 gp remaining", "notesVariant": "primary" }
   ],
-
   "lore": [
-    {
-      "title": "The City",
-      "accent": "primary",
-      "content": "Crosspoint — also known as Tyrhaven, or just *the city* — is a patchwork of times and cultures stitched together by planar accidents. You could buy a bagel from a goblin-run food truck, hop a trolley powered by arcane crystals, then cross a bridge patrolled by armored knights with smartwatches. For locals, it wasn't odd. It just was.\n\nAtnas Greystag was born into it. To him, it was the only world that ever existed."
-    },
-    {
-      "title": "Origins",
-      "accent": "accent",
-      "content": "His parents, Elias and Mareen Greystag, were human through and through — working-class folks who rented a two-bedroom apartment above a pawn shop and did everything they could to keep their son fed, safe, and off the streets. The Greystags had no divine ancestry, no grand destiny. Just a history of hard work and bad knees.\n\nSo when Atnas began to change, there was no framework to understand it.\n\nThe first feathers came in when he was six — dark as starless space, with glimmers of teal catching the light. By seven, more had grown in and his eyes had begun to sparkle, light dancing on their surface. The local doctors blamed Myst exposure. The school counselor suggested latent celestial ancestry. His parents just tried to love him through it.\n\nBy twelve, his eyes shimmered in the dark and the shape of his face had begun to sharpen. He had his full plumage. He learned early that standing out drew attention — and attention was rarely kind. He kept to himself. Not because he was shy. Because he was always watching."
-    },
-    {
-      "title": "What He Saw",
-      "accent": "primary",
-      "content": "What he saw in his city made his stomach burn. Cops turning blind eyes to back-alley crime rings. Kids his own age swallowed up by gangs or trafficking rings. Corrupt unions. Private security firms doing wet work for faceless corporations.\n\nWhen he was ten, he witnessed his first murder. A street urchin, knifed in an alley, discarded like trash. The guards wrote it off as gang violence. No one cared.\n\n*Atnas did.*\n\nHe returned to that alley night after night, studying the patterns of the city's shadows. He started following criminals, eavesdropping on their dealings, reading their movements. If the criminals were the only ones showing how power worked, he needed to learn from them."
-    },
-    {
-      "title": "The Guild Years",
-      "accent": "accent",
-      "content": "At thirteen, he posed as a runner for a local smuggling ring. He embedded himself in street crews — not by force, but by playing the game. At sixteen, he was inside the thieves guild itself. They never suspected he wasn't one of them.\n\nHis natural grace, quick wit, and aura of mystery earned him a place. He learned how to move unseen, how to listen more than talk, how to spot a setup a block away. He became a master of infiltration.\n\nHe never stole for pleasure. Only information. Every coin he gained was to fund his hidden purpose. The money was good. The knowledge was better."
-    },
-    {
-      "title": "The Brand",
-      "accent": "accent",
-      "content": "Then came whispers of something darker. The **Legion of the Red Brand**. Not just criminals — cultists. Twisted. People who didn't just break laws, they shattered lives. Abducting innocents for rituals Atnas still doesn't fully understand, altering them into something other. Some were never seen again. Others returned... *wrong.*\n\nAnd nobody seemed to be doing a damn thing about it.\n\nThat was the turning point.\n\nAtnas left the guild — burning no bridges, but making his intentions clear. He was going to hunt monsters. Not become one."
-    },
-    {
-      "title": "The Arsenal",
-      "accent": "primary",
-      "content": "He spent nearly everything he had on gear and training.\n\nA **Taran Tactical Sand Viper** for when things got personal. A **Dracarys** 12-gauge for when things got messy. And a fully custom **6.5 Creedmoor precision rifle** — Betsy — because sometimes justice needed to reach out from a rooftop three blocks away.\n\nHe named them. He doesn't explain why."
-    },
-    {
-      "title": "The Wings",
-      "accent": "accent",
-      "content": "Around this time, his wings began to grow. It wasn't pretty, and it wasn't painless.\n\nBut they gave him perspective — literally and figuratively. It felt like affirmation. Like something had been watching him choose, over and over, and had finally decided he'd earned it. He trained obsessively, learning to use them for overwatch, infiltration, rapid maneuvering.\n\nHe didn't always land cleanly. But he always got back up."
-    },
-    {
-      "title": "Atnas Now",
-      "accent": "primary",
-      "content": "Atnas is no longer just a gifted kid with strange feathers. He's something else — built in shadows and sharpened in the quiet hours.\n\nHe doesn't call himself a hero. He doesn't need to. He's a presence. A force. Sometimes just a pair of teal-shimmering eyes in the dark, watching from somewhere above.\n\nHe struggles, though. The Plumekith in him yearns for action — immediate, sometimes impulsive. But his mission requires control, patience, and careful planning. This tension drives him, and sometimes threatens to pull him apart.\n\nOne truth keeps him steady: he doesn't fight for glory. He fights for the ones who can't fight for themselves.",
+    { "title": "The City", "accent": "primary", "content": "Crosspoint — also known as Tyrhaven, or just *the city* — is a patchwork of times and cultures stitched together by planar accidents. You could buy a bagel from a goblin-run food truck, hop a trolley powered by arcane crystals, then cross a bridge patrolled by armored knights with smartwatches. For locals, it wasn't odd. It just was.\n\nAtnas Greystag was born into it. To him, it was the only world that ever existed." },
+    { "title": "Origins", "accent": "accent", "content": "His parents, Elias and Mareen Greystag, were human through and through — working-class folks who rented a two-bedroom apartment above a pawn shop and did everything they could to keep their son fed, safe, and off the streets. The Greystags had no divine ancestry, no grand destiny. Just a history of hard work and bad knees.\n\nSo when Atnas began to change, there was no framework to understand it.\n\nThe first feathers came in when he was six — dark as starless space, with glimmers of teal catching the light. By seven, more had grown in and his eyes had begun to sparkle, light dancing on their surface. The local doctors blamed Myst exposure. The school counselor suggested latent celestial ancestry. His parents just tried to love him through it.\n\nBy twelve, his eyes shimmered in the dark and the shape of his face had begun to sharpen. He had his full plumage. He learned early that standing out drew attention — and attention was rarely kind. He kept to himself. Not because he was shy. Because he was always watching." },
+    { "title": "What He Saw", "accent": "primary", "content": "What he saw in his city made his stomach burn. Cops turning blind eyes to back-alley crime rings. Kids his own age swallowed up by gangs or trafficking rings. Corrupt unions. Private security firms doing wet work for faceless corporations.\n\nWhen he was ten, he witnessed his first murder. A street urchin, knifed in an alley, discarded like trash. The guards wrote it off as gang violence. No one cared.\n\n*Atnas did.*\n\nHe returned to that alley night after night, studying the patterns of the city's shadows. He started following criminals, eavesdropping on their dealings, reading their movements. If the criminals were the only ones showing how power worked, he needed to learn from them." },
+    { "title": "The Guild Years", "accent": "accent", "content": "At thirteen, he posed as a runner for a local smuggling ring. He embedded himself in street crews — not by force, but by playing the game. At sixteen, he was inside the thieves guild itself. They never suspected he wasn't one of them.\n\nHis natural grace, quick wit, and aura of mystery earned him a place. He learned how to move unseen, how to listen more than talk, how to spot a setup a block away. He became a master of infiltration.\n\nHe never stole for pleasure. Only information. Every coin he gained was to fund his hidden purpose. The money was good. The knowledge was better." },
+    { "title": "The Brand", "accent": "accent", "content": "Then came whispers of something darker. The **Legion of the Red Brand**. Not just criminals — cultists. Twisted. People who didn't just break laws, they shattered lives. Abducting innocents for rituals Atnas still doesn't fully understand, altering them into something other. Some were never seen again. Others returned... *wrong.*\n\nAnd nobody seemed to be doing a damn thing about it.\n\nThat was the turning point.\n\nAtnas left the guild — burning no bridges, but making his intentions clear. He was going to hunt monsters. Not become one." },
+    { "title": "The Arsenal", "accent": "primary", "content": "He spent nearly everything he had on gear and training.\n\nA **Taran Tactical Sand Viper** for when things got personal. A **Dracarys** 12-gauge for when things got messy. And a fully custom **6.5 Creedmoor precision rifle** — Betsy — because sometimes justice needed to reach out from a rooftop three blocks away.\n\nHe named them. He doesn't explain why." },
+    { "title": "The Wings", "accent": "accent", "content": "Around this time, his wings began to grow. It wasn't pretty, and it wasn't painless.\n\nBut they gave him perspective — literally and figuratively. It felt like affirmation. Like something had been watching him choose, over and over, and had finally decided he'd earned it. He trained obsessively, learning to use them for overwatch, infiltration, rapid maneuvering.\n\nHe didn't always land cleanly. But he always got back up." },
+    { "title": "Atnas Now", "accent": "primary", "content": "Atnas is no longer just a gifted kid with strange feathers. He's something else — built in shadows and sharpened in the quiet hours.\n\nHe doesn't call himself a hero. He doesn't need to. He's a presence. A force. Sometimes just a pair of teal-shimmering eyes in the dark, watching from somewhere above.\n\nHe struggles, though. The Plumekith in him yearns for action — immediate, sometimes impulsive. But his mission requires control, patience, and careful planning. This tension drives him, and sometimes threatens to pull him apart.\n\nOne truth keeps him steady: he doesn't fight for glory. He fights for the ones who can't fight for themselves.",
       "incidents": [
         { "text": "The strong should protect the weak.", "variant": "default" },
         { "text": "And as long as the weak suffer, he will not rest.", "variant": "accent" }
       ]
     },
-    {
-      "title": "Campaign Hooks",
-      "accent": "accent",
-      "hooks": [
-        "The Legion of the Red Brand is still out there. What are they actually building toward?",
-        "The guild knows Atnas left. They haven't moved on him yet. Why?",
-        "His wings manifested around the same time he committed to hunting The Brand. Coincidence feels like the wrong word.",
-        "Elias and Mareen are still in Crosspoint. Do they know what their son became?",
-        "Hunter's Insight gives him a specific edge against lycanthropes and Brand members. Someone — or something — prepared him for this fight before he knew he was in it.",
-        "Tyr is a god of justice. Atnas follows him. But Atnas's methods aren't always clean. Where's the line?"
-      ]
-    }
+    { "title": "Campaign Hooks", "accent": "accent", "hooks": [
+      "The Legion of the Red Brand is still out there. What are they actually building toward?",
+      "The guild knows Atnas left. They haven't moved on him yet. Why?",
+      "His wings manifested around the same time he committed to hunting The Brand. Coincidence feels like the wrong word.",
+      "Elias and Mareen are still in Crosspoint. Do they know what their son became?",
+      "Hunter's Insight gives him a specific edge against lycanthropes and Brand members. Someone — or something — prepared him for this fight before he knew he was in it.",
+      "Tyr is a god of justice. Atnas follows him. But Atnas's methods aren't always clean. Where's the line?"
+    ]}
   ],
-
   "footer": "Atnas Greystag · Level 5 · Plumekith Aasimar Warden"
 }
