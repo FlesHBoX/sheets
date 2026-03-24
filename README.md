@@ -14,13 +14,19 @@ Each character gets their own folder, their own color scheme, and their own back
 /
 ├── index.html          — the roster (front page)
 ├── roster.json         — list of characters shown on the roster
-├── sheet.js            — shared logic that builds every sheet
-├── sheet.css           — shared styles
+├── sheet.js            — shared logic, don't edit
+├── sheet.css           — shared styles, don't edit
 ├── howto/              — documentation for adding characters
 ├── nix/                — Nix (Fetchling Barbarian // Alchemist, Gestalt 3)
 │   ├── index.html
 │   ├── character.json
-│   └── portrait.png
+│   ├── portrait.png
+│   └── lore/           — optional extended lore pages
+│       ├── index.html
+│       ├── index.json
+│       ├── nix-combat.json
+│       └── nix-combat/ — Discord embed stub
+│           └── index.html
 └── atnas/              — Atnas Greystag (Plumekith Aasimar Warden, Level 5)
     ├── index.html
     ├── character.json
