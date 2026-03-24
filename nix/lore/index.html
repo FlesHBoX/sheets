@@ -245,6 +245,13 @@ async function loadLore() {
     const entry = await entryRes.json();
     renderLoreEntry(entry);
 
+    // If this entry has a stub URL, rewrite the address bar to it
+    // so copy-pasting from the address bar always gives the shareable URL
+    const currentEntry = entries.find(e => e.id === id);
+    if (currentEntry && currentEntry.shareUrl) {
+      history.replaceState(null, '', currentEntry.shareUrl);
+    }
+
     document.body.classList.add('loaded');
 
   } catch (err) {
