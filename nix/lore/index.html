@@ -119,6 +119,11 @@
 </div>
 
 <script>
+// Capture real file-relative base paths immediately, before any replaceState
+// can rewrite location.href and break relative fetches
+const LORE_BASE = new URL('./',  location.href).href;
+const CHAR_BASE = new URL('../', location.href).href;
+
 // ── Markdown-lite renderer ─────────────────────────────────────────────────
 function renderMarkdown(text) {
   if (!text) return '';
@@ -224,9 +229,9 @@ async function loadLore() {
   try {
     // Fetch character theme, lore index, and lore entry in parallel
     const [charRes, indexRes, entryRes] = await Promise.all([
-      fetch('../character.json'),
-      fetch('./index.json'),
-      fetch(`./${id}.json`),
+      fetch(CHAR_BASE + 'character.json'),
+      fetch(LORE_BASE + 'index.json'),
+      fetch(LORE_BASE + `${id}.json`),
     ]);
 
     if (charRes.ok) {
@@ -235,7 +240,8 @@ async function loadLore() {
       // Update back link with character name
       const backLink = document.getElementById('back-link');
       backLink.textContent = `${char.header.name} — Character Sheet`;
-      backLink.setAttribute('href', '../');
+      // Use absolute URL from meta to avoid relative path breaking after replaceState
+      backLink.setAttribute('href', char.meta.ogUrl || '../');
     }
 
     const entries = indexRes.ok ? await indexRes.json() : [];
