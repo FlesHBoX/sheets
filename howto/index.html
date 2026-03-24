@@ -118,6 +118,7 @@
     <a href="#lore-structure">Folder Structure</a>
     <a href="#lore-index-json">lore/index.json</a>
     <a href="#lore-entry-json">Lore Entry JSON</a>
+    <a href="#lore-og-stub">Discord Embeds</a>
     <div class="sidebar-section">Publishing</div>
     <a href="#commit">Commit &amp; Push</a>
     <a href="#pages">GitHub Pages</a>
@@ -497,6 +498,7 @@ git config --global user.email "you@example.com"</code></pre>
   <span class="tok-dim">}</span>
 <span class="tok-dim">]</span></code></pre>
       <p>The <code>id</code> must match the filename exactly — <code>"nix-combat"</code> maps to <code>nix-combat.json</code>.</p>
+      <p>The optional <code>shareUrl</code> field points to the Discord embed stub folder (see <a href="#lore-og-stub">Discord Embeds</a> below). When present, the Further Reading link and the lore page nav both use it instead of the hash URL.</p>
     </section>
 
     <section class="doc-section" id="lore-entry-json">
@@ -534,6 +536,41 @@ Second paragraph.
 <span class="tok-dim">}</span></code></pre>
       <p>The <code>blocks</code> array uses the same schema as the <code>lore</code> array in <code>character.json</code> — same field names, same content types (<code>content</code>, <code>incidents</code>, <code>bindings</code>, <code>hooks</code>). Refer to the <a href="#schema-lore">lore schema section</a> above for full details.</p>
       <div class="callout"><strong>You can mix both formats in one file</strong> — use <code>content</code> for an intro paragraph and <code>blocks</code> for structured sections below it. They render in that order.</div>
+    </section>
+
+
+    <section class="doc-section" id="lore-og-stub">
+      <div class="section-heading">Extra Lore Pages — Discord Embeds</div>
+      <p>Social platforms like Discord read OG meta tags before JavaScript runs, so the hash-based lore URLs (<code>lore/#nix-combat</code>) all look identical to an embed crawler — it can't see the hash. The fix is a small stub folder per lore entry containing a plain HTML file with hardcoded OG tags that immediately redirects to the real lore page.</p>
+      <p>It's a bit of a workaround, but it works cleanly. The stub is tiny and you only need one per entry you want to be shareable.</p>
+      <p>Create a folder inside <code>lore/</code> matching the entry id, with a single <code>index.html</code>:</p>
+      <div class="file-tree">
+        <div><span class="tree-dir">yourcharacter/lore/</span></div>
+        <div class="tree-i1"><span class="tree-file">index.json</span></div>
+        <div class="tree-i1"><span class="tree-file">nix-combat.json</span></div>
+        <div class="tree-i1"><span class="tree-dir">nix-combat/</span> <span class="tree-note">— one folder per shareable entry</span></div>
+        <div class="tree-i2"><span class="tree-file">index.html</span> <span class="tree-note">— OG stub + redirect</span></div>
+      </div>
+      <p>The stub <code>index.html</code> contains only OG meta tags and a redirect — copy this template and update the five highlighted values:</p>
+      <pre><code><span class="tok-dim">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;</span>
+<span class="tok-key">&lt;meta property="og:title"</span>       <span class="tok-str">content="Nix in Combat"</span> <span class="tok-key">/&gt;</span>
+<span class="tok-key">&lt;meta property="og:description"</span> <span class="tok-str">content="The thing about Nix is the constant hum of activity."</span> <span class="tok-key">/&gt;</span>
+<span class="tok-key">&lt;meta property="og:type"</span>        <span class="tok-str">content="website"</span> <span class="tok-key">/&gt;</span>
+<span class="tok-key">&lt;meta property="og:url"</span>         <span class="tok-str">content="https://USERNAME.github.io/sheets/nix/lore/nix-combat/"</span> <span class="tok-key">/&gt;</span>
+<span class="tok-key">&lt;meta property="og:image"</span>       <span class="tok-str">content="https://USERNAME.github.io/sheets/nix/portrait.png"</span> <span class="tok-key">/&gt;</span>
+<span class="tok-dim">&lt;title&gt;Nix in Combat&lt;/title&gt;
+&lt;meta http-equiv="refresh" content="0;url=../#nix-combat"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;script&gt;window.location.replace('../#nix-combat');&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</span></code></pre>
+      <p>The <code>meta http-equiv="refresh"</code> handles browsers with JavaScript disabled; the script handles everyone else. Both redirect to the hash URL where the actual lore page renders.</p>
+      <p>Once the stub folder exists, add <code>"shareUrl": "./nix-combat/"</code> to the entry in <code>lore/index.json</code> — the Further Reading link and lore page nav will automatically use the stub URL instead of the hash URL, so shared links always go through the stub and get the right embed.</p>
+      <div class="callout">The stub is optional per entry — entries without a <code>shareUrl</code> still work fine, they just won't have a custom Discord embed.</div>
     </section>
 
     <div class="divider"></div>

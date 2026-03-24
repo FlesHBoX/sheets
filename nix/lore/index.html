@@ -206,7 +206,7 @@ function buildNav(entries, currentId) {
   const nav = document.getElementById('lore-nav-entries');
   nav.innerHTML = entries.map(e => `
     <a class="lore-nav-entry${e.id === currentId ? ' active' : ''}"
-       href="./#${e.id}">${e.title}</a>
+       href="${e.shareUrl || `./#${e.id}`}">${e.title}</a>
   `).join('');
 }
 

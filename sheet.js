@@ -357,7 +357,7 @@ function buildFurtherReading(entries) {
     </div>
     <div class="further-reading-links">
       ${entries.map(e => `
-        <a class="further-reading-link" href="./lore/#${e.id}">
+        <a class="further-reading-link" href="${e.shareUrl || `./lore/#${e.id}`}">
           <span class="further-reading-link-title">${e.title}</span>
           ${e.description ? `<span class="further-reading-link-desc">${e.description}</span>` : ''}
         </a>
