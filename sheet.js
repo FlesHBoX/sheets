@@ -337,6 +337,37 @@ function buildFooter(text) {
   document.querySelector('.footer').textContent = text || '';
 }
 
+
+// ─── Further Reading ──────────────────────────────────────────────────────────
+function buildFurtherReading(entries) {
+  // Remove existing section if present
+  const existing = document.querySelector('.further-reading-section');
+  if (existing) existing.remove();
+
+  if (!entries || !entries.length) return;
+
+  const loreSection = document.querySelector('.lore-container');
+  if (!loreSection) return;
+
+  const section = document.createElement('div');
+  section.className = 'further-reading-section';
+  section.innerHTML = `
+    <div class="further-reading-title">
+      <span class="further-reading-label">Further Reading</span>
+    </div>
+    <div class="further-reading-links">
+      ${entries.map(e => `
+        <a class="further-reading-link" href="./lore/#${e.id}">
+          <span class="further-reading-link-title">${e.title}</span>
+          ${e.description ? `<span class="further-reading-link-desc">${e.description}</span>` : ''}
+        </a>
+      `).join('')}
+    </div>
+  `;
+
+  loreSection.parentElement.appendChild(section);
+}
+
 // ─── Main loader ──────────────────────────────────────────────────────────────
 async function loadCharacter() {
   try {
@@ -362,6 +393,15 @@ async function loadCharacter() {
     buildEquipment(data.equipment);
     buildLore(data.lore);
     buildFooter(data.footer);
+
+    // Attempt to load further reading from lore/index.json (optional, fails silently)
+    try {
+      const loreIndexRes = await fetch('./lore/index.json');
+      if (loreIndexRes.ok) {
+        const loreEntries = await loreIndexRes.json();
+        buildFurtherReading(loreEntries);
+      }
+    } catch (e) { /* no lore directory, that's fine */ }
 
     document.body.classList.add('loaded');
 

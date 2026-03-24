@@ -113,6 +113,11 @@
     <a href="#schema-racial">racialTraits</a>
     <a href="#schema-equipment">equipment</a>
     <a href="#schema-lore">lore</a>
+    <div class="sidebar-section">Extra Lore Pages</div>
+    <a href="#lore-overview">Overview</a>
+    <a href="#lore-structure">Folder Structure</a>
+    <a href="#lore-index-json">lore/index.json</a>
+    <a href="#lore-entry-json">Lore Entry JSON</a>
     <div class="sidebar-section">Publishing</div>
     <a href="#commit">Commit &amp; Push</a>
     <a href="#pages">GitHub Pages</a>
@@ -185,6 +190,10 @@ git config --global user.email "you@example.com"</code></pre>
         <div class="tree-i2"><span class="tree-file">index.html</span> <span class="tree-note">— stub with OG tags</span></div>
         <div class="tree-i2"><span class="tree-file">character.json</span> <span class="tree-note">— all character data</span></div>
         <div class="tree-i2"><span class="tree-file">portrait.png</span> <span class="tree-note">— portrait image</span></div>
+        <div class="tree-i2"><span class="tree-dir">lore/</span> <span class="tree-note">— optional extra lore pages</span></div>
+        <div style="padding-left:3.6rem"><span class="tree-file">index.html</span> <span class="tree-note">— shared lore page stub</span></div>
+        <div style="padding-left:3.6rem"><span class="tree-file">index.json</span> <span class="tree-note">— list of lore entries</span></div>
+        <div style="padding-left:3.6rem"><span class="tree-file">nix-combat.json</span> <span class="tree-note">— a lore entry</span></div>
         <div class="tree-i1"><span class="tree-dir">yourcharacter/</span> <span class="tree-note">— same structure for each</span></div>
         <div class="tree-i2"><span class="tree-file">index.html</span></div>
         <div class="tree-i2"><span class="tree-file">character.json</span></div>
@@ -446,6 +455,85 @@ git config --global user.email "you@example.com"</code></pre>
     <span class="tok-key">"hooks"</span><span class="tok-dim">:</span>  <span class="tok-dim">[</span><span class="tok-str">"Why did they leave?"</span><span class="tok-dim">,</span> <span class="tok-str">"What does the villain want?"</span><span class="tok-dim">]</span>
   <span class="tok-dim">}</span>
 <span class="tok-dim">]</span></code></pre>
+    </section>
+
+
+    <div class="divider"></div>
+
+    <section class="doc-section" id="lore-overview">
+      <div class="section-heading">Extra Lore Pages — Overview</div>
+      <p>Characters can have additional lore pages beyond what fits in the main character sheet — extended backstory pieces, in-character vignettes, session recaps, anything you want to give a proper home.</p>
+      <p>These live in a <code>lore/</code> subfolder inside the character's folder. The character sheet automatically detects the folder and renders a <strong>Further Reading</strong> section at the bottom of the backstory area with links to each entry. No changes needed to <code>character.json</code>.</p>
+      <p>Each lore page loads the character's color theme automatically, has a nav bar showing all lore entries, and a back link to the main sheet.</p>
+      <div class="callout"><strong>Zero config:</strong> just create the <code>lore/</code> folder with the right files and the sheet picks it up. Remove the folder and the section disappears.</div>
+    </section>
+
+    <section class="doc-section" id="lore-structure">
+      <div class="section-heading">Extra Lore Pages — Folder Structure</div>
+      <p>Inside your character's folder, create a <code>lore/</code> subfolder with three things:</p>
+      <div class="file-tree">
+        <div><span class="tree-dir">yourcharacter/lore/</span></div>
+        <div class="tree-i1"><span class="tree-file">index.html</span> <span class="tree-note">— copy from an existing character's lore folder, never edit</span></div>
+        <div class="tree-i1"><span class="tree-file">index.json</span> <span class="tree-note">— list of lore entries (controls the nav and Further Reading section)</span></div>
+        <div class="tree-i1"><span class="tree-file">entry-name.json</span> <span class="tree-note">— one file per lore entry</span></div>
+        <div class="tree-i1"><span class="tree-file">another-entry.json</span> <span class="tree-note">— add as many as you want</span></div>
+      </div>
+      <p>The lore page URL uses a hash to select which entry to display — e.g. <code>sheets/nix/lore/#nix-combat</code>. Changing the hash navigates between entries without a page reload.</p>
+    </section>
+
+    <section class="doc-section" id="lore-index-json">
+      <div class="section-heading">Extra Lore Pages — lore/index.json</div>
+      <p>A simple array — one entry per lore page. This controls both the <strong>Further Reading</strong> section on the character sheet and the nav bar on the lore pages.</p>
+      <pre><code><span class="tok-dim">[</span>
+  <span class="tok-dim">{</span>
+    <span class="tok-key">"id"</span><span class="tok-dim">:</span>          <span class="tok-str">"nix-combat"</span><span class="tok-dim">,</span>        <span class="tok-cmt">// matches the filename (without .json)</span>
+    <span class="tok-key">"title"</span><span class="tok-dim">:</span>       <span class="tok-str">"Nix in Combat"</span><span class="tok-dim">,</span>     <span class="tok-cmt">// shown in nav and Further Reading</span>
+    <span class="tok-key">"description"</span><span class="tok-dim">:</span> <span class="tok-str">"The thing about Nix is the constant hum of activity."</span>
+    <span class="tok-cmt">// optional — shown as a subtitle in Further Reading</span>
+  <span class="tok-dim">},</span>
+  <span class="tok-dim">{</span>
+    <span class="tok-key">"id"</span><span class="tok-dim">:</span>    <span class="tok-str">"the-docks"</span><span class="tok-dim">,</span>
+    <span class="tok-key">"title"</span><span class="tok-dim">:</span> <span class="tok-str">"The Night at the Docks"</span>
+  <span class="tok-dim">}</span>
+<span class="tok-dim">]</span></code></pre>
+      <p>The <code>id</code> must match the filename exactly — <code>"nix-combat"</code> maps to <code>nix-combat.json</code>.</p>
+    </section>
+
+    <section class="doc-section" id="lore-entry-json">
+      <div class="section-heading">Extra Lore Pages — Lore Entry JSON</div>
+      <p>Each lore entry is its own JSON file. It supports two formats — plain prose for narrative pieces, or the same block layout used in the main character sheet for more structured content.</p>
+      <p><strong>Plain prose</strong> — best for vignettes, fiction, in-character writing:</p>
+      <pre><code><span class="tok-dim">{</span>
+  <span class="tok-key">"title"</span><span class="tok-dim">:</span>   <span class="tok-str">"Nix in Combat"</span><span class="tok-dim">,</span>
+  <span class="tok-key">"content"</span><span class="tok-dim">:</span> <span class="tok-str">"First paragraph.
+
+Second paragraph.
+
+*Italic text.* **Bold text.**"</span>
+<span class="tok-dim">}</span></code></pre>
+      <p>Use <code>
+
+</code> for paragraph breaks. Supports <code>**bold**</code> and <code>*italic*</code>.</p>
+      <p><strong>Block layout</strong> — best for structured lore, timelines, or content that benefits from the raised block styling:</p>
+      <pre><code><span class="tok-dim">{</span>
+  <span class="tok-key">"title"</span><span class="tok-dim">:</span> <span class="tok-str">"The Docks — Session 4"</span><span class="tok-dim">,</span>
+  <span class="tok-key">"blocks"</span><span class="tok-dim">: [</span>
+    <span class="tok-dim">{</span>
+      <span class="tok-key">"title"</span><span class="tok-dim">:</span>   <span class="tok-str">"Before"</span><span class="tok-dim">,</span>
+      <span class="tok-key">"accent"</span><span class="tok-dim">:</span>  <span class="tok-str">"primary"</span><span class="tok-dim">,</span>
+      <span class="tok-key">"content"</span><span class="tok-dim">:</span> <span class="tok-str">"What happened before the session."</span>
+    <span class="tok-dim">},</span>
+    <span class="tok-dim">{</span>
+      <span class="tok-key">"title"</span><span class="tok-dim">:</span>      <span class="tok-str">"What Was Said"</span><span class="tok-dim">,</span>
+      <span class="tok-key">"accent"</span><span class="tok-dim">:</span>     <span class="tok-str">"accent"</span><span class="tok-dim">,</span>
+      <span class="tok-key">"incidents"</span><span class="tok-dim">: [</span>
+        <span class="tok-dim">{</span> <span class="tok-key">"text"</span><span class="tok-dim">:</span> <span class="tok-str">""SHUT UP EMBER.""</span><span class="tok-dim">,</span> <span class="tok-key">"variant"</span><span class="tok-dim">:</span> <span class="tok-str">"default"</span> <span class="tok-dim">}</span>
+      <span class="tok-dim">]</span>
+    <span class="tok-dim">}</span>
+  <span class="tok-dim">]</span>
+<span class="tok-dim">}</span></code></pre>
+      <p>The <code>blocks</code> array uses the same schema as the <code>lore</code> array in <code>character.json</code> — same field names, same content types (<code>content</code>, <code>incidents</code>, <code>bindings</code>, <code>hooks</code>). Refer to the <a href="#schema-lore">lore schema section</a> above for full details.</p>
+      <div class="callout"><strong>You can mix both formats in one file</strong> — use <code>content</code> for an intro paragraph and <code>blocks</code> for structured sections below it. They render in that order.</div>
     </section>
 
     <div class="divider"></div>

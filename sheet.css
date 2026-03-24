@@ -490,6 +490,73 @@ tr:hover td { background: var(--primary-dim); }
   top: 0.65rem;
 }
 
+
+/* ── FURTHER READING ── */
+.further-reading-section {
+  margin-top: 1.5rem;
+}
+
+.further-reading-title {
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.further-reading-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--primary);
+  position: relative;
+}
+
+.further-reading-label::before {
+  content: '◆';
+  margin-right: 0.5rem;
+  color: var(--accent);
+  font-size: 0.6rem;
+}
+
+.further-reading-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.further-reading-link {
+  display: flex;
+  flex-direction: column;
+  background: var(--raised);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 4px 4px 0;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.further-reading-link:hover {
+  border-left-color: var(--primary);
+  background: var(--primary-dim);
+}
+
+.further-reading-link-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.2rem;
+}
+
+.further-reading-link-desc {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  font-style: italic;
+  line-height: 1.4;
+}
+
 /* ── FOOTER ── */
 .footer {
   text-align: center;
