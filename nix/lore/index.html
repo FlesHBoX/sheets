@@ -253,9 +253,10 @@ async function loadLore() {
 
     // If this entry has a stub URL, rewrite the address bar to it
     // so copy-pasting from the address bar always gives the shareable URL
+    // shareUrl is relative to character root (CHAR_BASE), not the lore folder
     const currentEntry = entries.find(e => e.id === id);
     if (currentEntry && currentEntry.shareUrl) {
-      history.replaceState(null, '', currentEntry.shareUrl);
+      history.replaceState(null, '', new URL(currentEntry.shareUrl, CHAR_BASE).href);
     }
 
     document.body.classList.add('loaded');

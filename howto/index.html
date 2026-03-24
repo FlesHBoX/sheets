@@ -489,8 +489,9 @@ git config --global user.email "you@example.com"</code></pre>
   <span class="tok-dim">{</span>
     <span class="tok-key">"id"</span><span class="tok-dim">:</span>          <span class="tok-str">"nix-combat"</span><span class="tok-dim">,</span>        <span class="tok-cmt">// matches the filename (without .json)</span>
     <span class="tok-key">"title"</span><span class="tok-dim">:</span>       <span class="tok-str">"Nix in Combat"</span><span class="tok-dim">,</span>     <span class="tok-cmt">// shown in nav and Further Reading</span>
-    <span class="tok-key">"description"</span><span class="tok-dim">:</span> <span class="tok-str">"The thing about Nix is the constant hum of activity."</span>
+    <span class="tok-key">"description"</span><span class="tok-dim">:</span> <span class="tok-str">"The thing about Nix is the constant hum of activity."</span><span class="tok-dim">,</span>
     <span class="tok-cmt">// optional — shown as a subtitle in Further Reading</span>
+    <span class="tok-key">"shareUrl"</span><span class="tok-dim">:</span>    <span class="tok-str">"./lore/nix-combat/"</span>  <span class="tok-cmt">// relative to character root, not lore folder</span>
   <span class="tok-dim">},</span>
   <span class="tok-dim">{</span>
     <span class="tok-key">"id"</span><span class="tok-dim">:</span>    <span class="tok-str">"the-docks"</span><span class="tok-dim">,</span>
@@ -569,7 +570,8 @@ Second paragraph.
 &lt;/body&gt;
 &lt;/html&gt;</span></code></pre>
       <p>The <code>meta http-equiv="refresh"</code> handles browsers with JavaScript disabled; the script handles everyone else. Both redirect to the hash URL where the actual lore page renders.</p>
-      <p>Once the stub folder exists, add <code>"shareUrl": "./nix-combat/"</code> to the entry in <code>lore/index.json</code> — the Further Reading link and lore page nav will automatically use the stub URL instead of the hash URL, so shared links always go through the stub and get the right embed.</p>
+      <p>Once the stub folder exists, add <code>"shareUrl": "./lore/nix-combat/"</code> to the entry in <code>lore/index.json</code> — the Further Reading link and lore page nav will automatically use the stub URL instead of the hash URL, so shared links always go through the stub and get the right embed.</p>
+      <div class="callout accent"><strong>Important:</strong> <code>shareUrl</code> is relative to the <em>character sheet root</em> (<code>yourcharacter/</code>), not the lore folder. Always prefix with <code>./lore/</code> — e.g. <code>"./lore/nix-combat/"</code>, not <code>"./nix-combat/"</code>.</div>
       <div class="callout">The stub is optional per entry — entries without a <code>shareUrl</code> still work fine, they just won't have a custom Discord embed.</div>
     </section>
 
