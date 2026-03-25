@@ -101,7 +101,11 @@
     <div class="magic-slots"></div>
     <div class="magic-prepared-header">Prepared</div>
     <ul class="magic-prepared-list"></ul>
-    <button class="magic-spellbook-btn">Open Formula Book</button>
+    <div class="magic-btn-row">
+      <button class="magic-spellbook-btn">Open Formula Book</button>
+      <button class="magic-rest-btn">Rest</button>
+      <button class="magic-export-btn">Export State</button>
+    </div>
   </div>
 
   <div class="divider"></div>
@@ -142,6 +146,20 @@
     <button class="modal-close-btn" aria-label="Close">✕</button>
     <div class="spellbook-modal-title"></div>
     <div class="spellbook-list"></div>
+  </div>
+</div>
+
+<!-- Export State modal -->
+<div class="sheet-modal" id="export-modal" role="dialog" aria-modal="true">
+  <div class="sheet-modal-inner">
+    <button class="modal-close-btn" aria-label="Close">✕</button>
+    <div class="spell-modal-name">Export State</div>
+    <p class="export-instructions">
+      Copy these values into the <code>magic</code> block of your
+      <code>character.json</code> to persist today's state across devices.
+    </p>
+    <pre class="export-json"></pre>
+    <button class="export-copy-btn">Copy</button>
   </div>
 </div>
 

@@ -333,64 +333,225 @@ function buildLore(loreBlocks) {
   }).join('');
 }
 
-// ─── Magic / Formulae ────────────────────────────────────────────────────────
+// ─── Magic state ─────────────────────────────────────────────────────────────
+// Working state — lives in memory, synced to localStorage, seeded from JSON
+
+let _magicState = null;  // { prepared: [], slotsUsed: {}, preparedTimestamp: n }
+let _magicDef   = null;  // the full magic block from character.json
+
+function lsKey(magic) {
+  return `sheet_magic_${magic.id}`;
+}
+
+function loadMagicState(magic) {
+  // Start from JSON values
+  let state = {
+    prepared:          [...(magic.prepared || [])],
+    slotsUsed:         { ...(magic.slotsUsed || {}) },
+    preparedTimestamp: magic.preparedTimestamp || 0,
+  };
+
+  // Check localStorage — use it if it's newer
+  try {
+    const raw = localStorage.getItem(lsKey(magic));
+    if (raw) {
+      const ls = JSON.parse(raw);
+      if (ls.preparedTimestamp && ls.preparedTimestamp > state.preparedTimestamp) {
+        state = ls;
+      }
+    }
+  } catch (e) { /* localStorage unavailable or corrupt, use JSON state */ }
+
+  return state;
+}
+
+function saveMagicState() {
+  if (!_magicDef || !_magicState) return;
+  try {
+    localStorage.setItem(lsKey(_magicDef), JSON.stringify(_magicState));
+  } catch (e) { /* storage full or unavailable */ }
+}
+
+// ─── Magic rendering ──────────────────────────────────────────────────────────
+
+function renderMagicSection() {
+  const magic   = _magicDef;
+  const state   = _magicState;
+  const section = document.querySelector('#magic-section');
+  if (!section || !magic || !state) return;
+
+  const mode       = magic.castingMode || 'consume';
+  const slotsPerDay = magic.slotsPerDay || {};
+  const known      = magic.known || [];
+
+  // ── Slots display (pool mode only) ──
+  const slotsEl = section.querySelector('.magic-slots');
+  if (slotsEl) {
+    if (mode === 'pool') {
+      slotsEl.style.display = '';
+      slotsEl.innerHTML = Object.entries(slotsPerDay).map(([lvl, total]) => {
+        const used = state.slotsUsed[lvl] || 0;
+        const remaining = total - used;
+        return `
+          <div class="magic-slot-tile${remaining === 0 ? ' depleted' : ''}">
+            <span class="magic-slot-label">Level ${lvl}</span>
+            <span class="magic-slot-value">${remaining} <span class="magic-slot-of">/ ${total}</span></span>
+          </div>
+        `;
+      }).join('');
+    } else {
+      slotsEl.style.display = 'none';
+    }
+  }
+
+  // ── Prepared list grouped by level ──
+  const preparedEl = section.querySelector('.magic-prepared-list');
+  if (preparedEl) {
+    // Group prepared entries by level
+    const byLevel = {};
+    for (const id of state.prepared) {
+      const spell = known.find(s => s.id === id);
+      if (!spell) { console.warn(`magic: prepared id "${id}" not in known list`); continue; }
+      const lvl = spell.level ?? 1;
+      if (!byLevel[lvl]) byLevel[lvl] = [];
+      byLevel[lvl].push(spell);
+    }
+
+    const levels = Object.keys(byLevel).map(Number).sort((a, b) => a - b);
+
+    if (levels.length === 0) {
+      preparedEl.innerHTML = `<li class="magic-prepared-empty">Nothing prepared</li>`;
+    } else {
+      preparedEl.innerHTML = levels.map(lvl => {
+        const spells   = byLevel[lvl];
+        const total    = slotsPerDay[lvl] || 0;
+        const used     = state.slotsUsed[lvl] || 0;
+        const remaining = mode === 'consume' ? total - used - spells.length : total - used;
+
+        const headerExtra = mode === 'consume'
+          ? ` <span class="magic-level-remaining${remaining <= 0 ? ' depleted' : ''}">(${remaining} remaining)</span>`
+          : '';
+
+        const items = spells.map((spell, idx) => {
+          const actionLabel = mode === 'consume' ? 'Use' : 'Cast';
+          const canAct = mode === 'consume'
+            ? true  // consume: using removes it, always possible
+            : (total - (state.slotsUsed[lvl] || 0)) > 0;
+
+          // For consume mode, we need the index within this level group to identify which instance to remove
+          const preparedIndex = state.prepared.indexOf(spell.id,
+            idx === 0 ? 0 : state.prepared.indexOf(spell.id) + idx);
+
+          return `
+            <li class="magic-prepared-item">
+              <span class="magic-prepared-name" data-spell-id="${spell.id}" tabindex="0" role="button">${spell.name}</span>
+              <div class="magic-prepared-actions">
+                <button class="magic-action-btn${canAct ? '' : ' disabled'}"
+                  data-action="${mode === 'consume' ? 'use' : 'cast'}"
+                  data-spell-id="${spell.id}"
+                  data-level="${lvl}"
+                  data-prepared-index="${preparedIndex}"
+                  ${canAct ? '' : 'disabled'}>${actionLabel}</button>
+                ${mode === 'pool' ? `<button class="magic-action-btn magic-unprepare-btn" data-action="unprepare" data-spell-id="${spell.id}" data-level="${lvl}">✕</button>` : ''}
+              </div>
+            </li>
+          `;
+        }).join('');
+
+        return `
+          <li class="magic-level-group">
+            <div class="magic-level-header">Level ${lvl}${headerExtra}</div>
+            <ul class="magic-level-spells">${items}</ul>
+          </li>
+        `;
+      }).join('');
+    }
+
+    // ── Event delegation on prepared list ──
+    preparedEl.querySelectorAll('[data-spell-id]').forEach(el => {
+      if (el.tagName === 'SPAN') {
+        // Spell name → detail modal
+        el.addEventListener('click', () => openSpellModal(el.dataset.spellId, known));
+        el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openSpellModal(el.dataset.spellId, known); });
+      }
+    });
+
+    preparedEl.querySelectorAll('[data-action]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const action = btn.dataset.action;
+        const lvl    = btn.dataset.level;
+        const id     = btn.dataset.spellId;
+
+        if (action === 'use') {
+          // consume mode: remove this instance from prepared, slot returns
+          const idx = state.prepared.indexOf(id);
+          if (idx !== -1) state.prepared.splice(idx, 1);
+        } else if (action === 'cast') {
+          // pool mode: decrement a slot
+          state.slotsUsed[lvl] = (state.slotsUsed[lvl] || 0) + 1;
+        } else if (action === 'unprepare') {
+          // pool mode: remove from prepared, no slot change
+          const idx = state.prepared.indexOf(id);
+          if (idx !== -1) state.prepared.splice(idx, 1);
+        }
+
+        state.preparedTimestamp = Date.now();
+        saveMagicState();
+        renderMagicSection();
+      });
+    });
+  }
+
+  // ── Slots remaining header for consume mode (above prepared) ──
+  // Already handled inline in the level group headers above.
+
+  // ── Spellbook button ──
+  const bookBtn = section.querySelector('.magic-spellbook-btn');
+  if (bookBtn) {
+    bookBtn.textContent = `Open ${magic.spellbookLabel || 'Spellbook'}`;
+    // Remove old listener by replacing node
+    const newBtn = bookBtn.cloneNode(true);
+    bookBtn.parentNode.replaceChild(newBtn, bookBtn);
+    newBtn.addEventListener('click', () => openSpellbookModal(magic));
+  }
+
+  // ── Rest button ──
+  const restBtn = section.querySelector('.magic-rest-btn');
+  if (restBtn) {
+    const newBtn = restBtn.cloneNode(true);
+    restBtn.parentNode.replaceChild(newBtn, restBtn);
+    newBtn.addEventListener('click', () => {
+      state.prepared          = [];
+      state.slotsUsed         = Object.fromEntries(Object.keys(slotsPerDay).map(k => [k, 0]));
+      state.preparedTimestamp = Date.now();
+      saveMagicState();
+      renderMagicSection();
+    });
+  }
+
+  // ── Export button ──
+  const exportBtn = section.querySelector('.magic-export-btn');
+  if (exportBtn) {
+    const newBtn = exportBtn.cloneNode(true);
+    exportBtn.parentNode.replaceChild(newBtn, exportBtn);
+    newBtn.addEventListener('click', () => openExportModal(magic, state));
+  }
+}
 
 function buildMagic(magic) {
   const section = document.querySelector('#magic-section');
   if (!section || !magic) return;
   section.style.display = 'block';
 
-  // Section title label (Spells / Formulae / etc.)
+  // Set section title
   const titleEl = section.querySelector('.magic-section-title');
   if (titleEl) titleEl.textContent = magic.label || 'Magic';
 
-  // Slots per day
-  const slotsEl = section.querySelector('.magic-slots');
-  if (slotsEl) {
-    slotsEl.innerHTML = Object.entries(magic.slotsPerDay || {}).map(([lvl, count]) => `
-      <div class="magic-slot-tile">
-        <span class="magic-slot-label">Level ${lvl}</span>
-        <span class="magic-slot-value">${count}</span>
-      </div>
-    `).join('');
-  }
+  // Store refs globally so renderMagicSection can access them
+  _magicDef   = magic;
+  _magicState = loadMagicState(magic);
 
-  // Prepared list
-  const preparedEl = section.querySelector('.magic-prepared-list');
-  if (preparedEl) {
-    const prepared = magic.prepared || [];
-    if (prepared.length === 0) {
-      preparedEl.innerHTML = `<li class="magic-prepared-empty">None prepared</li>`;
-    } else {
-      preparedEl.innerHTML = prepared.map(id => {
-        const spell = (magic.known || []).find(s => s.id === id);
-        if (!spell) {
-          console.warn(`magic: prepared spell id "${id}" not found in known list`);
-          return '';
-        }
-        return `
-          <li class="magic-prepared-item" data-spell-id="${spell.id}" tabindex="0" role="button">
-            <span class="magic-prepared-name">${spell.name}</span>
-            <span class="magic-prepared-level">Lvl ${spell.level}</span>
-          </li>
-        `;
-      }).filter(Boolean).join('');
-
-      // Click/keyboard handlers for spell detail modal
-      preparedEl.querySelectorAll('.magic-prepared-item').forEach(item => {
-        const open = () => openSpellModal(item.dataset.spellId, magic.known);
-        item.addEventListener('click', open);
-        item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') open(); });
-      });
-    }
-  }
-
-  // Spellbook button
-  const bookBtn = section.querySelector('.magic-spellbook-btn');
-  if (bookBtn) {
-    bookBtn.textContent = `Open ${magic.spellbookLabel || 'Spellbook'}`;
-    bookBtn.addEventListener('click', () => openSpellbookModal(magic));
-  }
+  renderMagicSection();
 }
 
 // ─── Spell detail modal ───────────────────────────────────────────────────────
@@ -429,6 +590,10 @@ function openSpellbookModal(magic) {
   const modal = document.querySelector('#spellbook-modal');
   if (!modal) return;
 
+  const state      = _magicState;
+  const mode       = magic.castingMode || 'consume';
+  const slotsPerDay = magic.slotsPerDay || {};
+
   const titleEl = modal.querySelector('.spellbook-modal-title');
   if (titleEl) titleEl.textContent = magic.spellbookLabel || 'Spellbook';
 
@@ -448,30 +613,88 @@ function openSpellbookModal(magic) {
       listEl.innerHTML = Object.keys(byLevel).sort((a, b) => a - b).map(lvl => `
         <div class="spellbook-level-group">
           <div class="spellbook-level-header">Level ${lvl}</div>
-          ${byLevel[lvl].map(spell => `
-            <div class="spellbook-entry" data-spell-id="${spell.id}" tabindex="0" role="button">
-              <div class="spellbook-entry-header">
-                <span class="spellbook-entry-name">${spell.name}</span>
-                <span class="spellbook-entry-school">${spell.school || ''}</span>
+          ${byLevel[lvl].map(spell => {
+            const isPrepared   = state.prepared.includes(spell.id);
+            const total        = slotsPerDay[lvl] || 0;
+            const used         = state.slotsUsed[lvl] || 0;
+            const preparedCount = state.prepared.filter(id => {
+              const s = known.find(k => k.id === id);
+              return s && s.level == lvl;
+            }).length;
+            const remaining    = mode === 'consume' ? total - used - preparedCount : total - used;
+            const canPrepare   = mode === 'consume' ? remaining > 0 : !isPrepared;
+            const btnLabel     = mode === 'pool' && isPrepared ? 'Unprepare' : 'Prepare';
+            const btnDisabled  = mode === 'consume' && !canPrepare && !isPrepared ? 'disabled' : '';
+
+            return `
+              <div class="spellbook-entry" data-spell-id="${spell.id}" tabindex="0" role="button">
+                <div class="spellbook-entry-header">
+                  <span class="spellbook-entry-name">${spell.name}</span>
+                  <div class="spellbook-entry-header-right">
+                    <span class="spellbook-entry-school">${spell.school || ''}</span>
+                    <button class="magic-prepare-btn${isPrepared && mode === 'pool' ? ' prepared' : ''}${!canPrepare && mode === 'consume' ? ' disabled' : ''}"
+                      data-action="prepare"
+                      data-spell-id="${spell.id}"
+                      data-level="${lvl}"
+                      ${btnDisabled}
+                      onclick="event.stopPropagation()">${btnLabel}</button>
+                  </div>
+                </div>
+                <div class="spellbook-entry-body">
+                  ${spell.castingTime ? `<span><strong>Casting:</strong> ${spell.castingTime}</span>` : ''}
+                  ${spell.range       ? `<span><strong>Range:</strong> ${spell.range}</span>`        : ''}
+                  ${spell.duration    ? `<span><strong>Duration:</strong> ${spell.duration}</span>`  : ''}
+                  ${spell.target      ? `<span><strong>Target:</strong> ${spell.target}</span>`      : ''}
+                  ${spell.savingThrow ? `<span><strong>Save:</strong> ${spell.savingThrow}</span>`   : ''}
+                </div>
+                <div class="spellbook-entry-description">${renderMarkdown(spell.description || '')}</div>
               </div>
-              <div class="spellbook-entry-body">
-                ${spell.castingTime ? `<span><strong>Casting:</strong> ${spell.castingTime}</span>` : ''}
-                ${spell.range       ? `<span><strong>Range:</strong> ${spell.range}</span>`        : ''}
-                ${spell.duration    ? `<span><strong>Duration:</strong> ${spell.duration}</span>`  : ''}
-                ${spell.target      ? `<span><strong>Target:</strong> ${spell.target}</span>`      : ''}
-                ${spell.savingThrow ? `<span><strong>Save:</strong> ${spell.savingThrow}</span>`   : ''}
-              </div>
-              <div class="spellbook-entry-description">${renderMarkdown(spell.description || '')}</div>
-            </div>
-          `).join('')}
+            `;
+          }).join('')}
         </div>
       `).join('');
 
-      // Expand/collapse on click within spellbook
+      // Expand/collapse on entry click
       listEl.querySelectorAll('.spellbook-entry').forEach(entry => {
         entry.addEventListener('click', () => entry.classList.toggle('expanded'));
         entry.addEventListener('keydown', e => {
           if (e.key === 'Enter' || e.key === ' ') entry.classList.toggle('expanded');
+        });
+      });
+
+      // Prepare / unprepare buttons
+      listEl.querySelectorAll('[data-action="prepare"]').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.stopPropagation();
+          const id  = btn.dataset.spellId;
+          const lvl = btn.dataset.level;
+
+          if (mode === 'consume') {
+            // Always add another instance if slots remain
+            const total    = slotsPerDay[lvl] || 0;
+            const used     = state.slotsUsed[lvl] || 0;
+            const preparedCount = state.prepared.filter(pid => {
+              const s = known.find(k => k.id === pid);
+              return s && s.level == lvl;
+            }).length;
+            if (total - used - preparedCount > 0) {
+              state.prepared.push(id);
+            }
+          } else {
+            // pool: toggle
+            const idx = state.prepared.indexOf(id);
+            if (idx !== -1) {
+              state.prepared.splice(idx, 1);
+            } else {
+              state.prepared.push(id);
+            }
+          }
+
+          state.preparedTimestamp = Date.now();
+          saveMagicState();
+          renderMagicSection();
+          // Re-open modal with fresh state
+          openSpellbookModal(magic);
         });
       });
     }
@@ -502,6 +725,36 @@ function initModalClosers() {
       if (e.key === 'Escape' && modal.classList.contains('active')) closeModal(modal);
     });
   });
+}
+
+// ─── Export modal ─────────────────────────────────────────────────────────────
+
+function openExportModal(magic, state) {
+  const modal = document.querySelector('#export-modal');
+  if (!modal) return;
+
+  const exportData = {
+    slotsUsed:         state.slotsUsed,
+    prepared:          state.prepared,
+    preparedTimestamp: state.preparedTimestamp,
+  };
+
+  const pre = modal.querySelector('.export-json');
+  if (pre) pre.textContent = JSON.stringify(exportData, null, 2);
+
+  const copyBtn = modal.querySelector('.export-copy-btn');
+  if (copyBtn) {
+    const newBtn = copyBtn.cloneNode(true);
+    copyBtn.parentNode.replaceChild(newBtn, copyBtn);
+    newBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(JSON.stringify(exportData, null, 2))
+        .then(() => { newBtn.textContent = 'Copied!'; setTimeout(() => newBtn.textContent = 'Copy', 2000); })
+        .catch(() => { newBtn.textContent = 'Select & copy manually'; });
+    });
+  }
+
+  modal.classList.add('active');
+  document.body.classList.add('modal-open');
 }
 
 function buildFooter(text) {
