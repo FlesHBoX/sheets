@@ -452,7 +452,7 @@ function renderMagicSection() {
                   data-level="${lvl}"
                   data-prepared-index="${preparedIndex}"
                   ${canAct ? '' : 'disabled'}>${actionLabel}</button>
-                ${mode === 'pool' ? `<button class="magic-action-btn magic-unprepare-btn" data-action="unprepare" data-spell-id="${spell.id}" data-level="${lvl}">✕</button>` : ''}
+                <button class="magic-action-btn magic-unprepare-btn" data-action="unprepare" data-spell-id="${spell.id}" data-level="${lvl}">✕</button>
               </div>
             </li>
           `;
@@ -615,6 +615,7 @@ function openSpellbookModal(magic) {
           <div class="spellbook-level-header">Level ${lvl}</div>
           ${byLevel[lvl].map(spell => {
             const isPrepared   = state.prepared.includes(spell.id);
+            const instanceCount = state.prepared.filter(id => id === spell.id).length;
             const total        = slotsPerDay[lvl] || 0;
             const used         = state.slotsUsed[lvl] || 0;
             const preparedCount = state.prepared.filter(id => {
@@ -624,7 +625,7 @@ function openSpellbookModal(magic) {
             const remaining    = mode === 'consume' ? total - used - preparedCount : total - used;
             const canPrepare   = mode === 'consume' ? remaining > 0 : !isPrepared;
             const btnLabel     = mode === 'pool' && isPrepared ? 'Unprepare' : 'Prepare';
-            const btnDisabled  = mode === 'consume' && !canPrepare && !isPrepared ? 'disabled' : '';
+            const btnDisabled  = mode === 'consume' && !canPrepare ? 'disabled' : '';
 
             return `
               <div class="spellbook-entry" data-spell-id="${spell.id}" tabindex="0" role="button">
@@ -632,12 +633,20 @@ function openSpellbookModal(magic) {
                   <span class="spellbook-entry-name">${spell.name}</span>
                   <div class="spellbook-entry-header-right">
                     <span class="spellbook-entry-school">${spell.school || ''}</span>
-                    <button class="magic-prepare-btn${isPrepared && mode === 'pool' ? ' prepared' : ''}${!canPrepare && mode === 'consume' ? ' disabled' : ''}"
+                    ${mode === 'consume' && instanceCount > 0 ? `<span class="spellbook-instance-count">×${instanceCount}</span>` : ''}
+                    <button class="magic-prepare-btn${isPrepared && mode === 'pool' ? ' prepared' : ''}${btnDisabled ? ' disabled' : ''}"
                       data-action="prepare"
                       data-spell-id="${spell.id}"
                       data-level="${lvl}"
                       ${btnDisabled}
                       onclick="event.stopPropagation()">${btnLabel}</button>
+                    ${mode === 'consume' && instanceCount > 0 ? `
+                      <button class="magic-prepare-btn magic-unprepare-btn"
+                        data-action="spellbook-unprepare"
+                        data-spell-id="${spell.id}"
+                        data-level="${lvl}"
+                        onclick="event.stopPropagation()">✕</button>
+                    ` : ''}
                   </div>
                 </div>
                 <div class="spellbook-entry-body">
@@ -663,13 +672,18 @@ function openSpellbookModal(magic) {
       });
 
       // Prepare / unprepare buttons
-      listEl.querySelectorAll('[data-action="prepare"]').forEach(btn => {
+      listEl.querySelectorAll('[data-action="prepare"], [data-action="spellbook-unprepare"]').forEach(btn => {
         btn.addEventListener('click', e => {
           e.stopPropagation();
-          const id  = btn.dataset.spellId;
-          const lvl = btn.dataset.level;
+          const action = btn.dataset.action;
+          const id     = btn.dataset.spellId;
+          const lvl    = btn.dataset.level;
 
-          if (mode === 'consume') {
+          if (action === 'spellbook-unprepare') {
+            // Remove one instance from prepared
+            const idx = state.prepared.indexOf(id);
+            if (idx !== -1) state.prepared.splice(idx, 1);
+          } else if (mode === 'consume') {
             // Always add another instance if slots remain
             const total    = slotsPerDay[lvl] || 0;
             const used     = state.slotsUsed[lvl] || 0;

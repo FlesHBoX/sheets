@@ -636,7 +636,9 @@ tr:hover td {
 }
 
 /* ── MAGIC / FORMULAE ── */
-#magic-section { display: none; }
+#magic-section {
+  display: none;
+}
 
 .magic-slots {
   display: flex;
@@ -651,13 +653,11 @@ tr:hover td {
   border-radius: 4px;
   padding: 0.6rem 1rem;
   text-align: center;
-  min-width: 90px;
+  min-width: 80px;
 }
 
-.magic-slot-tile.depleted { border-color: var(--accent); }
-
 .magic-slot-label {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.55rem;
   letter-spacing: 0.2em;
   color: var(--text-dim);
@@ -667,17 +667,14 @@ tr:hover td {
 }
 
 .magic-slot-value {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--primary);
 }
 
-.magic-slot-tile.depleted .magic-slot-value { color: var(--accent); }
-.magic-slot-of { font-size: 0.7rem; color: var(--text-dim); font-weight: 400; }
-
 .magic-prepared-header {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.6rem;
   letter-spacing: 0.2em;
   color: var(--text-dim);
@@ -697,28 +694,9 @@ tr:hover td {
   padding: 0.4rem 0;
 }
 
-.magic-level-group { margin-bottom: 0.75rem; }
-
-.magic-level-header {
-  font-family: 'Cinzel', serif;
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 0.4rem;
-  padding-bottom: 0.25rem;
-  border-bottom: 1px solid var(--border);
-}
-
-.magic-level-remaining {
-  color: var(--primary);
-  margin-left: 0.5em;
-  font-size: 0.55rem;
-}
-
-.magic-level-remaining.depleted { color: var(--accent); }
-
-.magic-level-spells { list-style: none; }
+.magic-slot-tile.depleted { border-color: var(--accent); }
+.magic-slot-tile.depleted .magic-slot-value { color: var(--accent); }
+.magic-slot-of { font-size: 0.7rem; color: var(--text-dim); font-weight: 400; }
 
 .magic-prepared-item {
   display: flex;
@@ -745,6 +723,29 @@ tr:hover td {
   gap: 0.4rem;
   align-items: center;
 }
+
+.magic-level-group { margin-bottom: 0.75rem; }
+
+.magic-level-header {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.magic-level-remaining {
+  color: var(--primary);
+  margin-left: 0.5em;
+  font-size: 0.55rem;
+}
+
+.magic-level-remaining.depleted { color: var(--accent); }
+
+.magic-level-spells { list-style: none; }
 
 .magic-action-btn {
   background: transparent;
@@ -775,41 +776,7 @@ tr:hover td {
   padding: 0.2rem 0.4rem;
 }
 
-.magic-unprepare-btn:hover { border-color: var(--accent); color: var(--accent); }
-
-.magic-btn-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 0.5rem;
-}
-
-.magic-spellbook-btn,
-.magic-rest-btn,
-.magic-export-btn {
-  background: transparent;
-  border: 1px solid var(--accent);
-  border-radius: 4px;
-  padding: 0.5rem 1.2rem;
-  font-family: 'Cinzel', serif;
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--accent);
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
-}
-
-.magic-spellbook-btn:hover,
-.magic-rest-btn:hover,
-.magic-export-btn:hover {
-  background: var(--accent-dim);
-  border-color: var(--primary);
-  color: var(--primary);
-}
-
-.magic-rest-btn { border-color: var(--muted); color: var(--muted); }
-.magic-rest-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+.magic-unprepare-btn:hover { border-color: var(--accent); }
 
 .spellbook-entry-header-right {
   display: flex;
@@ -874,6 +841,40 @@ tr:hover td {
 }
 
 .export-copy-btn:hover { background: var(--primary-dim); }
+
+.magic-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.magic-spellbook-btn,
+.magic-rest-btn,
+.magic-export-btn {
+  background: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 0.5rem 1.2rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.magic-spellbook-btn:hover,
+.magic-rest-btn:hover,
+.magic-export-btn:hover {
+  background: var(--accent-dim);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.magic-rest-btn { border-color: var(--muted); color: var(--muted); }
+.magic-rest-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
 
 /* ── SHEET MODALS ── */
 .sheet-modal {
@@ -1038,6 +1039,14 @@ body.modal-open {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--text-dim);
+}
+
+.spellbook-instance-count {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.05em;
 }
 
 .spellbook-entry-body {
