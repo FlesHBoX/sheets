@@ -27,7 +27,7 @@
     { "label": "Deity",      "value": "Raventongue" },
     { "label": "Homeland",   "value": "Plane of Shadow (The Bound Isles)" },
     { "label": "Occupation", "value": "Guild Initiate, Delver's Contract" },
-    { "label": "Languages",  "value": "Common, Shadowtongue, Draconic, Necril, D'ziriak, Shae, (1 reserved)", "note": "Accumulated passively. Nix may speak or insert words from a language without registering that no one else understands it." }
+    { "label": "Languages",  "value": "Common, Shadowtongue, Draconic, Necril, D'ziriak, Shae, (1 reserved)" }
   ],
   "appearance": [
     { "label": "Skin",    "value": "Grey, pale, fetchling complexion", "labelVariant": "primary" },
@@ -104,7 +104,7 @@
     { "name": "Craft (Alchemy)",    "stat": "INT", "classSkill": true, "ranks": 3 },
     { "name": "Linguistics",        "stat": "INT", "classSkill": true, "ranks": 2 }
   ],
-  "skillsNote": "Free ranks from Alchemist · 6 pts/level x 3 levels = 18 total · WIS-based skills are inaccessible. Nix does not make Perception, Sense Motive, Heal, or Survival rolls. Keith determines what Nix notices passively.",
+  "skillsNote": "Free ranks from Alchemist · 6 pts/level x 3 levels = 18 total · WIS-based skills are inaccessible. Nix does not make Perception, Sense Motive, Heal, or Survival rolls. Keith determines what Nix notices passively. Languages accumulate the same way, absorbed through exposure without deliberate study. Nix may speak or insert words from a language without registering that no one else understands it.",
   "racialTraits": {
     "raceName": "Fetchling",
     "traits": [
