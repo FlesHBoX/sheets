@@ -1,0 +1,40 @@
+{
+  "title": "The Road to Saelish",
+  "blocks": [
+    {
+      "title": "Night 7 — The Ambush",
+      "accent": "primary",
+      "content": "The party left for **Saelish**. Atnas spotted the ambush before anyone else knew it was there — same Brand members from the tomb, waiting on the road. They engaged.\n\nMid-fight, Atnas recognized one of them.\n\nHe called out to the team: *don't kill him.*\n\nWhen it was over, they bound **Karspum's** wounds and confined him. They moved on."
+    },
+    {
+      "title": "Night 8 — Karspum",
+      "accent": "accent",
+      "content": "Karspum had been waiting for this. He had things he needed Atnas to hear.\n\nTheir parents were dead. The Brand had found out where Atnas's crusade against the criminal underworld had led — and they had burned the family home to the ground in retaliation. Karspum had gone to the funeral alone. *\"THAT YOU COULDN'T EVEN BE BOTHERED SHOWING UP TO.\"* The Brand showed him who lit the fire. They gave him the power to take them apart. He gave the killers to his Lord at his initiation — to the Purifying Fire, the Guiding Hand of Strength — and was remade: metal wings, new form, new purpose. He had been hunting Atnas the same way Atnas had been hunting the Brand.\n\n*\"AND HERE WE ARE. YOU SELF RIGHTEOUS PRICK.\"*\n\nAtnas almost held it. He got close. But not close enough. He dove at Karspum, shoved his pistol into his brother's mouth.\n\n*\"Shut. Up.\"*\n\nLight glinted off his wings. His rage was building. Karspum started praying around the barrel of the gun — eyes going dark, cold blue fire burning in the pupils. That fire erupted outward from his chest in a burst meant to throw everyone clear. It startled Atnas.\n\nThe gun went off.",
+      "incidents": [
+        {
+          "text": "\"NO!!!!\"",
+          "variant": "accent"
+        },
+        {
+          "text": "\"I didn't mean to.\"",
+          "variant": "default"
+        }
+      ]
+    },
+    {
+      "title": "What Astra Saw",
+      "accent": "primary",
+      "content": "Karspum's spirit was thrown from his body the moment the shot rang out. He landed in the blood and brain matter — naked soul, confused, looking around. He stood. He began to shout something.\n\nA Hell Gate opened behind him. A hand reached through — a wrist that would stretch the ring on a basketball hoop. It closed around Karspum and pulled him in. As he was dragged through, he screamed: *\"I am coming, Lord. I still serve.\"*\n\nAstra saw all of it. She told Karak. She has not told Atnas.\n\n*\"Even if we could somehow get the magic to make the attempt... I don't think we would be able to get his soul back. I've seen death, I've seen Tartarus claim those that belong there. That Gate was something MUCH worse.\"*"
+    },
+    {
+      "title": "The Pyre",
+      "accent": "accent",
+      "content": "Rue built the funeral pyre. Umara and Astra tried to hold what they'd seen, and couldn't. Both confided in Karak. Meanwhile, Atnas wept over the body for a long time — long enough that when he eventually came back, no one asked how long it had been.\n\nWhen the group returned to him, he was sitting with his back against his bike. His weapons were cleaned and put away. The case was spotless. He was covered in his brother's blood.\n\nThey held the funeral. Everyone said something. Atnas never spoke.\n\nThey burned the body and continued toward Saelish.",
+      "hooks": [
+        "Atnas carries Karspum's feather and the signet from his neck.",
+        "Astra knows what happened to Karspum's soul. Atnas does not.",
+        "The name of Karspum's Lord — the Purifying Fire, the Guiding Hand of Strength — was never given."
+      ]
+    }
+  ]
+}

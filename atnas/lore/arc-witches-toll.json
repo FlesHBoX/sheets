@@ -1,0 +1,18 @@
+{
+  "title": "Witches Toll",
+  "blocks": [
+    {
+      "title": "Night 11 — Departing Saelish",
+      "accent": "primary",
+      "content": "Before leaving, Rue attempted to scry the man and dragon who had stolen the divine flame from the temple of Peylor — Atnas had previously tracked them to **Witches Toll**. Rue determined the dragon hadn't consumed the divine flame but *absorbed* it, incorporating divine energy into its own arcane structure. He couldn't mark it directly, but now he could find it more easily.\n\nThe party restocked. Atnas went to the Talons for intelligence on the city ahead. They gave him two things: don't mention being a Talon in Witches Toll — the **Ciadron** had no interest in working with outside law enforcement — and find **Thessivara \"Thess\" Orindale**, Talon Sergeant-Investigator, a Kenku sent to investigate a string of disappearances among Harnsby survivors. She had been silent for over a month.\n\nAtnas thanked the halfling from the night before and left ten gold. They put it straight into a charity collection.\n\nKarak had been flirting with an apothecary, who gave him a teal-green potion. Umara smelled it out of curiosity and immediately went sideways — eyes glowing teal-blue, talking about colors and fireworks to the north, tracing paths through the air as though something was flying rather than arcing.\n\nRue looked at her with his sight and saw vines climbing through her aura, and three fey courts moving around her — which was wrong. There should only be two. He went to the bookstore. Found nothing on a third court.\n\nThe apothecary, when asked, explained: the **Wylde Court** was new — formed less than eight years ago, in the chaos that followed **Chel** crowning herself Winter Empress just before the Elven new year. That upset had thrown the existing two courts into disarray and prompted the third to coalesce.\n\nThe potion was for fey sight, she explained. Also protection from fey poisons — an ongoing issue in Witches Toll. Atnas asked if the disappearances Thess had been investigating could be connected. The apothecary confirmed it: the fey were notorious kidnappers.",
+      "hooks": [
+        "Find Thess Orindale — Talon Sergeant-Investigator, Kenku, missing over a month in Witches Toll.",
+        "The dragon and the stolen divine flame are in Witches Toll.",
+        "Three fey courts where there should be two. The Wylde Court is new and its allegiances are unknown.",
+        "Chel — formerly a dragon, now a deity — destabilized the existing fey power structure by crowning herself Winter Empress.",
+        "Disappearances among Harnsby survivors may be fey-related.",
+        "The Ciadron: local authority in Witches Toll. Does not cooperate with outside law enforcement."
+      ]
+    }
+  ]
+}

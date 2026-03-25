@@ -1,0 +1,26 @@
+[
+  {
+    "id": "arc-boarwoods-tomb",
+    "title": "The Boarwoods & the Tomb of the Talons",
+    "description": "Nights 1–5. Embernips, werewolves, the Oath, and a black dragon beneath the earth.",
+    "shareUrl": "./lore/arc-boarwoods-tomb/"
+  },
+  {
+    "id": "arc-karspum",
+    "title": "The Road to Saelish",
+    "description": "Nights 7–8. An ambush on the highway. A brother found. A brother lost.",
+    "shareUrl": "./lore/arc-karspum/"
+  },
+  {
+    "id": "arc-saelish",
+    "title": "Saelish",
+    "description": "Nights 9–10. The city of grief. The Talons' cleansing pool. One night of dreamless sleep.",
+    "shareUrl": "./lore/arc-saelish/"
+  },
+  {
+    "id": "arc-witches-toll",
+    "title": "Witches Toll",
+    "description": "Night 11 onward. A missing Talon sergeant. Fey courts in disarray. The reckoning waits.",
+    "shareUrl": "./lore/arc-witches-toll/"
+  }
+]

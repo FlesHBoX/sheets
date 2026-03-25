@@ -1,0 +1,21 @@
+{
+  "title": "Saelish",
+  "blocks": [
+    {
+      "title": "Night 9 — Overwatch",
+      "accent": "primary",
+      "content": "The party found an inn. Atnas went to the roof.\n\nHe would not allow anyone else to be hurt. That was the frame he had built around the last few hours and it would hold as long as he kept moving. Rue came up eventually to ask about the signet — whether he could borrow it for testing. Atnas handed it over without hesitation: *\"Try not to destroy it if you don't have to.\"*\n\nWhen the rest of the party headed toward the **Temple of the Talon**, Atnas followed them from the rooftops.\n\nInside, the priest asked if anyone had taken the oath. Atnas dropped down and said, simply, *\"I did.\"* The priest saw the grief clearly enough that he didn't ask about it. He took Atnas to a **cleansing pool**. Some of the weight fell away — not all of it, but some.\n\nLater, splitting up across the city, Atnas was on the rooftops again when he saw a group of thugs moving toward a young woman on a dark street. He came down. The rest of the party saw it happen and moved to back him up — but Atnas refused to use violence. He intimidated them until they turned and walked away. As they went, he called after them:\n\n*\"Make better life choices.\"*"
+    },
+    {
+      "title": "Night 10 — The Festival",
+      "accent": "accent",
+      "content": "The city was preparing a festival of thanks. The **Talons** asked Atnas to serve in their honor guard and lent him their armor for the occasion.\n\nDuring the festival, a baby dragon stole the divine fire from one of the temples. The party worked to restore it — they overcame whatever force was suppressing the flame, but the fire that took hold was not holy.\n\nAfterward, Atnas went back to the rooftops. He began losing time. He was too exhausted to keep watch and he knew it, so he conceded to sleep — and found that sleep was its own trap. Nightmares pulled him awake again and again.\n\nA halfling in the inn heard him.\n\nThey offered him a potion for dreamless sleep. He took it.",
+      "incidents": [
+        {
+          "text": "Rest can be given. You don't always have to earn it.",
+          "variant": "default"
+        }
+      ]
+    }
+  ]
+}
