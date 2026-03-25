@@ -209,10 +209,12 @@ function renderLoreEntry(entry) {
 // ── Build nav ──────────────────────────────────────────────────────────────
 function buildNav(entries, currentId) {
   const nav = document.getElementById('lore-nav-entries');
-  nav.innerHTML = entries.map(e => `
-    <a class="lore-nav-entry${e.id === currentId ? ' active' : ''}"
-       href="${e.shareUrl || `./#${e.id}`}">${e.title}</a>
-  `).join('');
+  nav.innerHTML = entries.map(e => {
+    const href = e.shareUrl
+      ? new URL(e.shareUrl, CHAR_BASE).href
+      : `${LORE_BASE}#${e.id}`;
+    return `<a class="lore-nav-entry${e.id === currentId ? ' active' : ''}" href="${href}">${e.title}</a>`;
+  }).join('');
 }
 
 // ── Main loader ────────────────────────────────────────────────────────────
