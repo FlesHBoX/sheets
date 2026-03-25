@@ -94,6 +94,46 @@
   .lore-prose em  { color: var(--accent); font-style: italic; }
   .lore-prose strong { color: var(--primary); }
 
+  /* ── LORE INDEX ── */
+  .lore-index-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .lore-index-entry {
+    display: flex;
+    flex-direction: column;
+    background: var(--raised);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+    padding: 0.9rem 1.2rem;
+    text-decoration: none;
+    transition: border-left-color 0.15s, background 0.15s;
+  }
+
+  .lore-index-entry:hover {
+    border-left-color: var(--primary);
+    background: var(--primary-dim);
+  }
+
+  .lore-index-entry-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 0.3rem;
+  }
+
+  .lore-index-entry-desc {
+    font-size: 0.92rem;
+    color: var(--text-dim);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
   /* ── LORE BLOCKS (reuses sheet styles) ── */
   .lore-page .lore-block p { font-size: 1rem; line-height: 1.8; }
 
@@ -209,10 +249,12 @@ function renderLoreEntry(entry) {
 // ── Build nav ──────────────────────────────────────────────────────────────
 function buildNav(entries, currentId) {
   const nav = document.getElementById('lore-nav-entries');
-  nav.innerHTML = entries.map(e => `
-    <a class="lore-nav-entry${e.id === currentId ? ' active' : ''}"
-       href="${e.shareUrl || `./#${e.id}`}">${e.title}</a>
-  `).join('');
+  nav.innerHTML = entries.map(e => {
+    const href = e.shareUrl
+      ? new URL(e.shareUrl, CHAR_BASE).href
+      : `${LORE_BASE}#${e.id}`;
+    return `<a class="lore-nav-entry${e.id === currentId ? ' active' : ''}" href="${href}">${e.title}</a>`;
+  }).join('');
 }
 
 // ── Main loader ────────────────────────────────────────────────────────────
@@ -220,8 +262,46 @@ async function loadLore() {
   const id = window.location.hash.slice(1);
 
   if (!id) {
-    document.getElementById('lore-content').innerHTML =
-      `<div class="lore-error">No lore entry specified.</div>`;
+    // No hash — render an index of all lore entries
+    try {
+      const [charRes, indexRes] = await Promise.all([
+        fetch(CHAR_BASE + 'character.json'),
+        fetch(LORE_BASE + 'index.json'),
+      ]);
+
+      if (charRes.ok) {
+        const char = await charRes.json();
+        applyTheme(char.theme);
+        const backLink = document.getElementById('back-link');
+        backLink.textContent = `${char.header.name} — Character Sheet`;
+        backLink.setAttribute('href', char.meta.ogUrl || '../');
+      }
+
+      const entries = indexRes.ok ? await indexRes.json() : [];
+      buildNav(entries, null);
+
+      const container = document.getElementById('lore-content');
+      if (!entries.length) {
+        container.innerHTML = `<div class="lore-error">No lore entries found.</div>`;
+      } else {
+        container.innerHTML = `
+          <h1 class="lore-page-title">Further Reading</h1>
+          <div class="lore-page-divider"></div>
+          <div class="lore-index-list">
+            ${entries.map(e => `
+              <a class="lore-index-entry" href="${e.shareUrl ? new URL(e.shareUrl, CHAR_BASE).href : `#${e.id}`}">
+                <span class="lore-index-entry-title">${e.title}</span>
+                ${e.description ? `<span class="lore-index-entry-desc">${e.description}</span>` : ''}
+              </a>
+            `).join('')}
+          </div>
+        `;
+      }
+    } catch (err) {
+      document.getElementById('lore-content').innerHTML =
+        `<div class="lore-error">${err.message}</div>`;
+    }
+
     document.body.classList.add('loaded');
     return;
   }
