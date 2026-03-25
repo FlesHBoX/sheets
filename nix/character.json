@@ -94,16 +94,26 @@
     { "level": "3rd", "name": "Two Weapon Fighting", "notes": "Reduces TWF penalties to −2/−2" }
   ],
   "skills": [
-    { "name": "Perception",         "stat": "WIS", "classSkill": true, "ranks": 3 },
     { "name": "Intimidate",         "stat": "CHA", "classSkill": true, "ranks": 3 },
-    { "name": "Knowledge (Nature)", "stat": "INT", "classSkill": true, "ranks": 1 },
+    { "name": "Knowledge (Nature)", "stat": "INT", "classSkill": true, "ranks": 2 },
     { "name": "Knowledge (Planes)", "stat": "INT", "classSkill": true, "ranks": 2, "misc": 2, "miscReason": "Racial +2" },
     { "name": "Disable Device",     "stat": "DEX", "classSkill": true, "ranks": 3 },
     { "name": "Acrobatics",         "stat": "DEX", "classSkill": true, "ranks": 3 },
     { "name": "Sleight of Hand",    "stat": "DEX", "classSkill": true, "ranks": 3 },
-    { "name": "Craft (Alchemy)",    "stat": "INT", "classSkill": true, "ranks": 3 }
+    { "name": "Craft (Alchemy)",    "stat": "INT", "classSkill": true, "ranks": 3 },
+    { "name": "Linguistics",        "stat": "INT", "classSkill": true, "ranks": 2 }
   ],
-  "skillsNote": "Free ranks from Alchemist · 6 pts/level × 3 levels = 18 total · ● = class skill bonus applied",
+  "skillsNote": "Free ranks from Alchemist · 6 pts/level × 3 levels = 18 total · ● = class skill bonus applied · WIS-based skills are inaccessible — Nix does not make Perception, Sense Motive, Heal, or Survival rolls. Keith determines what Nix notices passively.",
+  "languages": [
+    { "name": "Common" },
+    { "name": "Shadowtongue" },
+    { "name": "Draconic",    "note": "Fetchlings as vassals of shadow dragons" },
+    { "name": "Necril",      "note": "Absorbed in The Pit — proximity to vampires" },
+    { "name": "D'ziriak",    "note": "Native to the Plane of Shadow" },
+    { "name": "Shae",        "note": "Less common; supported by fetchling lore exposure" },
+    { "name": "—",           "note": "Reserved — to be filled when campaign exposure warrants it" }
+  ],
+  "languagesNote": "Languages accumulate passively. Nix absorbs them through exposure without deliberate study, and may speak or insert words from a language without registering that no one else understands it.",
   "racialTraits": {
     "raceName": "Fetchling",
     "traits": [
@@ -124,37 +134,17 @@
     { "name": "Gold",                "notes": "400 gp remaining", "notesVariant": "primary" }
   ],
   "lore": [
-    {
-      "title": "Raventongue", "accent": "primary",
-      "content": "God of the lost, forgotten, and unwanted. Patron of orphans and thieves. His holy symbol is a rapier with a winged, swept hilt. His people on the Bound Isles do not ask where you came from."
-    },
-    {
-      "title": "Ember", "titleNote": "(she/her)", "accent": "accent",
-      "content": "Ember was the last child born to the **Light Singers** — a clan of fetchling nomads who spent generations traveling west across the Plane of Shadow, forever following the eternally setting sun. The winter Ember was born, every woman in the clan became barren on the same night. The elders knew the prophecy. They did not speak it aloud.\n\nThey raised her together instead. Every story the clan had ever carried, every recipe, every song, every memory stretching back further than anyone could trace — poured into her. Ember became a living archive. The last ember of everything the Light Singers had ever been.\n\nShe was given clan tattoos as she grew. Deliberate. Elegant. Ceremonial. The markings of someone who knew exactly who they were.\n\nWhen Ember came of age, the clan stopped walking. They had arrived. A crumbling temple — half consumed by shadow, half blazing with the light of the setting sun. Each elder told her one final story. A story of calamity and renewal. She cannot remember the words. She feels them still.\n\nThe last thing Ember saw of home was the faces of everyone she had ever loved, slowly consumed by darkness blacker than death as the portal opened beneath her feet."
-    },
-    {
-      "title": "The Pit", "accent": "accent",
-      "content": "The vampire lords did not take the Light Singers for food. They took them for sport.\n\nThe clan was separated, imprisoned, and introduced to the arena one threshold at a time. The fights began with beasts. Then monsters. Then rival clans. Each time Ember survived, she was rewarded — elixirs that produced euphoria unlike anything she had words for. Warmth. Relief. The chemical sensation of having done something *right.*\n\nWhat the lords did not know — what perhaps they never thought to ask — was what the elixir was actually returning her to. Because early on, without being taught, without even fully deciding to, Ember learned to go somewhere else. To close a door in herself before the fighting started and wait behind it until the noise stopped. Her hands learned the work without her. The part of her that remembered the clan's songs and her spouse's face and the smell of home — that part stepped back, and something quieter and steadier stepped forward in its place.\n\nThe elixir opened the door again. That was the reward. Not the kills. The *return.* Warmth flooding back into a self that had been held at a careful distance from horror. The feeling of being real again. Of being Ember again, if only until the next fight.\n\nThe conditioning was patient and thorough. It did not need her to enjoy the violence. It only needed her to need the way back.\n\nThe fights escalated. Rival clan members. Strangers. Each time she hesitated less. Each time the reward came faster. The lords fed her well, housed her well, treated her like she mattered.\n\nBy the time they put her against members of her own clan, the threshold had already been crossed so many times it barely registered as a threshold.\n\nBy the time they put her against her family, she knew what was coming and her hands were already steady.\n\nHer spouse was last.\n\nShe does not remember how long the fight lasted. She remembers the expression on their face at the end — not hatred. Not fear.\n\n*Forgiveness.*\n\nShe remembers closing the door. She remembers that it didn't help.\n\nShe remembers what the elixir felt like afterward. The warmth came. The door opened. Ember came back to herself, and herself was still standing in the arena, and the elixir couldn't fix that part.\n\nThat is the part that cannot be filed anywhere. That is the part that has no shape. That is the wound underneath all the other wounds, the one that the tattoos were never going to cover no matter how frantically Nix applied them."
-    },
-    {
-      "title": "The Name", "accent": "primary",
-      "content": "When it was over, the Archlord looked at what remained of Ember and gave it a name. *Nix.* A curse word in his mother tongue. Then he pressed a drop of his own blood to their lips, spoke three bindings into it, and cast them into the void between planes.\n\nAn experiment. What happens when you take everything from someone — and then take even more?\n\nNix kept the name. They don't fully know why. Somewhere underneath the chaos, underneath the voices and the conditioning and the arguments, something kept it on purpose. Something that hasn't announced itself as a reason. Something patient and small and not entirely extinguished.\n\n*Ember knows why.*\n\nNix tells her to shut up about it."
-    },
-    {
-      "title": "The Three Bindings", "accent": "accent",
-      "bindings": [
-        { "label": "Binding I",   "name": "You cannot die by your own hand.",   "description": "The blood crystallizes in Nix's veins if they attempt self-destruction — paralyzing, agonizing, absolute. This is not mercy. The experiment is not finished. Reckless choices are permitted. Suicide is not." },
-        { "label": "Binding II",  "name": "You cannot be hidden from him.",     "description": "The Archlord always knows where Nix is. He has not come to collect them yet. This is its own kind of horror — being watched by something that hasn't decided what to do with you." },
-        { "label": "Binding III", "name": "You hear them all.",                 "description": "The Archlord's blood carries the essence of everyone whose blood has ever mingled with his. Nix hears their voices. All of them. Constantly. Ember is the one Nix gave a name to. Ember is the one Nix argues with out loud. The others have not been named." }
-      ]
-    },
-    {
-      "title": "Nix", "accent": "primary",
-      "content": "Nix emerged from the void onto the Bound Isles. Found Raventongue's people. Survived. Functioned. After a fashion.\n\nThe elixir came first. Before the guild, before anything else — the knowledge of how to make it was just there, in hands that remembered things Nix didn't. The formula surfaced like muscle memory. Nix reconstructed it precisely, has never examined why, takes it when the violence ends. The calm recedes. Something comes back. Nix believes this is how everyone processes things. Nix has never thought to question it.\n\nThe guild came later — not by plan. Nix happened to see a member of the **Blightfather's** clergy speaking to a Delvers Guild recruiter. The Blightfather is known to abhor vampires. Something steered Nix toward that conversation without announcing itself as a reason. Nix signed the contract. They tell themselves it was practical.\n\n*Ember hasn't said anything about it. Which is unusual.*\n\nThe guild quartermaster has an informal chalk mark system for when Nix comes in. Everyone is suddenly very busy with paperwork. It's the stillness, mostly. The way Nix goes completely, perfectly calm at the exact moment when a reasonable person would not be calm. The slight tilt of the head.\n\nThat, and the arguments with Ember."
-    },
-    {
-      "title": "The Ember Problem", "accent": "accent",
-      "content": "Ember is still in there. She remembers everything — every story, every recipe, every face of the clan, every moment in the arena, every reward, every threshold crossed, the expression at the end. She has opinions. She does not stay quiet.\n\nNix does not open the archive. Nix addresses Ember directly, out loud, when necessary, and considers this perfectly normal. It is not perfectly normal.\n\nEmber is also the loudest voice. She is not the only one.",
+    { "title": "Raventongue", "accent": "primary", "content": "God of the lost, forgotten, and unwanted. Patron of orphans and thieves. His holy symbol is a rapier with a winged, swept hilt. His people on the Bound Isles do not ask where you came from." },
+    { "title": "Ember", "titleNote": "(she/her)", "accent": "accent", "content": "Ember was the last child born to the **Light Singers** — a clan of fetchling nomads who spent generations traveling west across the Plane of Shadow, forever following the eternally setting sun. The winter Ember was born, every woman in the clan became barren on the same night. The elders knew the prophecy. They did not speak it aloud.\n\nThey raised her together instead. Every story the clan had ever carried, every recipe, every song, every memory stretching back further than anyone could trace — poured into her. Ember became a living archive. The last ember of everything the Light Singers had ever been.\n\nShe was given clan tattoos as she grew. Deliberate. Elegant. Ceremonial. The markings of someone who knew exactly who they were.\n\nWhen Ember came of age, the clan stopped walking. They had arrived. A crumbling temple — half consumed by shadow, half blazing with the light of the setting sun. Each elder told her one final story. A story of calamity and renewal. She cannot remember the words. She feels them still.\n\nThe last thing Ember saw of home was the faces of everyone she had ever loved, slowly consumed by darkness blacker than death as the portal opened beneath her feet." },
+    { "title": "The Pit", "accent": "accent", "content": "The vampire lords did not take the Light Singers for food. They took them for sport.\n\nThe clan was separated, imprisoned, and introduced to the arena one threshold at a time. The fights began with beasts. Then monsters. Then rival clans. Each time Ember survived, she was rewarded — elixirs that produced euphoria unlike anything she had words for. Warmth. Relief. The chemical sensation of having done something *right.*\n\nShe began to associate the arena with that feeling. The conditioning was patient and thorough.\n\nBy the time they put her against members of her own clan, the threshold had already been crossed so many times it barely registered. By the time they put her against her family, her hands were already steady.\n\nHer spouse was last. She does not remember how long the fight lasted. She remembers the expression on their face at the end. Not hatred. Not fear.\n\n*Forgiveness.*\n\nShe remembers what the elixir felt like afterward. That is the part that has no shape. That is the wound underneath all the other wounds — the one the tattoos were never going to cover." },
+    { "title": "The Name", "accent": "primary", "content": "When it was over, the Archlord looked at what remained of Ember and gave it a name. *Nix.* A curse word in his mother tongue. Then he pressed a drop of his own blood to their lips, spoke three bindings into it, and cast them into the void between planes.\n\nAn experiment. What happens when you take everything from someone — and then take even more?\n\nNix kept the name. They don't fully know why. Somewhere underneath the chaos, underneath the voices and the conditioning and the arguments, something kept it on purpose. Something that hasn't announced itself as a reason. Something patient and small and not entirely extinguished.\n\n*Ember knows why.*\n\nNix tells her to shut up about it." },
+    { "title": "The Three Bindings", "accent": "accent", "bindings": [
+      { "label": "Binding I",   "name": "You cannot die by your own hand.",   "description": "The blood crystallizes in Nix's veins if they attempt self-destruction — paralyzing, agonizing, absolute. This is not mercy. The experiment is not finished. Reckless choices are permitted. Suicide is not." },
+      { "label": "Binding II",  "name": "You cannot be hidden from him.",     "description": "The Archlord always knows where Nix is. He has not come to collect them yet. This is its own kind of horror — being watched by something that hasn't decided what to do with you." },
+      { "label": "Binding III", "name": "You hear them all.",                 "description": "The Archlord's blood carries the essence of everyone whose blood has ever mingled with his. Nix hears their voices. All of them. Constantly. Ember is the one Nix gave a name to. Ember is the one Nix argues with out loud. The others have not been named." }
+    ]},
+    { "title": "Nix", "accent": "primary", "content": "Nix emerged from the void onto the Bound Isles. Found Raventongue's people. Survived. Functioned. After a fashion.\n\nThe guild came later — not by plan. Nix happened to see a member of the **Blightfather's** clergy speaking to a Delvers Guild recruiter. The Blightfather is known to abhor vampires. Something steered Nix toward that conversation without announcing itself as a reason. Nix signed the contract. They tell themselves it was practical.\n\n*Ember hasn't said anything about it. Which is unusual.*\n\nThe guild quartermaster has an informal chalk mark system for when Nix comes in. Everyone is suddenly very busy with paperwork. It's the stillness, mostly. The way Nix goes completely, perfectly calm at the exact moment when a reasonable person would not be calm. The slight tilt of the head.\n\nThat, and the arguments with Ember.\n\nNix does not lie. Not from principle — there is simply no model for the gap between what is true and what is useful to say. Information is transmitted because it is accurate. For the same reason, Nix does not register that others might operate differently. Someone lying to Nix is received as data. It will be acted on, literally and completely, with no cross-referencing against motive. This is not naivety in the soft sense. It is the same absence that makes the WIS score what it is — the filter is not broken. It was never installed." },
+    { "title": "The Ember Problem", "accent": "accent", "content": "Ember is still in there. She remembers everything — every story, every recipe, every face of the clan, every moment in the arena, every reward, every threshold crossed, the expression at the end. She has opinions. She does not stay quiet.\n\nNix does not open the archive. Nix addresses Ember directly, out loud, when necessary, and considers this perfectly normal. It is not perfectly normal.\n\nEmber is also the loudest voice. She is not the only one.",
       "incidents": [
         { "text": "\"SHUT UP EMBER.\"", "variant": "default" },
         { "text": "\"This is not your party, Ember.\"", "variant": "default" },
@@ -162,21 +152,15 @@
         { "text": "\"...I know, Ember. I know.\"", "variant": "accent" }
       ]
     },
-    {
-      "title": "A Note on the Conditioning", "accent": "primary",
-      "content": "Nix uses bombs. Nix has a mutagen. Nix goes very still before violence and very calm during it.\n\nThe vampire lords' conditioning did not disappear when Ember became Nix.\n\n*It just got a new name.*\n\nThe calm is not rage. It never was. It is the door Ember learned to close in the arena — the survival mechanism she built to protect herself from what her hands were doing. Nix inherited it without inheriting the context. To Nix, the stillness before violence is simply how they work. The baseline. The state that just runs when the situation requires it. They do not know it is unusual. They do not know it has a history.\n\nEmber is not a separate voice running parallel beneath the surface. She is sediment. The shape of someone still pressed into the clay. During the violence she gets closer — not as words, not as instruction, but as the body remembering. The hands that learned the work without her, still knowing it.\n\nThe elixir ends the calm. The door opens. Something that passes for Nix comes back.\n\nIn that space — in the warmth of the return, in the moment before Nix is fully present again — the wall gets thin. Whatever is on the other side of it presses close. There are no words for it. Nix does not have access to what it is or where it comes from. There is only the weight of it, quiet and very old, and sometimes, without entirely knowing why, Nix says:\n\n*\"...I know, Ember. I know.\"*\n\nIt is the only moment Nix does not revile her.\n\nThen the elixir finishes its work, and Nix is back, and the dagger is still not a weapon, and everything is fine."
-    },
-    {
-      "title": "Campaign Hooks", "accent": "primary",
-      "hooks": [
-        "The Archlord is always watching. He hasn't moved yet. Why?",
-        "The prophecy the elders spoke at the temple — Nix cannot access it. Ember feels it in her soul. What was it actually about?",
-        "The Blightfather's clergy member who was speaking to the recruiter — coincidence, or was Nix being guided toward the guild deliberately?",
-        "Whatever drew the Light Singers west for generations — was the temple the destination, or a trap laid long before Ember was born?",
-        "Tyler's character believes vampires are an abomination. He does not yet know what's sitting next to him at the table.",
-        "The voices in the blood — who are they? What do they want? Are any of them dangerous in their own right?"
-      ]
-    }
+    { "title": "A Note on the Conditioning", "accent": "primary", "content": "Nix uses bombs. Nix has a mutagen. Nix goes very still before violence and very calm during it.\n\nThe vampire lords' conditioning did not disappear when Ember became Nix.\n\n*It just got a new name.*" },
+    { "title": "Campaign Hooks", "accent": "primary", "hooks": [
+      "The Archlord is always watching. He hasn't moved yet. Why?",
+      "The prophecy the elders spoke at the temple — Nix cannot access it. Ember feels it in her soul. What was it actually about?",
+      "The Blightfather's clergy member who was speaking to the recruiter — coincidence, or was Nix being guided toward the guild deliberately?",
+      "Whatever drew the Light Singers west for generations — was the temple the destination, or a trap laid long before Ember was born?",
+      "Tyler's character believes vampires are an abomination. He does not yet know what's sitting next to him at the table.",
+      "The voices in the blood — who are they? What do they want? Are any of them dangerous in their own right?"
+    ]}
   ],
   "footer": "Nix · Level 3 · Fetchling Barbarian // Alchemist · Gestalt"
 }
