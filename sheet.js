@@ -338,6 +338,7 @@ function buildLore(loreBlocks) {
 function buildMagic(magic) {
   const section = document.querySelector('#magic-section');
   if (!section || !magic) return;
+  section.style.display = 'block';
 
   // Section title label (Spells / Formulae / etc.)
   const titleEl = section.querySelector('.magic-section-title');
