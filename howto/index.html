@@ -112,6 +112,7 @@
     <a href="#schema-skills">skills</a>
     <a href="#schema-racial">racialTraits</a>
     <a href="#schema-equipment">equipment</a>
+    <a href="#schema-magic">magic</a>
     <a href="#schema-lore">lore</a>
     <div class="sidebar-section">Extra Lore Pages</div>
     <a href="#lore-overview">Overview</a>
@@ -419,6 +420,64 @@ git config --global user.email "you@example.com"</code></pre>
   <span class="tok-dim">{</span> <span class="tok-key">"name"</span><span class="tok-dim">:</span> <span class="tok-str">"Gold"</span><span class="tok-dim">,</span>             <span class="tok-key">"notes"</span><span class="tok-dim">:</span> <span class="tok-str">"150 gp"</span><span class="tok-dim">,</span>           <span class="tok-key">"notesVariant"</span><span class="tok-dim">:</span> <span class="tok-str">"primary"</span> <span class="tok-dim">}</span>
 <span class="tok-dim">]</span></code></pre>
       <p><code>notesVariant</code>: <span class="badge badge-dim">dim</span> standard · <span class="badge badge-accent">accent</span> warnings/voice · <span class="badge badge-primary">primary</span> highlighted values</p>
+    </section>
+
+    <section class="doc-section" id="schema-magic">
+      <div class="section-heading">character.json — magic</div>
+      <p>Optional. Add a <code>magic</code> object to enable the formulae/spell section on the sheet. If omitted, the section is silently skipped — safe to leave out for non-casters.</p>
+      <p>The sheet displays slots per day, a prepared list (each entry tappable for full details), and an "Open Formula Book" button that shows all known spells grouped by level.</p>
+      <table class="field-table">
+        <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="field-name">type</td><td class="field-type">string</td><td class="field-desc">Class type. Reserved for future rendering differences. Use <code>"formulae"</code> for Alchemist, <code>"arcane"</code> for Wizard/Magus, <code>"spontaneous"</code> for Sorcerer/Oracle, <code>"divine"</code> for Cleric/Druid.</td></tr>
+          <tr><td class="field-name">label</td><td class="field-type">string</td><td class="field-desc">Section heading shown on the sheet. E.g. <code>"Formulae"</code> or <code>"Spells"</code>.</td></tr>
+          <tr><td class="field-name">spellbookLabel</td><td class="field-type">string</td><td class="field-desc">Label for the book button and modal title. Defaults to <code>"Spellbook"</code> if omitted.</td></tr>
+          <tr><td class="field-name">slotsPerDay</td><td class="field-type">object</td><td class="field-desc">Keys are spell levels as strings (<code>"1"</code>, <code>"2"</code>, etc.). Values are total slots including ability score bonus slots — calculate this externally and store the final number.</td></tr>
+          <tr><td class="field-name">prepared</td><td class="field-type">array</td><td class="field-desc">Array of <code>id</code> strings matching entries in <code>known</code>. Update between sessions. Duplicates allowed (e.g. preparing the same formula twice). Use <code>[]</code> if nothing is prepared.</td></tr>
+          <tr><td class="field-name">known</td><td class="field-type">array</td><td class="field-desc">Array of spell/formula objects. This is the full formula book or spellbook. Use <code>[]</code> if not yet populated.</td></tr>
+        </tbody>
+      </table>
+      <p>Each entry in <code>known</code>:</p>
+      <table class="field-table">
+        <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="field-name">id</td><td class="field-type">string</td><td class="field-desc">Unique slug used to cross-reference <code>prepared</code>. Kebab-case recommended — e.g. <code>"cure-light-wounds"</code>.</td></tr>
+          <tr><td class="field-name">name</td><td class="field-type">string</td><td class="field-desc">Display name.</td></tr>
+          <tr><td class="field-name">level</td><td class="field-type">number</td><td class="field-desc">Spell or extract level as an integer.</td></tr>
+          <tr><td class="field-name">school</td><td class="field-type">string</td><td class="field-desc">Optional. Spell school, e.g. <code>"Conjuration"</code>.</td></tr>
+          <tr><td class="field-name">castingTime</td><td class="field-type">string</td><td class="field-desc">Optional. E.g. <code>"1 standard action"</code>.</td></tr>
+          <tr><td class="field-name">range</td><td class="field-type">string</td><td class="field-desc">Optional. E.g. <code>"Touch"</code>, <code>"Close (25 ft + 5 ft/2 levels)"</code>.</td></tr>
+          <tr><td class="field-name">target</td><td class="field-type">string</td><td class="field-desc">Optional. E.g. <code>"Creature touched"</code>.</td></tr>
+          <tr><td class="field-name">duration</td><td class="field-type">string</td><td class="field-desc">Optional. E.g. <code>"1 min/level"</code>, <code>"Instantaneous"</code>.</td></tr>
+          <tr><td class="field-name">savingThrow</td><td class="field-type">string</td><td class="field-desc">Optional. E.g. <code>"Will negates"</code>, <code>"Reflex half"</code>.</td></tr>
+          <tr><td class="field-name">description</td><td class="field-type">string</td><td class="field-desc">Optional. Supports <code>**bold**</code> and <code>*italic*</code>. Use <code>\n\n</code> for paragraph breaks.</td></tr>
+        </tbody>
+      </table>
+      <pre><code><span class="tok-key">"magic"</span><span class="tok-dim">: {</span>
+  <span class="tok-key">"type"</span><span class="tok-dim">:</span>           <span class="tok-str">"formulae"</span><span class="tok-dim">,</span>
+  <span class="tok-key">"label"</span><span class="tok-dim">:</span>          <span class="tok-str">"Formulae"</span><span class="tok-dim">,</span>
+  <span class="tok-key">"spellbookLabel"</span><span class="tok-dim">:</span> <span class="tok-str">"Formula Book"</span><span class="tok-dim">,</span>
+  <span class="tok-key">"slotsPerDay"</span><span class="tok-dim">: {</span>
+    <span class="tok-key">"1"</span><span class="tok-dim">:</span> <span class="tok-num">4</span>            <span class="tok-cmt">// base slots + INT/CHA bonus combined</span>
+  <span class="tok-dim">},</span>
+  <span class="tok-key">"prepared"</span><span class="tok-dim">: [</span><span class="tok-str">"enlarge-person"</span><span class="tok-dim">,</span> <span class="tok-str">"cure-light-wounds"</span><span class="tok-dim">],</span> <span class="tok-cmt">// update each session</span>
+  <span class="tok-key">"known"</span><span class="tok-dim">: [</span>
+    <span class="tok-dim">{</span>
+      <span class="tok-key">"id"</span><span class="tok-dim">:</span>          <span class="tok-str">"cure-light-wounds"</span><span class="tok-dim">,</span>
+      <span class="tok-key">"name"</span><span class="tok-dim">:</span>        <span class="tok-str">"Cure Light Wounds"</span><span class="tok-dim">,</span>
+      <span class="tok-key">"level"</span><span class="tok-dim">:</span>       <span class="tok-num">1</span><span class="tok-dim">,</span>
+      <span class="tok-key">"school"</span><span class="tok-dim">:</span>      <span class="tok-str">"Conjuration"</span><span class="tok-dim">,</span>
+      <span class="tok-key">"castingTime"</span><span class="tok-dim">:</span> <span class="tok-str">"1 standard action"</span><span class="tok-dim">,</span>
+      <span class="tok-key">"range"</span><span class="tok-dim">:</span>       <span class="tok-str">"Touch"</span><span class="tok-dim">,</span>
+      <span class="tok-key">"target"</span><span class="tok-dim">:</span>      <span class="tok-str">"Creature touched"</span><span class="tok-dim">,</span>
+      <span class="tok-key">"duration"</span><span class="tok-dim">:</span>    <span class="tok-str">"Instantaneous"</span><span class="tok-dim">,</span>
+      <span class="tok-key">"savingThrow"</span><span class="tok-dim">:</span> <span class="tok-str">"Will half (harmless)"</span><span class="tok-dim">,</span>
+      <span class="tok-key">"description"</span><span class="tok-dim">:</span> <span class="tok-str">"Heals 1d8 + caster level hit points (max +5)."</span>
+    <span class="tok-dim">}</span>
+  <span class="tok-dim">]</span>
+<span class="tok-dim">}</span></code></pre>
+      <div class="callout"><strong>Alchemist note:</strong> Alchemists do not have access to all formulae automatically. They start with 2 + INT modifier known formulae, gain 1 per level, and can add more like a wizard adds spells. The <code>prepared</code> array represents extracts mixed for the day — duplicate entries are valid if the same formula is prepared more than once.</div>
+      <div class="callout accent"><strong>Slots per day</strong> includes the ability score bonus. For an Alchemist with INT 16 (+3) at level 3: 3 base + 1 INT bonus = <code>4</code>. Calculate it yourself and store the final total.</div>
     </section>
 
     <section class="doc-section" id="schema-lore">

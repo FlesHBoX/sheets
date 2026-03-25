@@ -82,16 +82,53 @@
       <tbody></tbody>
     </table>
   </div>
+
+  <!-- Magic / Formulae -->
+  <div class="section" id="magic-section">
+    <div class="section-title magic-section-title">Formulae</div>
+    <div class="magic-slots"></div>
+    <div class="magic-prepared-header">Prepared</div>
+    <ul class="magic-prepared-list"></ul>
+    <button class="magic-spellbook-btn">Open Formula Book</button>
+  </div>
   <div class="divider"></div>
   <div class="section">
     <div class="section-title">Backstory &amp; Lore</div>
     <div class="lore-container"></div>
   </div>
+
   <div class="footer"></div>
 </div>
 <div id="lb" class="lightbox-overlay" onclick="this.classList.remove('active')">
   <img id="lightbox-img" src="" alt="">
 </div>
+
+<!-- Spell detail modal -->
+<div class="sheet-modal" id="spell-modal" role="dialog" aria-modal="true">
+  <div class="sheet-modal-inner">
+    <button class="modal-close-btn" aria-label="Close">✕</button>
+    <div class="spell-modal-name"></div>
+    <span class="spell-modal-meta"></span>
+    <div class="spell-modal-stats">
+      <span class="spell-modal-casting"></span>
+      <span class="spell-modal-range"></span>
+      <span class="spell-modal-duration"></span>
+      <span class="spell-modal-target"></span>
+      <span class="spell-modal-save"></span>
+    </div>
+    <div class="spell-modal-description"></div>
+  </div>
+</div>
+
+<!-- Spellbook / Formula Book modal -->
+<div class="sheet-modal" id="spellbook-modal" role="dialog" aria-modal="true">
+  <div class="sheet-modal-inner">
+    <button class="modal-close-btn" aria-label="Close">✕</button>
+    <div class="spellbook-modal-title"></div>
+    <div class="spellbook-list"></div>
+  </div>
+</div>
+
 <script src="../sheet.js"></script>
 </body>
 </html>

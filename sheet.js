@@ -333,6 +333,176 @@ function buildLore(loreBlocks) {
   }).join('');
 }
 
+// ─── Magic / Formulae ────────────────────────────────────────────────────────
+
+function buildMagic(magic) {
+  const section = document.querySelector('#magic-section');
+  if (!section || !magic) return;
+
+  // Section title label (Spells / Formulae / etc.)
+  const titleEl = section.querySelector('.magic-section-title');
+  if (titleEl) titleEl.textContent = magic.label || 'Magic';
+
+  // Slots per day
+  const slotsEl = section.querySelector('.magic-slots');
+  if (slotsEl) {
+    slotsEl.innerHTML = Object.entries(magic.slotsPerDay || {}).map(([lvl, count]) => `
+      <div class="magic-slot-tile">
+        <span class="magic-slot-label">Level ${lvl}</span>
+        <span class="magic-slot-value">${count}</span>
+      </div>
+    `).join('');
+  }
+
+  // Prepared list
+  const preparedEl = section.querySelector('.magic-prepared-list');
+  if (preparedEl) {
+    const prepared = magic.prepared || [];
+    if (prepared.length === 0) {
+      preparedEl.innerHTML = `<li class="magic-prepared-empty">None prepared</li>`;
+    } else {
+      preparedEl.innerHTML = prepared.map(id => {
+        const spell = (magic.known || []).find(s => s.id === id);
+        if (!spell) {
+          console.warn(`magic: prepared spell id "${id}" not found in known list`);
+          return '';
+        }
+        return `
+          <li class="magic-prepared-item" data-spell-id="${spell.id}" tabindex="0" role="button">
+            <span class="magic-prepared-name">${spell.name}</span>
+            <span class="magic-prepared-level">Lvl ${spell.level}</span>
+          </li>
+        `;
+      }).filter(Boolean).join('');
+
+      // Click/keyboard handlers for spell detail modal
+      preparedEl.querySelectorAll('.magic-prepared-item').forEach(item => {
+        const open = () => openSpellModal(item.dataset.spellId, magic.known);
+        item.addEventListener('click', open);
+        item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') open(); });
+      });
+    }
+  }
+
+  // Spellbook button
+  const bookBtn = section.querySelector('.magic-spellbook-btn');
+  if (bookBtn) {
+    bookBtn.textContent = `Open ${magic.spellbookLabel || 'Spellbook'}`;
+    bookBtn.addEventListener('click', () => openSpellbookModal(magic));
+  }
+}
+
+// ─── Spell detail modal ───────────────────────────────────────────────────────
+
+function openSpellModal(spellId, knownList) {
+  const spell = (knownList || []).find(s => s.id === spellId);
+  if (!spell) return;
+
+  const modal = document.querySelector('#spell-modal');
+  if (!modal) return;
+
+  modal.querySelector('.spell-modal-name').textContent       = spell.name;
+  modal.querySelector('.spell-modal-meta').textContent       = [
+    spell.school,
+    `Level ${spell.level}`,
+  ].filter(Boolean).join(' · ');
+  modal.querySelector('.spell-modal-casting').innerHTML      = spell.castingTime
+    ? `<strong>Casting Time:</strong> ${spell.castingTime}` : '';
+  modal.querySelector('.spell-modal-range').innerHTML        = spell.range
+    ? `<strong>Range:</strong> ${spell.range}` : '';
+  modal.querySelector('.spell-modal-duration').innerHTML     = spell.duration
+    ? `<strong>Duration:</strong> ${spell.duration}` : '';
+  modal.querySelector('.spell-modal-target').innerHTML       = spell.target
+    ? `<strong>Target:</strong> ${spell.target}` : '';
+  modal.querySelector('.spell-modal-save').innerHTML         = spell.savingThrow
+    ? `<strong>Saving Throw:</strong> ${spell.savingThrow}` : '';
+  modal.querySelector('.spell-modal-description').innerHTML  = renderMarkdown(spell.description || '');
+
+  modal.classList.add('active');
+  document.body.classList.add('modal-open');
+}
+
+// ─── Spellbook modal ──────────────────────────────────────────────────────────
+
+function openSpellbookModal(magic) {
+  const modal = document.querySelector('#spellbook-modal');
+  if (!modal) return;
+
+  const titleEl = modal.querySelector('.spellbook-modal-title');
+  if (titleEl) titleEl.textContent = magic.spellbookLabel || 'Spellbook';
+
+  const known = magic.known || [];
+  const byLevel = {};
+  for (const spell of known) {
+    const lvl = spell.level ?? 0;
+    if (!byLevel[lvl]) byLevel[lvl] = [];
+    byLevel[lvl].push(spell);
+  }
+
+  const listEl = modal.querySelector('.spellbook-list');
+  if (listEl) {
+    if (known.length === 0) {
+      listEl.innerHTML = `<p class="spellbook-empty">No formulae recorded.</p>`;
+    } else {
+      listEl.innerHTML = Object.keys(byLevel).sort((a, b) => a - b).map(lvl => `
+        <div class="spellbook-level-group">
+          <div class="spellbook-level-header">Level ${lvl}</div>
+          ${byLevel[lvl].map(spell => `
+            <div class="spellbook-entry" data-spell-id="${spell.id}" tabindex="0" role="button">
+              <div class="spellbook-entry-header">
+                <span class="spellbook-entry-name">${spell.name}</span>
+                <span class="spellbook-entry-school">${spell.school || ''}</span>
+              </div>
+              <div class="spellbook-entry-body">
+                ${spell.castingTime ? `<span><strong>Casting:</strong> ${spell.castingTime}</span>` : ''}
+                ${spell.range       ? `<span><strong>Range:</strong> ${spell.range}</span>`        : ''}
+                ${spell.duration    ? `<span><strong>Duration:</strong> ${spell.duration}</span>`  : ''}
+                ${spell.target      ? `<span><strong>Target:</strong> ${spell.target}</span>`      : ''}
+                ${spell.savingThrow ? `<span><strong>Save:</strong> ${spell.savingThrow}</span>`   : ''}
+              </div>
+              <div class="spellbook-entry-description">${renderMarkdown(spell.description || '')}</div>
+            </div>
+          `).join('')}
+        </div>
+      `).join('');
+
+      // Expand/collapse on click within spellbook
+      listEl.querySelectorAll('.spellbook-entry').forEach(entry => {
+        entry.addEventListener('click', () => entry.classList.toggle('expanded'));
+        entry.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') entry.classList.toggle('expanded');
+        });
+      });
+    }
+  }
+
+  modal.classList.add('active');
+  document.body.classList.add('modal-open');
+}
+
+// ─── Modal close helpers ──────────────────────────────────────────────────────
+
+function closeModal(modal) {
+  modal.classList.remove('active');
+  // Only remove modal-open if no other modals are open
+  const anyOpen = document.querySelectorAll('.sheet-modal.active').length > 0;
+  if (!anyOpen) document.body.classList.remove('modal-open');
+}
+
+function initModalClosers() {
+  document.querySelectorAll('.sheet-modal').forEach(modal => {
+    // Close button
+    const closeBtn = modal.querySelector('.modal-close-btn');
+    if (closeBtn) closeBtn.addEventListener('click', () => closeModal(modal));
+    // Click outside
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(modal); });
+    // Escape key
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) closeModal(modal);
+    });
+  });
+}
+
 function buildFooter(text) {
   document.querySelector('.footer').textContent = text || '';
 }
@@ -392,7 +562,9 @@ async function loadCharacter() {
     buildRacialTraits(data.racialTraits);
     buildEquipment(data.equipment);
     buildLore(data.lore);
+    if (data.magic) buildMagic(data.magic);
     buildFooter(data.footer);
+    initModalClosers();
 
     // Attempt to load further reading from lore/index.json (optional, fails silently)
     try {

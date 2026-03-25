@@ -557,6 +557,286 @@ tr:hover td { background: var(--primary-dim); }
   line-height: 1.4;
 }
 
+/* ── MAGIC / FORMULAE ── */
+.magic-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.magic-slot-tile {
+  background: var(--raised);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.6rem 1rem;
+  text-align: center;
+  min-width: 80px;
+}
+
+.magic-slot-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.magic-slot-value {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.magic-prepared-header {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.magic-prepared-list {
+  list-style: none;
+  margin-bottom: 1.25rem;
+}
+
+.magic-prepared-empty {
+  color: var(--text-dim);
+  font-style: italic;
+  font-size: 0.9rem;
+  padding: 0.4rem 0;
+}
+
+.magic-prepared-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  background: var(--raised);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  margin-bottom: 0.4rem;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.magic-prepared-item:hover,
+.magic-prepared-item:focus {
+  border-color: var(--primary);
+  background: var(--primary-dim);
+  outline: none;
+}
+
+.magic-prepared-name {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.magic-prepared-level {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.magic-spellbook-btn {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 0.5rem 1.2rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.magic-spellbook-btn:hover {
+  background: var(--accent-dim);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* ── SHEET MODALS ── */
+.sheet-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 2000;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem 1rem;
+  overflow-y: auto;
+}
+
+.sheet-modal.active { display: flex; }
+
+body.modal-open { overflow: hidden; }
+
+.sheet-modal-inner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  width: 100%;
+  max-width: 580px;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 0 60px rgba(0,0,0,0.6);
+  margin: auto;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  font-size: 1.2rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  transition: color 0.15s;
+}
+
+.modal-close-btn:hover { color: var(--primary); }
+
+/* Spell detail modal */
+.spell-modal-name {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.3rem;
+  padding-right: 2rem;
+}
+
+.spell-modal-meta {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.spell-modal-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}
+
+.spell-modal-stats span strong { color: var(--text); }
+
+.spell-modal-description { font-size: 0.9rem; line-height: 1.7; }
+.spell-modal-description p { margin-bottom: 0.5rem; }
+.spell-modal-description p:last-child { margin-bottom: 0; }
+
+/* Spellbook modal */
+.spellbook-modal-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  padding-right: 2rem;
+}
+
+.spellbook-empty {
+  color: var(--text-dim);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.spellbook-level-group { margin-bottom: 1.25rem; }
+
+.spellbook-level-header {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.spellbook-entry {
+  background: var(--raised);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 0.4rem;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.spellbook-entry:hover,
+.spellbook-entry:focus { border-color: var(--primary); outline: none; }
+
+.spellbook-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.spellbook-entry-name {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.spellbook-entry-school {
+  font-family: 'Cinzel', serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.spellbook-entry-body {
+  display: none;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.2rem;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.spellbook-entry-body span strong { color: var(--text); }
+
+.spellbook-entry-description {
+  display: none;
+  margin-top: 0.5rem;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.spellbook-entry-description p { margin-bottom: 0.4rem; }
+.spellbook-entry-description p:last-child { margin-bottom: 0; }
+
+.spellbook-entry.expanded .spellbook-entry-body        { display: flex; }
+.spellbook-entry.expanded .spellbook-entry-description { display: block; }
+
 /* ── FOOTER ── */
 .footer {
   text-align: center;
