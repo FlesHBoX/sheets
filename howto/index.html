@@ -430,10 +430,13 @@ git config --global user.email "you@example.com"</code></pre>
         <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
         <tbody>
           <tr><td class="field-name">type</td><td class="field-type">string</td><td class="field-desc">Class type. Reserved for future rendering differences. Use <code>"formulae"</code> for Alchemist, <code>"arcane"</code> for Wizard/Magus, <code>"spontaneous"</code> for Sorcerer/Oracle, <code>"divine"</code> for Cleric/Druid.</td></tr>
+          <tr><td class="field-name">castingMode</td><td class="field-type">string</td><td class="field-desc">How spell usage is tracked. <code>"consume"</code> (default): each prepared entry is a discrete instance — using it removes it from the list and the slot returns. <code>"pool"</code>: prepared spells are a list; casting decrements a shared slot pool without removing the spell.</td></tr>
           <tr><td class="field-name">label</td><td class="field-type">string</td><td class="field-desc">Section heading shown on the sheet. E.g. <code>"Formulae"</code> or <code>"Spells"</code>.</td></tr>
           <tr><td class="field-name">spellbookLabel</td><td class="field-type">string</td><td class="field-desc">Label for the book button and modal title. Defaults to <code>"Spellbook"</code> if omitted.</td></tr>
           <tr><td class="field-name">slotsPerDay</td><td class="field-type">object</td><td class="field-desc">Keys are spell levels as strings (<code>"1"</code>, <code>"2"</code>, etc.). Values are total slots including ability score bonus slots — calculate this externally and store the final number.</td></tr>
+          <tr><td class="field-name">slotsUsed</td><td class="field-type">object</td><td class="field-desc">Tracks slots spent this session. Same shape as <code>slotsPerDay</code>. Updated by the sheet during play; persist it between sessions via Export State. Start each day with <code>{}</code>.</td></tr>
           <tr><td class="field-name">prepared</td><td class="field-type">array</td><td class="field-desc">Array of <code>id</code> strings matching entries in <code>known</code>. Update between sessions. Duplicates allowed (e.g. preparing the same formula twice). Use <code>[]</code> if nothing is prepared.</td></tr>
+          <tr><td class="field-name">preparedTimestamp</td><td class="field-type">number</td><td class="field-desc">Unix timestamp (ms) of the last preparation change. Set automatically by the sheet. Used to detect stale state. You don't need to set this manually — Export State handles it.</td></tr>
           <tr><td class="field-name">known</td><td class="field-type">array</td><td class="field-desc">Array of spell/formula objects. This is the full formula book or spellbook. Use <code>[]</code> if not yet populated.</td></tr>
         </tbody>
       </table>
@@ -478,6 +481,32 @@ git config --global user.email "you@example.com"</code></pre>
 <span class="tok-dim">}</span></code></pre>
       <div class="callout"><strong>Alchemist note:</strong> Alchemists do not have access to all formulae automatically. They start with 2 + INT modifier known formulae, gain 1 per level, and can add more like a wizard adds spells. The <code>prepared</code> array represents extracts mixed for the day — duplicate entries are valid if the same formula is prepared more than once.</div>
       <div class="callout accent"><strong>Slots per day</strong> includes the ability score bonus. For an Alchemist with INT 16 (+3) at level 3: 3 base + 1 INT bonus = <code>4</code>. Calculate it yourself and store the final total.</div>
+
+      <div class="section-heading" style="margin-top:2rem;">Managing spells during a session</div>
+      <p>Each prepared spell has two buttons:</p>
+      <ul style="color:var(--text);font-size:0.98rem;margin-bottom:1rem;padding-left:1.5rem;">
+        <li style="margin-bottom:0.5rem;"><strong>Use / Cast</strong> — marks the spell as spent. In <code>consume</code> mode this removes one instance from the prepared list (the slot effectively returns). In <code>pool</code> mode this decrements the shared slot count without removing the spell from the list.</li>
+        <li><strong>✕ (Unprepare)</strong> — removes the spell from the prepared list without spending a slot. Use this to undo a preparation mistake or swap spells mid-day with GM permission.</li>
+      </ul>
+      <p>Spells can also be prepared directly from the spellbook modal. In <code>pool</code> mode, the spellbook's Prepare button toggles — if the spell is already prepared it shows "Unprepare" instead.</p>
+
+      <div class="section-heading" style="margin-top:2rem;">Saving state between sessions</div>
+      <p>The sheet tracks spell usage in your browser's local storage while you play. To persist that state into <code>character.json</code> so it survives a browser reset or carries between devices:</p>
+      <div class="steps">
+        <div class="step"><div class="step-number">1</div><div class="step-content">
+          <strong>Click "Export State"</strong> on the sheet's magic section. A modal opens with a small JSON snippet containing <code>slotsUsed</code>, <code>prepared</code>, and <code>preparedTimestamp</code>.
+        </div></div>
+        <div class="step"><div class="step-number">2</div><div class="step-content">
+          <strong>Click "Copy"</strong> in the modal to copy the JSON to your clipboard.
+        </div></div>
+        <div class="step"><div class="step-number">3</div><div class="step-content">
+          <strong>Open <code>character.json</code></strong> and find the <code>magic</code> object. Replace (or add) the <code>slotsUsed</code>, <code>prepared</code>, and <code>preparedTimestamp</code> fields with the copied values.
+        </div></div>
+        <div class="step"><div class="step-number">4</div><div class="step-content">
+          <strong>Save and commit.</strong> The sheet will load this state on next open.
+        </div></div>
+      </div>
+      <div class="callout">At the start of a new day, reset <code>slotsUsed</code> to <code>{}</code> and replace <code>prepared</code> with the new day's spell list, then commit before the session.</div>
     </section>
 
     <section class="doc-section" id="schema-lore">
