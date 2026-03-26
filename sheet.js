@@ -161,7 +161,7 @@ function buildAbilityScores(scores, note) {
   document.querySelector('.ability-scores-note').textContent = note || '';
 }
 
-function buildCombat(combat, modMap, bab) {
+function buildCombat(combat, modMap, bab, charName) {
   // Initiative
   const initMisc  = combat.initiativeMisc || 0;
   const initTotal = (modMap['DEX'] || 0) + initMisc;
@@ -205,25 +205,49 @@ function buildCombat(combat, modMap, bab) {
     hpTip   = null;
   }
 
+  if (hpValue !== undefined && charName) loadHpState(charName, hpValue);
+
   // Stat tiles
   const statTiles = [
     { label: 'BAB',        value: fmtMod(bab),       tip: null },
     { label: 'Initiative', value: fmtMod(initTotal),  tip: initTip },
     { label: 'AC',         value: acTotal,            tip: acTip },
-    ...(hpValue !== undefined ? [{ label: 'HP', value: hpValue, tip: hpTip }] : []),
+    ...(hpValue !== undefined ? [{ __hp: true }] : []),
     ...(combat.speed !== undefined ? [{ label: 'Speed', value: combat.speed, tip: null }] : []),
     ...saves.map(sv => ({ label: sv.label, value: fmtMod(sv.total), tip: sv.tip, variant: sv.variant })),
     ...(combat.extraStats || []).map(s => ({ label: s.label, value: s.value, tip: null, variant: s.variant })),
   ];
 
-  document.querySelector('.combat-grid').innerHTML = statTiles.map(s => `
-    <div class="combat-stat">
-      <span class="combat-label">${s.label}</span>
-      <span class="combat-value" style="color:${s.variant ? variantColor(s.variant) : 'var(--primary)'}">
-        ${s.tip ? withTooltip(s.value, s.tip) : s.value}
-      </span>
-    </div>
-  `).join('');
+  document.querySelector('.combat-grid').innerHTML = statTiles.map(s => {
+    if (s.__hp) {
+      const current    = _hpState ? _hpState.current : hpValue;
+      const maxDisplay = hpTip ? withTooltip(hpValue, hpTip) : `${hpValue}`;
+      return `
+        <div class="combat-stat combat-stat--hp">
+          <span class="combat-label">HP</span>
+          <span class="combat-value hp-display" style="color:var(--primary)">
+            <span class="hp-current">${current}</span><span class="hp-max">/${maxDisplay}</span>
+          </span>
+          <div class="hp-controls">
+            <button class="hp-btn" data-action="sub">−</button>
+            <input class="hp-input" type="number" value="1" min="1">
+            <button class="hp-btn" data-action="add">+</button>
+            <button class="hp-btn hp-heal" data-action="heal" title="Heal to full">↺</button>
+          </div>
+        </div>
+      `;
+    }
+    return `
+      <div class="combat-stat">
+        <span class="combat-label">${s.label}</span>
+        <span class="combat-value" style="color:${s.variant ? variantColor(s.variant) : 'var(--primary)'}">
+          ${s.tip ? withTooltip(s.value, s.tip) : s.value}
+        </span>
+      </div>
+    `;
+  }).join('');
+
+  if (_hpState) initHpControls();
 
   // Weapons
   document.querySelector('#weapons-table tbody').innerHTML = (combat.weapons || []).map(w => {
@@ -347,6 +371,69 @@ function buildLore(loreBlocks) {
       </div>
     `;
   }).join('');
+}
+
+// ─── HP state ────────────────────────────────────────────────────────────────
+let _hpState   = null;  // { current: n }
+let _hpMax     = 0;
+let _hpCharKey = null;
+
+function lsHpKey(charName) {
+  return `sheet_hp_${charName.toLowerCase().replace(/\s+/g, '_')}`;
+}
+
+function loadHpState(charName, maxHp) {
+  _hpCharKey = charName;
+  _hpMax     = maxHp;
+  _hpState   = { current: maxHp };
+  try {
+    const raw = localStorage.getItem(lsHpKey(charName));
+    if (raw) {
+      const ls = JSON.parse(raw);
+      if (typeof ls.current === 'number') _hpState = ls;
+    }
+  } catch (e) { /* localStorage unavailable or corrupt */ }
+}
+
+function saveHpState() {
+  if (!_hpCharKey || !_hpState) return;
+  try {
+    localStorage.setItem(lsHpKey(_hpCharKey), JSON.stringify(_hpState));
+  } catch (e) { /* storage full or unavailable */ }
+}
+
+function updateHpDisplay() {
+  const el = document.querySelector('.hp-current');
+  if (el) el.textContent = _hpState.current;
+}
+
+function initHpControls() {
+  const tile = document.querySelector('.combat-stat--hp');
+  if (!tile) return;
+  const input = tile.querySelector('.hp-input');
+
+  tile.querySelector('[data-action="sub"]').addEventListener('click', () => {
+    const amt = parseInt(input.value, 10) || 1;
+    _hpState.current = Math.max(0, _hpState.current - amt);
+    input.value = 1;
+    saveHpState();
+    updateHpDisplay();
+  });
+
+  tile.querySelector('[data-action="add"]').addEventListener('click', () => {
+    const amt = parseInt(input.value, 10) || 1;
+    _hpState.current = Math.min(_hpMax, _hpState.current + amt);
+    input.value = 1;
+    saveHpState();
+    updateHpDisplay();
+  });
+
+  tile.querySelector('[data-action="heal"]').addEventListener('click', () => {
+    _hpState.current = _hpMax;
+    input.value = 1;
+    saveHpState();
+    updateHpDisplay();
+  });
 }
 
 // ─── Magic state ─────────────────────────────────────────────────────────────
@@ -545,13 +632,6 @@ function renderMagicSection() {
     });
   }
 
-  // ── Export button ──
-  const exportBtn = section.querySelector('.magic-export-btn');
-  if (exportBtn) {
-    const newBtn = exportBtn.cloneNode(true);
-    exportBtn.parentNode.replaceChild(newBtn, exportBtn);
-    newBtn.addEventListener('click', () => openExportModal(magic, state));
-  }
 }
 
 function buildMagic(magic) {
@@ -757,17 +837,27 @@ function initModalClosers() {
   });
 }
 
+function initExportBtn() {
+  const btn = document.querySelector('.export-state-btn');
+  if (!btn) return;
+  btn.addEventListener('click', openExportModal);
+}
+
 // ─── Export modal ─────────────────────────────────────────────────────────────
 
-function openExportModal(magic, state) {
+function openExportModal() {
   const modal = document.querySelector('#export-modal');
   if (!modal) return;
 
-  const exportData = {
-    slotsUsed:         state.slotsUsed,
-    prepared:          state.prepared,
-    preparedTimestamp: state.preparedTimestamp,
-  };
+  const exportData = {};
+  if (_hpState) exportData.currentHp = _hpState.current;
+  if (_magicState) {
+    exportData.magic = {
+      slotsUsed:         _magicState.slotsUsed,
+      prepared:          _magicState.prepared,
+      preparedTimestamp: _magicState.preparedTimestamp,
+    };
+  }
 
   const pre = modal.querySelector('.export-json');
   if (pre) pre.textContent = JSON.stringify(exportData, null, 2);
@@ -839,7 +929,7 @@ async function loadCharacter() {
     buildIdentity(data.identity);
     buildAppearance(data.appearance);
     buildAbilityScores(data.abilityScores, data.abilityScoresNote);
-    buildCombat(data.combat, modMap, bab);
+    buildCombat(data.combat, modMap, bab, data.header.name);
     buildClassFeatures(data.classFeatures, data.classFeaturesNote);
     buildFeats(data.feats);
     buildSkills(data.skills, data.skillsNote, modMap);
@@ -847,6 +937,7 @@ async function loadCharacter() {
     buildEquipment(data.equipment);
     buildLore(data.lore);
     if (data.magic) buildMagic(data.magic);
+    initExportBtn();
     buildFooter(data.footer);
     initModalClosers();
 

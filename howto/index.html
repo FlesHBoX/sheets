@@ -333,7 +333,16 @@ git config --global user.email "you@example.com"</code></pre>
   <span class="tok-key">"bab"</span><span class="tok-dim">:</span>         <span class="tok-num">3</span><span class="tok-dim">,</span>         <span class="tok-cmt">// Base Attack Bonus</span>
   <span class="tok-key">"armorBonus"</span><span class="tok-dim">:</span>  <span class="tok-num">4</span><span class="tok-dim">,</span>         <span class="tok-cmt">// armor's AC contribution</span>
   <span class="tok-key">"armorMaxDex"</span><span class="tok-dim">:</span> <span class="tok-num">4</span><span class="tok-dim">,</span>         <span class="tok-cmt">// max DEX bonus (omit if no cap)</span>
-  <span class="tok-key">"hp"</span><span class="tok-dim">:</span>          <span class="tok-str">"45 / 45"</span><span class="tok-dim">,</span> <span class="tok-cmt">// displayed as-is</span>
+  <span class="tok-cmt">// hp as per-level rolls — max is calculated automatically (roll + CON mod each level)</span>
+  <span class="tok-key">"hp"</span><span class="tok-dim">: [</span>
+    <span class="tok-dim">{</span> <span class="tok-key">"level"</span><span class="tok-dim">:</span> <span class="tok-num">1</span><span class="tok-dim">,</span> <span class="tok-key">"roll"</span><span class="tok-dim">:</span> <span class="tok-str">"12"</span><span class="tok-dim">,</span> <span class="tok-key">"class"</span><span class="tok-dim">:</span> <span class="tok-str">"Barbarian"</span> <span class="tok-dim">},</span>
+    <span class="tok-dim">{</span> <span class="tok-key">"level"</span><span class="tok-dim">:</span> <span class="tok-num">2</span><span class="tok-dim">,</span> <span class="tok-key">"roll"</span><span class="tok-dim">:</span> <span class="tok-str">"7"</span><span class="tok-dim">,</span>  <span class="tok-key">"class"</span><span class="tok-dim">:</span> <span class="tok-str">"Barbarian"</span><span class="tok-dim">,</span>
+      <span class="tok-key">"misc"</span><span class="tok-dim">:</span> <span class="tok-num">1</span><span class="tok-dim">,</span> <span class="tok-key">"miscReason"</span><span class="tok-dim">:</span> <span class="tok-str">"Toughness"</span> <span class="tok-dim">},</span> <span class="tok-cmt">// optional flat bonus + tooltip</span>
+    <span class="tok-dim">{</span> <span class="tok-key">"level"</span><span class="tok-dim">:</span> <span class="tok-num">3</span><span class="tok-dim">,</span> <span class="tok-key">"roll"</span><span class="tok-dim">:</span> <span class="tok-str">"12"</span><span class="tok-dim">,</span> <span class="tok-key">"class"</span><span class="tok-dim">:</span> <span class="tok-str">"Barbarian"</span> <span class="tok-dim">}</span>
+  <span class="tok-dim">],</span>
+  <span class="tok-cmt">// Current HP is tracked in-session via +/− controls on the HP tile.</span>
+  <span class="tok-cmt">// Hovering the tile shows the per-level breakdown. "↺" resets to full.</span>
+  <span class="tok-cmt">// Alternatively, pass a plain string for a static display: "hp": "45"</span>
   <span class="tok-key">"speed"</span><span class="tok-dim">:</span>       <span class="tok-str">"30 ft"</span><span class="tok-dim">,</span>
 
   <span class="tok-key">"saves"</span><span class="tok-dim">: [</span>
@@ -491,16 +500,16 @@ git config --global user.email "you@example.com"</code></pre>
       <p>Spells can also be prepared directly from the spellbook modal. In <code>pool</code> mode, the spellbook's Prepare button toggles — if the spell is already prepared it shows "Unprepare" instead.</p>
 
       <div class="section-heading" style="margin-top:2rem;">Saving state between sessions</div>
-      <p>The sheet tracks spell usage in your browser's local storage while you play. To persist that state into <code>character.json</code> so it survives a browser reset or carries between devices:</p>
+      <p>The sheet tracks current HP and spell usage in your browser's local storage while you play. To persist that state into <code>character.json</code> so it survives a browser reset or carries between devices:</p>
       <div class="steps">
         <div class="step"><div class="step-number">1</div><div class="step-content">
-          <strong>Click "Export State"</strong> on the sheet's magic section. A modal opens with a small JSON snippet containing <code>slotsUsed</code>, <code>prepared</code>, and <code>preparedTimestamp</code>.
+          <strong>Click "Export State"</strong> in the top-right corner of the sheet header. A modal opens with a JSON snippet containing <code>currentHp</code> and a <code>magic</code> block with <code>slotsUsed</code>, <code>prepared</code>, and <code>preparedTimestamp</code>.
         </div></div>
         <div class="step"><div class="step-number">2</div><div class="step-content">
           <strong>Click "Copy"</strong> in the modal to copy the JSON to your clipboard.
         </div></div>
         <div class="step"><div class="step-number">3</div><div class="step-content">
-          <strong>Open <code>character.json</code></strong> and find the <code>magic</code> object. Replace (or add) the <code>slotsUsed</code>, <code>prepared</code>, and <code>preparedTimestamp</code> fields with the copied values.
+          <strong>Open <code>character.json</code></strong> and find the <code>magic</code> object. Replace (or add) the <code>slotsUsed</code>, <code>prepared</code>, and <code>preparedTimestamp</code> fields with the values from the exported <code>magic</code> block. The <code>currentHp</code> value is for reference — current HP is stored in local storage only and does not go back into the JSON.
         </div></div>
         <div class="step"><div class="step-number">4</div><div class="step-content">
           <strong>Save and commit.</strong> The sheet will load this state on next open.

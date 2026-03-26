@@ -101,6 +101,27 @@ body::before {
   margin-bottom: 0.75rem;
 }
 
+.export-state-btn {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-family: "Cinzel", serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  padding: 0.3rem 0.6rem;
+  text-transform: uppercase;
+}
+
+.export-state-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
 .character-quote {
   font-style: italic;
   color: var(--accent);
@@ -333,6 +354,57 @@ tr:hover td {
   font-family: "Cinzel", serif;
   font-size: 1.3rem;
   font-weight: 700;
+}
+
+.hp-max {
+  color: var(--text-dim);
+  font-size: 0.8em;
+}
+
+.hp-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+.hp-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 0.85rem;
+  line-height: 1;
+  padding: 0.2rem 0.45rem;
+}
+
+.hp-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.hp-heal {
+  margin-left: 0.15rem;
+}
+
+.hp-input {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text);
+  font-family: "Cinzel", serif;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.2rem;
+  text-align: center;
+  width: 2.5rem;
+  -moz-appearance: textfield;
+}
+
+.hp-input::-webkit-inner-spin-button,
+.hp-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
 }
 
 /* ── CLASS FEATURES ── */
