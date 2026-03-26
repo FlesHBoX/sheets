@@ -189,12 +189,28 @@ function buildCombat(combat, modMap, bab) {
     return { ...sv, total, tip };
   });
 
+  // HP
+  let hpValue, hpTip;
+  if (Array.isArray(combat.hp)) {
+    const conMod = modMap['CON'] || 0;
+    hpValue = combat.hp.reduce((sum, e) => sum + parseInt(e.roll, 10) + conMod + (e.misc || 0), 0);
+    const levelParts = combat.hp.map(e => {
+      let s = `L${e.level}: ${e.roll}`;
+      if (e.misc) s += `${fmtMod(e.misc)}${e.miscReason ? ` (${e.miscReason})` : ''}`;
+      return s;
+    });
+    hpTip = [`${fmtMod(conMod)} CON/level`, ...levelParts].join(' · ');
+  } else if (combat.hp !== undefined) {
+    hpValue = combat.hp;
+    hpTip   = null;
+  }
+
   // Stat tiles
   const statTiles = [
     { label: 'BAB',        value: fmtMod(bab),       tip: null },
     { label: 'Initiative', value: fmtMod(initTotal),  tip: initTip },
     { label: 'AC',         value: acTotal,            tip: acTip },
-    ...(combat.hp !== undefined ? [{ label: 'HP', value: combat.hp, tip: null }] : []),
+    ...(hpValue !== undefined ? [{ label: 'HP', value: hpValue, tip: hpTip }] : []),
     ...(combat.speed !== undefined ? [{ label: 'Speed', value: combat.speed, tip: null }] : []),
     ...saves.map(sv => ({ label: sv.label, value: fmtMod(sv.total), tip: sv.tip, variant: sv.variant })),
     ...(combat.extraStats || []).map(s => ({ label: s.label, value: s.value, tip: null, variant: s.variant })),
