@@ -33,15 +33,58 @@ function withTooltip(value, tooltip) {
 // ─── Markdown-lite renderer ───────────────────────────────────────────────────
 function renderMarkdown(text) {
   if (!text) return '';
-  return text
-    .split('\n\n')
-    .map(para => {
-      const html = para
-        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\*(.+?)\*/g, '<em>$1</em>');
-      return `<p>${html}</p>`;
-    })
-    .join('');
+
+  function applyInline(s) {
+    return s
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g, '<em>$1</em>');
+  }
+
+  const segments = text.split('\n\n');
+  const parts = [];
+  let bqBuffer = null;
+
+  for (const seg of segments) {
+    const s = seg.trim();
+    if (!s) continue;
+
+    if (bqBuffer === null) {
+      if (s.startsWith('>') && s !== '>') {
+        bqBuffer = [];
+        const content = s.slice(1).trimStart();
+        if (content.endsWith('\n>')) {
+          bqBuffer.push(content.slice(0, -2).trim());
+          const inner = bqBuffer.map(p => `<p>${applyInline(p)}</p>`).join('');
+          parts.push(`<div class="lore-blockquote">${inner}</div>`);
+          bqBuffer = null;
+        } else {
+          bqBuffer.push(content);
+        }
+      } else {
+        parts.push(`<p>${applyInline(s)}</p>`);
+      }
+    } else {
+      if (s === '>') {
+        const inner = bqBuffer.map(p => `<p>${applyInline(p)}</p>`).join('');
+        parts.push(`<div class="lore-blockquote">${inner}</div>`);
+        bqBuffer = null;
+      } else if (s.endsWith('\n>')) {
+        bqBuffer.push(s.slice(0, -2).trim());
+        const inner = bqBuffer.map(p => `<p>${applyInline(p)}</p>`).join('');
+        parts.push(`<div class="lore-blockquote">${inner}</div>`);
+        bqBuffer = null;
+      } else {
+        bqBuffer.push(s);
+      }
+    }
+  }
+
+  if (bqBuffer !== null && bqBuffer.length > 0) {
+    const inner = bqBuffer.map(p => `<p>${applyInline(p)}</p>`).join('');
+    parts.push(`<div class="lore-blockquote">${inner}</div>`);
+  }
+
+  return parts.join('');
 }
 
 function renderInline(text) {

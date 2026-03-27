@@ -290,10 +290,18 @@ Backstory section. Blocks render in order: `content` → `bindings` → `inciden
 | title | string | Block heading |
 | titleNote | string | Optional dimmed note after title. E.g. `"(she/her)"` |
 | accent | `"primary"` \| `"accent"` | Left border color |
-| content | string | Prose. Supports `**bold**`, `*italic*`, `\n\n` for paragraph breaks |
+| content | string | Prose. Supports `**bold**`, `*italic*`, `\n\n` for paragraph breaks. Use `>` / `>` to wrap a section in a blockquote (see below) |
 | incidents | array | Quoted lines in left-border style. Each: `{ "text": "...", "variant": "default" \| "accent" }` |
 | bindings | array | Named ability/curse blocks. Each: `{ "label": "...", "name": "...", "description": "..." }` |
 | hooks | array | Campaign hook strings, rendered as a bulleted list |
+
+**Blockquotes in content** — wrap any number of paragraphs in a rounded-border box by opening with `>` at the start of a paragraph and closing with `>` on its own line (preceded by `\n`, followed by `\n\n`):
+
+```json
+"Before.\n\n>First quoted paragraph.\n\nSecond quoted paragraph.\n>\n\nAfter."
+```
+
+The closing `>` can also be placed at the end of the last quoted paragraph instead of on its own: `"...last line.\n>\n\nAfter."`
 
 ```json
 "lore": [

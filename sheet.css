@@ -595,6 +595,28 @@ tr:hover td {
   margin-bottom: 0;
 }
 
+/* Blockquote */
+.lore-blockquote {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.7rem 1rem;
+  margin: 0.75rem 0 0;
+  color: var(--text-dim);
+  font-style: italic;
+  font-size: 0.93rem;
+  line-height: 1.7;
+}
+
+.lore-blockquote p {
+  margin-bottom: 0.5rem;
+  font-size: inherit;
+  color: inherit;
+}
+
+.lore-blockquote p:last-child {
+  margin-bottom: 0;
+}
+
 /* Incidents */
 .incidents {
   margin-top: 0.75rem;
