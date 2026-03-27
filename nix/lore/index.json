@@ -1,5 +1,11 @@
 [
   {
+    "id": "the-strangest-person",
+    "title": "The Strangest Person",
+    "description": "I want to tell you about someone I knew, a long time ago, before you, before the rank, and before any of the stories I've already told you. Back when I was seventeen and thought I understood what dangerous looked like.",
+    "shareUrl": "./lore/the-strangest-person/"
+  },
+  {
     "id": "nix-combat",
     "title": "Nix in Combat",
     "description": "The thing about Nix is the constant hum of activity. As if stillness was impossible for them.",

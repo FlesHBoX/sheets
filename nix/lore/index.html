@@ -97,6 +97,7 @@
   }
 
   .lore-prose p:last-child { margin-bottom: 0; }
+  .lore-rule { border: none; border-top: 1px solid var(--border); margin: 2rem 0; opacity: 0.5; }
   .lore-prose em  { color: var(--accent); font-style: italic; }
   .lore-prose strong { color: var(--primary); }
 
@@ -214,6 +215,8 @@ function renderMarkdown(text) {
         } else {
           bqBuffer.push(content);
         }
+      } else if (s === '---') {
+        parts.push(`<hr class="lore-rule">`);
       } else {
         parts.push(`<p>${applyInline(s)}</p>`);
       }
