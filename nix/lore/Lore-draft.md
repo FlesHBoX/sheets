@@ -1,281 +1,77 @@
-# The Last Ember
+# The Joining
 
-The left door still doesn't hang quite right.
+Tova had officiated three joinings before this one.
 
-Ember noticed it the morning after the clan resumed walking, when the wagon shifted on uneven ground and the latch caught wrong. She had filed it immediately, third shelf, *things-about-the-wagon*, the small imperfection where Aldec had measured twice and cut once and been wrong about the measuring. She hadn't said anything. Aldec was seventy-three and had built more wagons than she had years, and the door worked, and some things you file without comment.
+She had spoken the words for her sister, eighteen years ago, when the clan was camped beside a formation of shadow-crystal that caught the eternal sunset and threw it in fragments across the ground. She had spoken them for her cousin's eldest, whose joining had been so long anticipated that half the clan already thought of them as joined before the fire was lit. She had spoken them for a young hunter whose partner had no living family, and had tried to put enough warmth into the words to fill the spaces where the missing people should have been standing.
 
-Cinder thought it gave the wagon character.
+She had never spoken them for her own child.
 
-Ember thought that was exactly the kind of thing Cinder would say. She also thought, privately, that they were probably right, and had no intention of saying so.
+She had not anticipated how that would feel. She had thought she knew, the way you think you know things before they happen to you, and she had been wrong in the way you are always wrong about those things.
 
-It had been four months since the joining. Long enough that waking up to the particular sound of Cinder's breathing had stopped being a surprise and started being the first thing she reached for before she was fully awake. Still here. Still here. The clan moved west the way it had always moved, the sun perpetually setting ahead of them, and Ember sat in the wagon doorway in the early light and watched the shadow plane roll past and felt something she didn't have a word for yet.
+Cinder was across the fire from her, and Ember was across the fire from Cinder, and Tova was between them at the point of the triangle, and she could see both their faces in the firelight simultaneously, which was something she had not fully considered when she agreed to officiate. She could see Cinder's face. She had been reading that face for twenty years, had learned it in every light and every weather and every mood, and she knew it the way she knew Thorn's hands or Tor's laugh or the particular sound the wagon made when the left wheel needed greasing.
 
-Not happiness exactly. She knew happiness. This was larger than that, and quieter, and it sat in her chest like an ember. She caught herself thinking that and almost laughed, which was also something she was still getting used to. Laughing at herself. Cinder did that to her. Made things lighter without trying to.
+She had never seen it look quite like this.
 
-She had not told Cinder any of this. It seemed like the kind of thing that would make them smile in that way they had, the way that said *I know, I already knew, I have been waiting for you to notice*, and Ember found that smile did something entirely inconvenient to her composure. She had no shelf for it. She had tried building one twice and abandoned it both times because the category kept expanding.
+Not the expression itself; she had seen Cinder look at Ember before, had been seeing it for three years now, had in fact been seeing it before Cinder knew they were doing it, which was one of those things that was obvious from the outside long before it was visible from the inside. But there was something about the firelight, or the circle of family radiating outward behind them like spokes from a wheel, or simply the fact of the moment and what it meant, that had stripped away whatever last layer of guardedness Cinder usually maintained and left something open and undefended in its place.
 
-She had spent nearly twenty years being the person who knew things. Cinder was the first thing she had ever encountered that she couldn't quite get her hands around. The archive had built a separate shelf for them almost immediately, labeled simply Cinder, and had been filling it ever since with things that didn't belong anywhere else.
+Tova looked at her child's face and felt something move through her that she didn't have words for and didn't try to find.
 
-She was not sure if she found this endearing or alarming.
+She looked at Ember.
 
-Both, she decided. Mostly both.
+Ember, who had sat at their table two years ago and been so careful, so contained, so quietly watchful until something in the warmth of the evening had reached her and she had begun, slowly, to open. Who had told them, haltingly at first and then with the particular precision of someone who had been carrying something alone for a very long time, who she was. What she was. The weight of it. The not-knowing at the center of it.
 
-The rain had been threatening for two days before it finally arrived, and by then Ember had already decided they were ready for it.
+Tova remembered the silence that had fallen over the table when Ember finished speaking. Thorn's hand finding hers under the table. Young Tor staring with his mouth slightly open. And herself, sitting very still, feeling something rearrange itself quietly in the back of her mind where the old stories lived, the ones her grandmother had told her, the ones she had half-believed and then mostly forgotten and then filed away as the kind of true that doesn't require action.
 
-They were not.
+The last ember of a dying fire, the stories said. And the cinder that remained when everything else had burned away. Together they would burn brightly enough to light the way home.
 
-The canvas was original to the wagon, treated before the joining by whoever in the clan had been assigned that particular gift, and it had held through the first weeks of travel without complaint. But the treated smell had been fading for a while now, and Ember had filed it under *things-to-address-before-the-rains*, and then the rains had arrived slightly ahead of schedule, and here they were.
+She had named her child for the cold grey morning of their birth. For the fire burned down to its last remnants. She had not been thinking of old stories. She had been thinking of the particular quality of that winter light and her child's face and the feeling of something beginning.
 
-"My mother always started from the center," Cinder said, from the top of the wagon.
+She had not known, then, what was beginning.
 
-"My father always started from the edges." Ember handed up the pot of sealant, the good pot, not the cooking pot, there was a system, and watched Cinder receive it with the easy balance of someone who had clearly done this before, or at least watched it done, which was apparently close enough. "The edges are where it leaks."
+She breathed. The clan breathed around her, the inner circle close and warm, the outer circle, more of them than usual, drawn by whatever the elders had said, by Somar's quiet presence in the family spokes behind Ember. A larger warmth beyond that. The shadow plane stretched away in every direction, the eternal sunset painting the sky ahead of them in colors that had no names, patient and permanent, waiting.
 
-"Starting from the center pushes everything outward."
+Tova began to speak.
 
-"Starting from the edges ensures the edges are sealed first."
+"When Malazax the Black Star fell," she said, and her voice carried the way voices carry at joinings, low and clear and meant to reach everyone in the circle, "we did not grieve him. He had claimed us the way a stone claims the ground it rests on; not with love, not with intention, simply with weight. We were his because we were there and he was heavy and that was the whole of it."
 
-Cinder considered this with the expression of someone genuinely weighing the options, which was one of the things Ember had filed under Cinder, the way they actually listened rather than waiting for their turn to speak. It had been one of the first things she noticed about them. Standing in the hunters' camp for the first time, half furious and half terrified and determined not to show either, and this person had just... listened to her. Not to be polite. Actually listened.
+She paused. The fire between her and Cinder and Ember crackled once and settled.
 
-She had not known what to do with that. She still wasn't entirely sure.
+"When Nulmor the Risen Moon defeated him and looked upon us, we thought perhaps things would be different. We had stories, even then, of clans claimed by dragons who were cared for, protected, valued. We thought perhaps Nulmor would see something in us worth keeping."
 
-"Both approaches end with the whole canvas sealed," Cinder said.
+She let the silence do its work.
 
-"One of them is more correct."
+"He did not. He looked at everything Malazax had held, and he saw territory, and resources, and power, and then he looked at us and he saw nothing that he needed. And he cast us out of the only home we had ever known, into the dark of the shadow, with nothing but what we could carry and whatever we could remember of who we were."
 
-"Which one?"
+She could see Ember's face across the fire. Steady. Present. Listening the way Ember always listened; completely, filing everything, the way Tova had come to recognize and quietly love in the years since that dinner.
 
-"Mine," she said with the kind of confidence only she could have.
+"We wandered," Tova said. "There is no other word for what those first years were. We wandered and we grieved and we argued and we nearly came apart, the way people do when the ground is taken from under them and they have not yet decided what to stand on instead. Some left. Some were lost. Those who remained grew closer in the way that only loss can make people close, pressed together by the shape of what was gone."
 
-"Obviously." She could hear the smile in it. "Hand me the brush?"
+She looked at Cinder. Cinder was not looking at her. Cinder was looking at Ember with that open, undefended face, and the firelight was doing something to both of them that Tova knew she would be trying to describe to herself for the rest of her life without quite managing it.
 
-She handed up the brush and felt a smile creeping onto her face.
+"And then someone, the stories do not remember who, which seems right, which seems like exactly the kind of thing that should belong to everyone rather than one person; someone looked ahead and saw the sun setting. Always setting. Moving away from where Nulmor had risen. Moving toward something none of them could name yet. And that someone said: that way."
 
-Cinder began from the center. Ember began from the edges, methodical, each stroke overlapping the last by exactly the right margin, and tried not to think about the center-versus-edges question, which she had not conceded and did not intend to concede.
+And the clan said in unison, "yes. That way."
 
-"You're going to reach my section before I reach yours," Cinder observed.
+She reached into the fold of her garment and brought out the small knife she used for ceremony. Not a dagger. Older than that, older than the tradition of daggers, a remnant of what came before.
 
-"I'm aware."
+"The first dagger was made on the road," she said. "We do not know exactly when or exactly where, only that someone sat down one night with whatever materials the shadow plane had offered them that day and made a thing that was entirely theirs. No dragon's mark on it. No claim but the maker's own hands. A thing for cutting and eating and building and surviving, and also; because we have always been people who understood that surviving is not enough, that beauty is not a luxury but a necessity, a thing that was beautiful. That meant something. That could be given."
 
-"So we'll meet in the middle."
+She looked at Thorn behind Cinder. He was watching her with that particular expression she had loved for thirty years, the one that meant he was feeling something he wouldn't say out loud but wanted her to know he was feeling it. She held his eyes for a moment.
 
-Ember responded in a way that most would perceive as mocking, with a wry smile, "That's generally how middles work, yes?"
+"We give our daggers at birth," she said, returning to the circle, to the fire, to the two faces watching her across the flame, "because we know that a person is not only what they do or what they carry but what they were given at the beginning, what was pressed into them with love before they could understand what love was. Every fragment in the hilt is someone who said: you matter. You are part of us. Whatever you carry forward, carry this too."
 
-"You're enjoying this," Cinder said.
+She looked at Ember. Ember, who carried fragments from people whose names were now only in her memory. Ember, who was the last of something vast and old and specific. Ember, who had sat at her table two years ago with all that weight behind her eyes. Standing here now beside a fire with none of it visible.
 
-"I don't know what you're talking about."
+Ember was looking at Cinder.
 
-"You have a very specific way of not smiling when you're enjoying something."
+"And we give our daggers at the joining," Tova said, her voice quieter now, meant only for the inner circle, "because there is nothing more of yourself to give. The dagger is not a symbol of the self. It is the self, made physical, handed over. To give your dagger is to say: I trust you with the thing I reach for in the dark. I trust you with the thing that was given to me before I knew what giving was. I trust you with everything I have ever been and everything I might yet become."
 
-Ember said nothing. She was not smiling. She was also definitely not not-smiling, which was a different thing entirely, and she was fairly certain Cinder knew exactly what the difference looked like, which was deeply inconvenient.
+She stopped.
 
-A pause. The comfortable kind, the kind that had taken about six weeks to develop and which Ember had noted with some surprise felt like its own specific texture of silence. Warm in a way that reminded her of snuggling up into her blanket as she grew tired.
+The fire burned between them.
 
-"Ember."
+"Cinder," she said. And her voice did something she had not entirely planned, something that came from the twenty years of that name in her mouth, the cold grey morning and the dying embers and the child who had grown into this person standing across the fire from her with their whole heart visible. "Ember."
 
-"Yes?"
+They were looking at each other.
 
-"This is the first time we've done this." Again she could hear the smile on their face.
-
-She stopped working for a moment. It was the precise kind of observation that only Cinder made, not profound, just present. Noticing the thing that was happening while it was happening and deciding it deserved to be said out loud. Their first rainstorm. Their first canvas sealing. Their first argument about methodology that wasn't really an argument.
-
-The wagon had been theirs for four months. There was a whole catalog of firsts still ahead of them, tasks that hadn't come up yet, situations four months hadn't required. She found she was looking forward to them in a way she couldn't entirely explain and had stopped trying to.
-
-"We're doing it wrong," she said, because it was easier than saying that.
-
-"We're doing it differently. It'll seal either way."
-
-"My way is faster."
-
-"My way is..." A pause. She heard the exact moment they realized they didn't have a counterargument. "My way is how my mother did it."
-
-"That's not a reason.", she said playfully.
-
-"It's a good reason."
-
-"It's a sentimental reason. Those aren't the same thing." Now she was teasing Cinder. She knew exactly what it did to them when she did, and she liked it.
-
-A longer pause. And then, from the top of the wagon, Cinder laughing. Not unkindly. The laugh of someone who had found something delightful.
-
-"What," Ember said.
-
-"Nothing. You're right."
-
-"I know I'm right. What are you laughing at."
-
-"I'm not laughing at anything. I'm just..." The laugh settled into something quieter. "I'm happy. We're sealing our roof wrong together for the first time and I'm happy about it."
-
-*Our roof.*
-
-Ember looked at the canvas in front of her and felt something move through her chest that she had no category for and didn't try to find one. She had been the last ember her entire life. She had been the living archive, the carrier of everything the clan had ever been, the one on whose shoulders the weight of the whole rested and always would. She had spent her entire life belonging to something larger than herself.
-
-*Our roof* was the smallest possible version of belonging to something. Just her and Cinder and a wagon with a door that didn't hang quite right.
-
-She hadn't known she was waiting for it until it arrived.
-
-"We're not doing it wrong," she said, when she trusted her voice. "We're doing it our way. It's the first time, so we don't have a way yet. This is us deciding."
-
-Silence from above. The good kind.
-
-Then she heard Cinder climb down.
-
-She turned, and found them right there, closer than expected, and had approximately no time to arrange her expression into anything sensible before Cinder's hand came up and tucked a loose strand of hair behind her ear with the easy certainty of someone who had been doing it for years.
-
-"Edges first," Cinder said quietly.
-
-Ember felt the warmth arrive in her face and was faintly annoyed about it and didn't move away.
-
-"Edges first," she agreed, at a volume that was not her usual volume.
-
-Cinder smiled; the real one, the one that said *I see you, all of you*, and climbed back up.
-
-Ember stood for a moment.
-
-Then she went back to work, and did not think about the hair or the hand or the look, because if she thought about it she would have to find a shelf for it and the Cinder shelf was already taking up more room than she had planned for when she built it.
-
-They worked toward each other while the rain held off a little longer and the clan moved around them and the sun set ahead of them the way it always set, patient and permanent, waiting.
-
-They met somewhere in the middle.
-
----
-
-The pot was on the wrong side of the shelf.
-
-Ember noticed it the way she noticed everything, immediately and without trying, and filed it under wrong, which was a small shelf she kept for things that were incorrect and needed addressing. The cooking pot lived on the left. The fire kit lived on the right. This was not arbitrary. This was logic, and logic did not move itself to the wrong side of the shelf because someone had needed it in a hurry and put it back without thinking.
-
-She moved it back without comment. Then she moved it back again the next day. And the day after that she came back from her morning lessons with the elders; two hours of stories she already knew, of histories she had already filed, of weight she carried so constantly she had almost stopped feeling it.
-
-*Almost*
-
-The pot on the wrong side again, and something that had been pressing at her all morning found a direction to go.
-
-"The pot," she said, when Cinder came in.
-
-Cinder looked up from where they were sorting the day's gear, a familiar glint of amusement already present. "Which side this time?"
-
-"The wrong side. Again."
-
-"Ah." They said it with the tone of someone who had been caught fairly and found it more funny than anything else. "In my defense, I was in a hurry."
-
-"That's the third time."
-
-"It is," Cinder agreed cheerfully. "I have a very consistent relationship with that pot."
-
-Ember looked at them.
-
-Something in her expression must have landed differently than usual, because the cheerfulness shifted, not gone, but quieted, paying closer attention now. "I'll remember. You're right."
-
-"You said that last time."
-
-"I know." The playfulness had settled into something steadier now, the way Cinder could shift registers without making it a production. "You're right. I'll be more careful."
-
-Something about the evenness of it, the complete absence of pushback, landed wrong. She knew it was landing wrong. She could file that away too, the knowledge that she was about to be unreasonable about a cooking pot, and still couldn't quite stop.
-
-"It's not just the pot," she said.
-
-"I know," Cinder said. The same two words, but differently weighted now. She heard the shift in their voice; the slight softening, the recognition. They had stopped sorting gear entirely.
-
-"There's a system. The system exists because things need to be findable. Things need to be in the right place."
-
-"You're right," Cinder agreed.
-
-"And if I can't even maintain the organization of one small..." She stopped. Started again, at a slightly higher register. "Everything has a place. Every story, every recipe, every face, every..." She stopped again. The thing underneath was pressing harder now, shapeless and large, and she was talking about a pot and she knew she was talking about a pot and she could hear herself and couldn't quite get back to the other side of it. "It matters. The system matters. I am the one who keeps track of things and if I can't even..."
-
-"Ember."
-
-"I'm not finished."
-
-"I know." Cinder's voice was quiet. Not flat, not cold, solid. The particular solidity she had first encountered in the hunters' camp, when she had been furious at everything and this person had somehow stood in the middle of it without flinching, without leaving, without trying to fix it before she was done. "You can keep going."
-
-She did keep going. The pot gave way to the system, and the system gave way to something larger that she couldn't name, the shapeless pressing weight of twenty years of *you are the last ember*, *you carry everything*, *you must not fail*, without anyone ever telling her what failing would look like or what she was supposed to do or why it had to be her, and she was twenty years old and she had a wagon and a person she loved and somehow even here, even now, the weight followed her, and she was so tired of carrying something she couldn't even see clearly enough to put down.
-
-She ran out of words eventually. They always ran out eventually.
-
-The wagon was quiet. Outside, the clan moved around them in the ordinary sounds of late afternoon, children and cook fires and someone laughing at something in the distance.
-
-She looked at Cinder.
-
-Cinder looked back.
-
-That look. Patient and present and completely without judgment, the look that said *I see you, I have always seen you, I saw you when you were angrier than this and I did not go anywhere*. She had no shelf for it still. She had stopped trying to build one.
-
-"The pot wasn't about the pot," she said, quieter now.
-
-"I know."
-
-"I don't always know how to..." She stopped. Tried again. "There's a weight. And sometimes it needs somewhere to go and I can't always choose where."
-
-"I know that too." Cinder crossed the small space between them, unhurried, and Ember let herself lean into them the way she had learned she was allowed to, the way that still surprised her sometimes with how much she needed it. "You don't have to choose somewhere better every time. You're allowed to put it down wrong occasionally. I can take it."
-
-"That's not..." She felt the familiar pull toward argument, the stubborn reflex, and something in her chest did a thing that was almost a laugh. She filed it under Cinder, *things-they-do-to-me-without-trying*. "That's not a system."
-
-"No," Cinder agreed. She could hear the smile returning, gentle, the real one. "It's a sentimental reason."
-
-Ember was quiet for a moment, and allowed herself to melt into Cinder's arms a little more. It felt good. Cinder was able to bear some of that weight for her.
-
-"Those aren't the same thing," she said, at a volume that was not her usual volume.
-
-"No," Cinder said. "They're not. The sentimental reason is better."
-
-She thought about arguing this. She had a strong case. She did not make it.
-
-She filed it instead, on the Cinder shelf, in the section she had quietly labeled *things-that-are-probably-right-that-I-will-not-be-saying-out-loud*, which had been growing steadily for four months and showed no signs of stopping.
-
-Outside, someone was singing. Children were playing. The sounds of their community, their family, always together, always traveling. She listened to it for a moment, there in the small warmth of their wagon, in the specific weight of Cinder's arms, and felt the shapeless pressing thing settle back into its place.
-
-Not gone. It was never gone. But manageable again. Hers again, at least for now.
-
-The pot was still on the wrong side of the shelf.
-
-She decided, this once, to leave it there.
-
----
-
-That evening, old Serev found a reason to walk past their fire twice.
-
-Ember noticed. She always noticed. Serev had not walked this part of the camp in her usual evening pattern, and the first pass could have been incidental, but the second had that quality of deliberately undeliberate, the careful casualness of someone who wanted to observe something without appearing to look.
-
-She was looking at Ember.
-
-Not at the wagon, not at Cinder, who was in the middle of telling some story to two of the younger clan children with the easy animation of someone who had never once worried about being watched. Just at Ember. With something in her eyes that belonged on the wrong shelf, the one Ember kept for things she had collected but couldn't yet categorize.
-
-She filed it under *things-I-don't-understand-yet* and turned back to the fire.
-
-Cinder caught her looking after the elder and raised an eyebrow in question.
-
-"Nothing," Ember said. "Keep going, the children are waiting."
-
-Cinder kept going. The children demanded more. The fire burned low and steady and someone further along the camp was singing, one of the old songs, the kind that had been traveling with the clan so long nobody remembered composing it, only singing it. Ember listened and felt the familiar comfort of it move through her the way it always had, since she was small enough to fall asleep to it against her mother's shoulder.
-
-She leaned into Cinder's side. She watched the fire. She let the song go where it wanted to go and did not think about Serev or the weight or the shelf that kept filling with things she couldn't categorize. Just the fire. Just the music. Just the small warm fact of the evening and the people in it, her people.
-
-Later, one of the children fell asleep against Cinder's knee. The other fought it for another few minutes and then stopped fighting. Cinder looked down at them with an expression that Ember filed away before she had even consciously decided to, straight onto the Cinder shelf, no hesitation.
-
-Eventually someone came to collect the children. The fire burned lower. The singing stopped, replaced by the quieter sounds of the clan settling into sleep around them.
-
-Ember felt herself beginning to retract, the way she always did when the evening grew late. Pulling inward. Growing quieter. The edges of her softening toward sleep. She was aware of Cinder watching her do it with that patient, unhurried attention, not rushing her, not commenting.
-
-"Come on," Cinder said finally, soft. "The pot will still be wrong in the morning."
-
-Ember made a sound that was not quite a laugh and let herself be guided inside.
-
----
-
-The wagon was dark and warm and smelled like canvas and the herb bundles Ember kept hanging near the door, the ones her mother had taught her to dry for sleep.
-
-She lay with her head against Cinder's chest and listened to their heart beating, the slow steady rhythm of it, and felt the day settling out of her the way days did when she finally stopped moving. The weight was still there. It was always still there. But it was quieter now, pressed back to its edges by the warmth and the dark and the heartbeat under her ear.
-
-Cinder's hand moved slowly through her hair. Not trying to say anything. Just present. Ember's fingers moving gently against Cinder's skin, finding familiar places. That scar they got when they fell out of a hunting stand. The little bump in the wrong place. The spot just between two muscles that she knew if she touched it just right would make Cinder giggle.
-
-She didn't touch it just right.
-
-Here, in this moment, everything was just right, just as it should be.
-
-Outside, the shadow plane stretched west in the dark, the way it always stretched, the sun always just ahead of them, always just setting, patient and permanent. The clan breathed around them in sleep. The wagon creaked softly as the wind moved past it, and the door that didn't hang quite right settled against its frame with a small familiar sound.
-
-Ember did not file anything.
-
-She just lay there and breathed and felt Cinder's heartbeat and let that be enough, because it was enough, because it was more than enough, because she had not known until four months ago that this was a thing that could exist and now she could not imagine the shape of herself without it.
-
-She did not sleep for a long time.
-
-She didn't mind.
+"You know what to do," Tova said.
