@@ -1,303 +1,281 @@
-# The Strangest Person I Ever Met
+# The Last Ember
 
-I want to tell you about someone I knew, a long time ago, before you, before the rank, and before any of the stories I've already told you. Back when I was seventeen and thought I understood what dangerous looked like.
+The left door still doesn't hang quite right.
 
-I didn't, of course. But I learned.\n\nThe guild hall was louder than I expected. Busier. I had imagined something grim and purposeful, all sharpened steel and hushed voices, and instead it smelled like boot leather and old porridge and somebody's laundry. The other initiates were nervous in the ways nervous people are; talking too much, laughing too loud, finding reasons to stand near each other. I was doing the same thing, probably. I don't remember. But I do remember the morning I walked into the mess hall for the third time and saw Nix for the first time.
+Ember noticed it the morning after the clan resumed walking, when the wagon shifted on uneven ground and the latch caught wrong. She had filed it immediately, third shelf, *things-about-the-wagon*, the small imperfection where Aldec had measured twice and cut once and been wrong about the measuring. She hadn't said anything. Aldec was seventy-three and had built more wagons than she had years, and the door worked, and some things you file without comment.
 
-They were at the far end of the mess hall, and I remember seeing them and thinking; "Why would someone so beautiful ever be here?". So I watched. They picked up their tray from the line and as they came closer, it was like that moment when you first walk out into the sun, and your eyes take a moment to adjust to the bright light, and things start to come into focus.
+Cinder thought it gave the wagon character.
 
-Watching them cross the room was like trying to follow a conversation in a language you almost spoke. Never quite resolving, it kept arriving slightly ahead of where you expected. It was like watching a body move the way bodies move, but for the wrong reason. Not graceful. Not awkward. Something that sat just outside the edges of either. I was suddenly confused. This person who a moment ago would have made my stomach flip if they had spoken to me in school, was suddenly starting to make me uncomfortable.
+Ember thought that was exactly the kind of thing Cinder would say. She also thought, privately, that they were probably right, and had no intention of saying so.
 
-It wasn't that they were frightening, exactly. Not yet. It was more that something about the picture kept slipping out of focus. The features were... I'm not explaining this well... They were striking. That's the word. But then you saw the tattoo work, messy, rushed, almost panicked. This wasn't the work of a skilled artist, but rather someone trying to hide their body, like camouflage. And as things got clearer you could see old ink peeking out from behind those chaotic strokes, and underneath it all were scars. A lot of scars.
+It had been four months since the joining. Long enough that waking up to the particular sound of Cinder's breathing had stopped being a surprise and started being the first thing she reached for before she was fully awake. Still here. Still here. The clan moved west the way it had always moved, the sun perpetually setting ahead of them, and Ember sat in the wagon doorway in the early light and watched the shadow plane roll past and felt something she didn't have a word for yet.
 
-They were looking at the room the way you'd look at a map. Taking inventory. Not seeing people so much as noting them. Filing them. And when their eyes got to me I was filed and they moved on. I felt, very specifically, like I had been weighed and found neither threatening nor interesting, and I wasn't sure which of those I'd have preferred.
+Not happiness exactly. She knew happiness. This was larger than that, and quieter, and it sat in her chest like an ember. She caught herself thinking that and almost laughed, which was also something she was still getting used to. Laughing at herself. Cinder did that to her. Made things lighter without trying to.
 
-I sat down with my tray next to the other initiates I had been grouped with for training, and then, between one moment and the next, Nix stopped moving.
+She had not told Cinder any of this. It seemed like the kind of thing that would make them smile in that way they had, the way that said *I know, I already knew, I have been waiting for you to notice*, and Ember found that smile did something entirely inconvenient to her composure. She had no shelf for it. She had tried building one twice and abandoned it both times because the category kept expanding.
 
-Not slowed down. Not paused. Stopped. Tray in hand, foot hanging in the air mid-step, head tilted at this very slight angle, just a few degrees; like a dog that's heard something. And then nothing. No movement. I couldn't even tell if they were breathing.
+She had spent nearly twenty years being the person who knew things. Cinder was the first thing she had ever encountered that she couldn't quite get her hands around. The archive had built a separate shelf for them almost immediately, labeled simply Cinder, and had been filling it ever since with things that didn't belong anywhere else.
 
-The mess hall had suddenly gotten much quieter. A chair screeched momentarily on the floor, and stopped moving as quickly as it started. The initiate to my left, a solid, serious person who had not seemed frightened of anything in the three days I'd known them, had gone the color of old porridge and was looking very carefully at the table.
+She was not sure if she found this endearing or alarming.
 
-I leaned over and whispered, what's happening.
+Both, she decided. Mostly both.
 
-They shook their head. Very slightly. The message was clear: not now.
+The rain had been threatening for two days before it finally arrived, and by then Ember had already decided they were ready for it.
 
-I looked back at Nix. Still motionless. Still that angle. The whole room balanced on something I couldn't identify, and I had the sudden, very specific feeling that I had wandered into the middle of a situation with rules I didn't know yet.
+They were not.
 
-It was like this for a good thirty or forty-five seconds before a mouse skittered out from behind the baseboard on the far wall.
+The canvas was original to the wagon, treated before the joining by whoever in the clan had been assigned that particular gift, and it had held through the first weeks of travel without complaint. But the treated smell had been fading for a while now, and Ember had filed it under *things-to-address-before-the-rains*, and then the rains had arrived slightly ahead of schedule, and here they were.
 
-Then as suddenly as they stopped moving, Nix continued on, set their tray down, sat, pulled a dagger from a chest sheathe and snapped it back; click, click, click, then picked up their spoon and began to eat.
+"My mother always started from the center," Cinder said, from the top of the wagon.
 
-The room exhaled. Someone righted an overturned cup I hadn't noticed fall. The initiate next to me shuddered and returned to their meal.
+"My father always started from the edges." Ember handed up the pot of sealant, the good pot, not the cooking pot, there was a system, and watched Cinder receive it with the easy balance of someone who had clearly done this before, or at least watched it done, which was apparently close enough. "The edges are where it leaks."
 
-I opened my mouth.
+"Starting from the center pushes everything outward."
 
-The initiate put a hand on my arm and shook their head.
+"Starting from the edges ensures the edges are sealed first."
 
-I closed my mouth.
+Cinder considered this with the expression of someone genuinely weighing the options, which was one of the things Ember had filed under Cinder, the way they actually listened rather than waiting for their turn to speak. It had been one of the first things she noticed about them. Standing in the hunters' camp for the first time, half furious and half terrified and determined not to show either, and this person had just... listened to her. Not to be polite. Actually listened.
 
-Later, much later, after I'd been there long enough to know better than to ask directly, I pieced together enough to understand what I'd seen. Or what I hadn't seen, more accurately. Because that was the thing about Nix. The stillness came before violence, everyone knew that, everyone had heard what happened when something on the other end of that stillness turned out to actually be a threat.
+She had not known what to do with that. She still wasn't entirely sure.
 
-The trick was that sometimes it was a mouse.
+"Both approaches end with the whole canvas sealed," Cinder said.
 
-You never knew which one you were.
+"One of them is more correct."
+
+"Which one?"
+
+"Mine," she said with the kind of confidence only she could have.
+
+"Obviously." She could hear the smile in it. "Hand me the brush?"
+
+She handed up the brush and felt a smile creeping onto her face.
+
+Cinder began from the center. Ember began from the edges, methodical, each stroke overlapping the last by exactly the right margin, and tried not to think about the center-versus-edges question, which she had not conceded and did not intend to concede.
+
+"You're going to reach my section before I reach yours," Cinder observed.
+
+"I'm aware."
+
+"So we'll meet in the middle."
+
+Ember responded in a way that most would perceive as mocking, with a wry smile, "That's generally how middles work, yes?"
+
+"You're enjoying this," Cinder said.
+
+"I don't know what you're talking about."
+
+"You have a very specific way of not smiling when you're enjoying something."
+
+Ember said nothing. She was not smiling. She was also definitely not not-smiling, which was a different thing entirely, and she was fairly certain Cinder knew exactly what the difference looked like, which was deeply inconvenient.
+
+A pause. The comfortable kind, the kind that had taken about six weeks to develop and which Ember had noted with some surprise felt like its own specific texture of silence. Warm in a way that reminded her of snuggling up into her blanket as she grew tired.
+
+"Ember."
+
+"Yes?"
+
+"This is the first time we've done this." Again she could hear the smile on their face.
+
+She stopped working for a moment. It was the precise kind of observation that only Cinder made, not profound, just present. Noticing the thing that was happening while it was happening and deciding it deserved to be said out loud. Their first rainstorm. Their first canvas sealing. Their first argument about methodology that wasn't really an argument.
+
+The wagon had been theirs for four months. There was a whole catalog of firsts still ahead of them, tasks that hadn't come up yet, situations four months hadn't required. She found she was looking forward to them in a way she couldn't entirely explain and had stopped trying to.
+
+"We're doing it wrong," she said, because it was easier than saying that.
+
+"We're doing it differently. It'll seal either way."
+
+"My way is faster."
+
+"My way is..." A pause. She heard the exact moment they realized they didn't have a counterargument. "My way is how my mother did it."
+
+"That's not a reason.", she said playfully.
+
+"It's a good reason."
+
+"It's a sentimental reason. Those aren't the same thing." Now she was teasing Cinder. She knew exactly what it did to them when she did, and she liked it.
+
+A longer pause. And then, from the top of the wagon, Cinder laughing. Not unkindly. The laugh of someone who had found something delightful.
+
+"What," Ember said.
+
+"Nothing. You're right."
+
+"I know I'm right. What are you laughing at."
+
+"I'm not laughing at anything. I'm just..." The laugh settled into something quieter. "I'm happy. We're sealing our roof wrong together for the first time and I'm happy about it."
+
+*Our roof.*
+
+Ember looked at the canvas in front of her and felt something move through her chest that she had no category for and didn't try to find one. She had been the last ember her entire life. She had been the living archive, the carrier of everything the clan had ever been, the one on whose shoulders the weight of the whole rested and always would. She had spent her entire life belonging to something larger than herself.
+
+*Our roof* was the smallest possible version of belonging to something. Just her and Cinder and a wagon with a door that didn't hang quite right.
+
+She hadn't known she was waiting for it until it arrived.
+
+"We're not doing it wrong," she said, when she trusted her voice. "We're doing it our way. It's the first time, so we don't have a way yet. This is us deciding."
+
+Silence from above. The good kind.
+
+Then she heard Cinder climb down.
+
+She turned, and found them right there, closer than expected, and had approximately no time to arrange her expression into anything sensible before Cinder's hand came up and tucked a loose strand of hair behind her ear with the easy certainty of someone who had been doing it for years.
+
+"Edges first," Cinder said quietly.
+
+Ember felt the warmth arrive in her face and was faintly annoyed about it and didn't move away.
+
+"Edges first," she agreed, at a volume that was not her usual volume.
+
+Cinder smiled; the real one, the one that said *I see you, all of you*, and climbed back up.
+
+Ember stood for a moment.
+
+Then she went back to work, and did not think about the hair or the hand or the look, because if she thought about it she would have to find a shelf for it and the Cinder shelf was already taking up more room than she had planned for when she built it.
+
+They worked toward each other while the rain held off a little longer and the clan moved around them and the sun set ahead of them the way it always set, patient and permanent, waiting.
+
+They met somewhere in the middle.
 
 ---
 
-It was maybe two weeks in when I witnessed what would become, among our little group of initiates, a story we told repeatedly and with great fondness for years afterward.
+The pot was on the wrong side of the shelf.
 
-Nix had been assigned cleaning duty in the lower supply corridor, this happened with some regularity; the nature of the busywork they gave initiates between evaluations, and was working through it with the same focused, unhurried energy they brought to everything. I was there collecting some equipment I'd been issued, so I had a front row seat.
+Ember noticed it the way she noticed everything, immediately and without trying, and filed it under wrong, which was a small shelf she kept for things that were incorrect and needed addressing. The cooking pot lived on the left. The fire kit lived on the right. This was not arbitrary. This was logic, and logic did not move itself to the wrong side of the shelf because someone had needed it in a hurry and put it back without thinking.
 
-Hest was a fixture of the guild in the way that certain pieces of furniture become fixtures; you stopped seeing him after a while, he was simply part of the architecture. He had been managing supply inventory since before most of us were born, had an opinion about everything, shared it freely, and had approximately no interest in the internal politics of who was or wasn't a promising initiate. To him, the lower corridor was his corridor, initiates were a nuisance to be routed around, and that was the full extent of his engagement with guild operations.
+She moved it back without comment. Then she moved it back again the next day. And the day after that she came back from her morning lessons with the elders; two hours of stories she already knew, of histories she had already filed, of weight she carried so constantly she had almost stopped feeling it.
 
-He came around the corner with a manifest in hand, clocked Nix mopping the far end of the corridor, and called out without breaking stride.
+*Almost*
 
-"Oi, girl. You seen the requisition cart? Should've been down here an hour ago."
+The pot on the wrong side again, and something that had been pressing at her all morning found a direction to go.
 
-Nix continued mopping.
+"The pot," she said, when Cinder came in.
 
-Hest kept walking, eyes on the manifest. "Oi. Girl."
+Cinder looked up from where they were sorting the day's gear, a familiar glint of amusement already present. "Which side this time?"
 
-Nix continued mopping.
+"The wrong side. Again."
 
-This went on for slightly longer than was comfortable. I watched Hest's expression shift from distracted to annoyed. He was not someone accustomed to being ignored. He crossed the corridor in about four strides, manifest still in hand, and put a hand on Nix's shoulder.
+"Ah." They said it with the tone of someone who had been caught fairly and found it more funny than anything else. "In my defense, I was in a hurry."
 
-Nix stopped. Turned. Looked at them with that slight head tilt, patient and completely empty of anything in particular.
+"That's the third time."
 
-Hest restated his question with some emphasis. "Don't ignore me! The requisition cart. Have you seen it?"
+"It is," Cinder agreed cheerfully. "I have a very consistent relationship with that pot."
 
-"Yes," Nix said. "It's in the side passage off the east corridor. Someone left it there this morning." A brief pause, the head tilting a fraction further. "You should address someone before you speak to them. Otherwise they won't know you're speaking to them."
+Ember looked at them.
 
-This was delivered with complete sincerity. Helpful. Informational. The tone of someone explaining that water flows downhill. They reached up and slid that dagger out and snapped it back, click, click. Then turned back to the mop.
+Something in her expression must have landed differently than usual, because the cheerfulness shifted, not gone, but quieted, paying closer attention now. "I'll remember. You're right."
 
-Hest stood there for a moment with his mouth open slightly. Then closed it. Then looked at me, because I was the only other person in the corridor.
+"You said that last time."
 
-I suddenly found the middle distance extremely interesting.
+"I know." The playfulness had settled into something steadier now, the way Cinder could shift registers without making it a production. "You're right. I'll be more careful."
 
-He left. Found the cart, presumably. Never mentioned it again, as far as I know.
+Something about the evenness of it, the complete absence of pushback, landed wrong. She knew it was landing wrong. She could file that away too, the knowledge that she was about to be unreasonable about a cooking pot, and still couldn't quite stop.
 
-I thought about that interaction for a long time afterward. The thing that stuck with me wasn't the response, which was, if you thought about it, completely reasonable. It was that Nix had gone back to mopping before Hest had even turned to leave. The conversation was over when the information had been exchanged. There was nothing else to stay for. I had never seen anyone so unbothered by another person's opinion of them.
+"It's not just the pot," she said.
 
-I wasn't sure yet if that was something to admire or something to fear. Probably, I would later decide, it was neither. It was just Nix.
+"I know," Cinder said. The same two words, but differently weighted now. She heard the shift in their voice; the slight softening, the recognition. They had stopped sorting gear entirely.
 
----
+"There's a system. The system exists because things need to be findable. Things need to be in the right place."
 
-One time, I had forgotten my knife. That's the only reason I went back to the bunk room that afternoon, and I have thought about that fact many times since. If I hadn't forgotten it I would have missed the whole thing, and my understanding of Nix might have remained incomplete in a way I wouldn't have known to notice.
+"You're right," Cinder agreed.
 
-I heard them before I opened the door. An argument, clearly mid-stream, the kind that has been running long enough that both parties have abandoned any pretense of civility. I hesitated with my hand on the door, because walking into someone else's argument felt rude, and then I registered that the voice I was hearing was Nix, and that Nix had been assigned alone to collect laundry that afternoon, and I opened the door anyway because I needed my knife and also because I was seventeen and curious.
+"And if I can't even maintain the organization of one small..." She stopped. Started again, at a slightly higher register. "Everything has a place. Every story, every recipe, every face, every..." She stopped again. The thing underneath was pressing harder now, shapeless and large, and she was talking about a pot and she knew she was talking about a pot and she could hear herself and couldn't quite get back to the other side of it. "It matters. The system matters. I am the one who keeps track of things and if I can't even..."
 
-Nix was standing at the far end of the room holding a sheet at arm's length, staring at it blankly, without expression, yet somehow conveying a sense of profound displeasure.
+"Ember."
 
-Nobody else was there.
+"I'm not finished."
 
-"I know what it is, Ember."
+"I know." Cinder's voice was quiet. Not flat, not cold, solid. The particular solidity she had first encountered in the hunters' camp, when she had been furious at everything and this person had somehow stood in the middle of it without flinching, without leaving, without trying to fix it before she was done. "You can keep going."
 
-A pause. Nix turned the sheet slightly, examining the stain from a different angle.
+She did keep going. The pot gave way to the system, and the system gave way to something larger that she couldn't name, the shapeless pressing weight of twenty years of *you are the last ember*, *you carry everything*, *you must not fail*, without anyone ever telling her what failing would look like or what she was supposed to do or why it had to be her, and she was twenty years old and she had a wagon and a person she loved and somehow even here, even now, the weight followed her, and she was so tired of carrying something she couldn't even see clearly enough to put down.
 
-"I didn't ask what it is. I know what it is."
+She ran out of words eventually. They always ran out eventually.
 
-Another pause. Longer. Nix's jaw tightened.
+The wagon was quiet. Outside, the clan moved around them in the ordinary sounds of late afternoon, children and cook fires and someone laughing at something in the distance.
 
-"I am not going to say that out loud."
+She looked at Cinder.
 
-I stood in the doorway. Nix had not registered me yet, or if they had, had not filed me as relevant to the current situation. I watched them hold the sheet up toward the light, then lower it again, seeming almost defeated, losing an argument they hadn't wanted to be having.
+Cinder looked back.
 
-"Fine. Fine. Yes, you're right, cold water first, I know, you've said that three times."
+That look. Patient and present and completely without judgment, the look that said *I see you, I have always seen you, I saw you when you were angrier than this and I did not go anywhere*. She had no shelf for it still. She had stopped trying to build one.
 
-The sheet was set down on the nearest bunk with extreme deliberateness.
+"The pot wasn't about the pot," she said, quieter now.
 
-"No, I'm not asking Griff about it. I'm not asking anyone about it. This conversation is over."
+"I know."
 
-It was very clearly not over. Nix picked the sheet back up.
+"I don't always know how to..." She stopped. Tried again. "There's a weight. And sometimes it needs somewhere to go and I can't always choose where."
 
-"Cold water. Fine. And then what?"
+"I know that too." Cinder crossed the small space between them, unhurried, and Ember let herself lean into them the way she had learned she was allowed to, the way that still surprised her sometimes with how much she needed it. "You don't have to choose somewhere better every time. You're allowed to put it down wrong occasionally. I can take it."
 
-I must have made some sound. Or moved. Because Nix turned and looked at me with that flat, patient expression, sheet still in hand, and said nothing, in the way that Nix said nothing, which was like a question being asked very quietly.
+"That's not..." She felt the familiar pull toward argument, the stubborn reflex, and something in her chest did a thing that was almost a laugh. She filed it under Cinder, *things-they-do-to-me-without-trying*. "That's not a system."
 
-I said, "I forgot my knife."
+"No," Cinder agreed. She could hear the smile returning, gentle, the real one. "It's a sentimental reason."
 
-"It's on your chest," Nix said. "You left it there this morning. Third from the left."
+Ember was quiet for a moment, and allowed herself to melt into Cinder's arms a little more. It felt good. Cinder was able to bear some of that weight for her.
 
-I looked. It was.
+"Those aren't the same thing," she said, at a volume that was not her usual volume.
 
-"...Thank you."
+"No," Cinder said. "They're not. The sentimental reason is better."
 
-Nix turned back to the sheet. The argument, apparently, had been tabled in my presence, because the room was now silent except for the sound of Nix examining the stain with the focus of someone conducting a field assessment.
+She thought about arguing this. She had a strong case. She did not make it.
 
-I retrieved my knife. I left. I walked back down the corridor for approximately ten steps before I stopped and stood there for a moment.
+She filed it instead, on the Cinder shelf, in the section she had quietly labeled *things-that-are-probably-right-that-I-will-not-be-saying-out-loud*, which had been growing steadily for four months and showed no signs of stopping.
 
-Then I went and found Denn and said, "Who is Ember?"
+Outside, someone was singing. Children were playing. The sounds of their community, their family, always together, always traveling. She listened to it for a moment, there in the small warmth of their wagon, in the specific weight of Cinder's arms, and felt the shapeless pressing thing settle back into its place.
 
-The table went quiet in a way that had nothing to do with the question being offensive and everything to do with it being complicated.
+Not gone. It was never gone. But manageable again. Hers again, at least for now.
 
-"Where did you hear that name?" someone said finally.
+The pot was still on the wrong side of the shelf.
 
-"Nix was talking to someone. In the bunk room. Alone."
-
-A pause. Exchanged glances.
-
-"That's Ember," said Denn, in the tone of someone explaining something they themselves did not fully understand.
-
-"Who is she?"
-
-"Nobody knows, exactly."
-
-"Has anyone asked Nix?"
-
-The table went very quiet again. Someone pushed food around their bowl.
-
-"Don't," said Denn.
-
-"Why?"
-
-They looked up. Something in their expression suggested they had, in fact, asked, and that the asking had been educational in ways they were not prepared to summarize.
-
-"Just don't."
-
-I didn't. For a long time I didn't.
-
-That's a different story.
+She decided, this once, to leave it there.
 
 ---
 
-It was about six weeks in when Davin arrived.
+That evening, old Serev found a reason to walk past their fire twice.
 
-I won't pretend I wasn't relieved. There is a particular comfort in no longer being the newest person in a room, and Davin had that wide-eyed, slightly too-alert quality that I recognized from my own first days. Taking everything in. Filing it away. Trying to work out the rules.
+Ember noticed. She always noticed. Serev had not walked this part of the camp in her usual evening pattern, and the first pass could have been incidental, but the second had that quality of deliberately undeliberate, the careful casualness of someone who wanted to observe something without appearing to look.
 
-They were doing exactly that, sitting with the rest of us in the common room one evening, when Nix came in.
+She was looking at Ember.
 
-Nothing happened, exactly. Nix crossed to the far side of the room, picked up something they'd left on a windowsill, and was on their way back out when a log shifted in the fireplace behind them. A small sound. The kind of sound a fireplace makes constantly, the kind of sound you stop hearing after the first day.
+Not at the wagon, not at Cinder, who was in the middle of telling some story to two of the younger clan children with the easy animation of someone who had never once worried about being watched. Just at Ember. With something in her eyes that belonged on the wrong shelf, the one Ember kept for things she had collected but couldn't yet categorize.
 
-Nix stopped.
+She filed it under *things-I-don't-understand-yet* and turned back to the fire.
 
-I put down my cup very carefully and looked at the table.
+Cinder caught her looking after the elder and raised an eyebrow in question.
 
-Around me, with the quiet efficiency of people who had learned this particular lesson, everyone else found something to look at that wasn't Nix. Denn picked up a book. Someone across the room developed a sudden interest in their bootlaces. The conversation didn't stop exactly, it just... thinned, the way conversations thin when everyone in them is listening for something else.
+"Nothing," Ember said. "Keep going, the children are waiting."
 
-Davin looked around the room with an expression I remembered intimately. The expression of someone who has just realized everyone else knows something they don't.
+Cinder kept going. The children demanded more. The fire burned low and steady and someone further along the camp was singing, one of the old songs, the kind that had been traveling with the clan so long nobody remembered composing it, only singing it. Ember listened and felt the familiar comfort of it move through her the way it always had, since she was small enough to fall asleep to it against her mother's shoulder.
 
-Nix stood motionless for somewhere between ten seconds and a small eternity. Then continued toward the door and left without a word.
+She leaned into Cinder's side. She watched the fire. She let the song go where it wanted to go and did not think about Serev or the weight or the shelf that kept filling with things she couldn't categorize. Just the fire. Just the music. Just the small warm fact of the evening and the people in it, her people.
 
-The room exhaled.
+Later, one of the children fell asleep against Cinder's knee. The other fought it for another few minutes and then stopped fighting. Cinder looked down at them with an expression that Ember filed away before she had even consciously decided to, straight onto the Cinder shelf, no hesitation.
 
-Davin turned to me. "What was that?"
+Eventually someone came to collect the children. The fire burned lower. The singing stopped, replaced by the quieter sounds of the clan settling into sleep around them.
 
-"The fire shifted," I said.
+Ember felt herself beginning to retract, the way she always did when the evening grew late. Pulling inward. Growing quieter. The edges of her softening toward sleep. She was aware of Cinder watching her do it with that patient, unhurried attention, not rushing her, not commenting.
 
-"I know the fire shifted. I mean what was THAT." They gestured at the door Nix had just walked through with a rapidly flapping hand.
+"Come on," Cinder said finally, soft. "The pot will still be wrong in the morning."
 
-"That's just Nix," said Denn, from behind the book.
-
-"That's just Nix," someone else confirmed, in the tone of a thing that has been confirmed many times before and will need to be confirmed many times again.
-
-Davin looked at the door. Then at us. Then back at the door. "They go like that and nobody does anything?"
-
-"There's nothing to do," I said. "It passes."
-
-"But what if it doesn't pass?"
-
-The room went very quiet in a different way than it had before.
-
-"It passes," said Denn, with some finality, and returned to their book.
-
-Davin was quiet for a moment. They had the look of someone doing calculations. "Has it ever... not passed?"
-
-And there it was. The question nobody asked. Across the room, someone set down their cup. Denn lowered the book very slightly. Someone else made a sound that was not quite a word.
-
-"There was," said a voice from the corner, slowly, "this one time."
-
-A shudder moved through the room like a wave. Not dramatic. Not performed. Just a thing that happened to several people's bodies simultaneously, completely beyond their control, the way you flinch from heat before you've registered it as hot. Someone rubbed the back of their neck. Someone else looked at the ceiling briefly, as if appealing to something. Whatever had happened that one time, those who saw it will take that memory to their graves.
-
-Davin leaned forward. "What happened?"
-
-Silence.
-
-"What happened?"
-
-"Drop it," said Denn.
-
-"But what --"
-
-"Drop it."
-
-Davin looked around the room at a collection of expressions that all said the same thing in slightly different ways. They were smart enough to read them. They sat back.
-
-Nobody explained. Nobody elaborated. The conversation resumed around the edges of the subject like water finding a path around a stone, and Davin sat in the middle of it looking like someone who had just realized that the thing they didn't know was significantly larger than the space it was leaving.
-
-I knew that feeling. I had been that person.
-
-I still don't know what happened that night. I was not there. By the time I heard the reference I knew better than to push, and I have never pushed, and I want you to understand, sitting here now, all these years later, that I am completely at peace with that decision.
-
-Completely.
+Ember made a sound that was not quite a laugh and let herself be guided inside.
 
 ---
 
-The guide's name was [GUIDE PLACEHOLDER]. He had been with the guild for eleven years, had seen initiates come and go in the way that people in that position learn to see initiates come and go, which is to say with a certain careful distance that keeps the losses from accumulating too heavily. He was not unkind. He was not cruel. He was professional in the way that people become professional when their job requires them to watch others walk into danger and evaluate the results.
+The wagon was dark and warm and smelled like canvas and the herb bundles Ember kept hanging near the door, the ones her mother had taught her to dry for sleep.
 
-He was present for that one time.
+She lay with her head against Cinder's chest and listened to their heart beating, the slow steady rhythm of it, and felt the day settling out of her the way days did when she finally stopped moving. The weight was still there. It was always still there. But it was quieter now, pressed back to its edges by the warmth and the dark and the heartbeat under her ear.
 
-I won't describe what I heard secondhand, partly because I only heard pieces, and partly because the pieces were enough. What I will say is that whatever happened in that delve, whatever Nix did or didn't do or walked through without flinching, [GUIDE PLACEHOLDER] filed his report that evening in the methodical way he filed all his reports, went to his quarters, and did not come back.
+Cinder's hand moved slowly through her hair. Not trying to say anything. Just present. Ember's fingers moving gently against Cinder's skin, finding familiar places. That scar they got when they fell out of a hunting stand. The little bump in the wrong place. The spot just between two muscles that she knew if she touched it just right would make Cinder giggle.
 
-Not dramatically. Not with a scene. He was simply there, and then he was not there, and the note he left on his desk was completely reasonable and explained nothing.
+She didn't touch it just right.
 
-Nobody replaced him immediately. This, I would later understand, was because nobody wanted to. The guild had a system for evaluating initiates. Nix did not fit the system. Nix survived things that initiates were not supposed to survive, walked away from things that were supposed to be formative experiences with the affect of someone who had done the washing up, and had that one time on the record that nobody would discuss and everyone who had witnessed it would carry in their body as an involuntary shudder for the rest of their lives.
+Here, in this moment, everything was just right, just as it should be.
 
-How do you evaluate that? What box do you put it in?
+Outside, the shadow plane stretched west in the dark, the way it always stretched, the sun always just ahead of them, always just setting, patient and permanent. The clan breathed around them in sleep. The wagon creaked softly as the wind moved past it, and the door that didn't hang quite right settled against its frame with a small familiar sound.
 
-The guild's answer, for several months, was busywork. Laundry. Inventory. Cleaning the lower corridors. And Nix did all of it with the same focused, unhurried energy they brought to everything, clicking the dagger, arguing with Ember, occasionally stopping dead in the middle of a task because something moved somewhere in the walls, and then resuming as though nothing had happened.
+Ember did not file anything.
 
-I watched some of this. Not all of it. I had my own evaluations to worry about.
+She just lay there and breathed and felt Cinder's heartbeat and let that be enough, because it was enough, because it was more than enough, because she had not known until four months ago that this was a thing that could exist and now she could not imagine the shape of herself without it.
 
-The morning the new guide arrived I knew immediately they were different. They had the bearing of someone who had seen enough genuine wrongness to have developed a reliable sense of what actually warranted concern, and what merely felt wrong, and had stopped losing sleep over the latter. They gathered us without ceremony, distributed equipment, explained the terms of the evaluation in the clipped, practical, dispassionate language of someone who had given this speech many times and had no interest in making it inspiring.
+She did not sleep for a long time.
 
-Then they produced the recall stones.
-
-We were already inside by then, the delve stretching ahead of us in the particular way that delves stretch ahead of you when you are new enough to still be counting exits. I felt the weight of mine considerably. A small smooth thing. I tucked it carefully into my inner pocket and tried to look like someone who had never considered using it.
-
-Nix turned theirs over once in their fingers.
-
-Then tossed it casually over one shoulder.
-
-It hit the stone floor behind them with a small sharp crack and lay there. The new guide looked at it for a moment, then at Nix, with the expression of someone rapidly revising a set of assumptions. Then they walked back, picked the stone up, dusted it off without comment, and returned it to their pouch. Nix had already started down the corridor ahead of us, dagger scraping lightly along the wall as they went.
-
-Click. Scrape. Click. Scrape.
-
-That was the last time I saw them for a long time.
-
-Years passed. I will spare you the accounting of them except to say that they were eventful in the ways that years in this profession tend to be eventful, and that I came out the other side with a 4 star ranking and a different relationship with the word dangerous than I had carried into that guild hall as a seventeen year old who thought they understood what it meant.
-
-I was crossing the lower market on a rest day when I saw them.
-
-Same grey skin. Same neon hair. Same slight tilt to the head, tracking the crowd the way you'd read a map. Same dagger, half out of its sheath, back in, out, back in, the click swallowed by the noise of the market but present, I knew. Always present.
-
-I stopped walking.
-
-Nix's eyes found me with the flat efficiency of a completed threat assessment. The head tilted a fraction. Recognition, maybe. Filing, certainly.
-
-I crossed to them because seventeen years of carrying this person as a story felt like it deserved at least a hello.
-
-"Nix," I said.
-
-"You're a 4 star now," they said. Noting the insignia. Filing it.
-
-"I am," I said. And then, because I didn't know what else to say to someone who had not changed in any way I could identify across what felt like a lifetime: "How are you?"
-
-Nix considered this with the seriousness they brought to all questions that had factual answers.
-
-"The delves have been adequate," they said. "The guild quartermaster recently updated the chalk system. Denn made 3 star last season." A pause. The head tilt. "The dagger still sparks on limestone. I confirmed it this morning."
-
-I stood there for a moment, and something settled in me that I hadn't known was unsettled.
-
-Because here is what I understood, standing in that market, that I had not understood half my life ago: Nix was not a story. Nix was not a warning, or a curiosity, or a collection of incidents that didn't fit the rubric. Whatever had happened to them, whatever had built the stillness and the arguments with Ember and the dagger that was not a weapon and all the rest of it, had been enormous and awful and was not mine to know.
-
-But Nix was still here. Still clicking the dagger. Still confirming things that needed confirming. Still existing in the world with the same focused, unhurried energy they had brought to mopping a corridor floor, to arguing about laundry, to walking into the dark ahead of the rest of us without looking back.
-
-That deserved to be seen. Not explained, not fixed, not feared. Just seen.
-
-"That's good," I said. "That's really good, Nix."
-
-They looked at me for a moment in that way they had, the way that meant the assessment was complete and the results filed, and then they turned and moved back into the crowd.
-
-Click, click, click.
-
-And were gone.
+She didn't mind.

@@ -16,5 +16,11 @@
     "title": "The Pit",
     "description": "The thing about The Pit is that it was patient.",
     "shareUrl": "./lore/the-pit/"
+  },
+  {
+    "id": "the-wagon",
+    "title": "The Wagon",
+    "description": "The archive had built a separate shelf for them almost immediately, labeled simply Cinder.",
+    "shareUrl": "./lore/the-wagon/"
   }
 ]
