@@ -356,6 +356,10 @@
       {
         "name": "Skilled",
         "description": "+2 Knowledge (Planes), +2 Stealth"
+      },
+      {
+        "name": "Ethereal Jaunt (Su)",
+        "description": "Gains a pool of supernatural motes of movement equal to 3 + 1/2 character level (rounded down) per day. Only one mote may be spent per round. Using a mote does not provoke attacks of opportunity.\n\n**Instant Liberation:** Swift action. Spend a mote to teleport out of prone (arriving standing) or escape a grapple, removing grappled and pinned conditions and appearing in the nearest unoccupied square of your choice.\n\n**Instant Escape:** When you would be hit by a confirmed critical hit or reduced to 0 HP or below, automatically spend a mote and attempt a Reflex save (DC 10 + 1/2 attacker's attack bonus, or spell/effect DC) using CHA instead of DEX. Success negates the hit or damage entirely. Triggers once per round even if a mote was already spent.\n\n**Dimensional Hop:** Move action. Spend a mote to teleport to any unoccupied spot within 25 ft. + 5 ft. per 2 character levels (max 50 ft.). Line-of-sight destinations arrive unerringly. Other destinations require visualization or stated direction/distance but carry a 25% mishap chance and end your actions for the round. Mishap or arrival in an occupied space deals 1d6 damage and shunts you to the nearest open space."
       }
     ]
   },
@@ -402,8 +406,12 @@
     "castingMode": "consume",
     "label": "Formulae",
     "spellbookLabel": "Formula Book",
-    "slotsPerDay": { "1": 4 },
-    "slotsUsed":   { "1": 0 },
+    "slotsPerDay": {
+      "1": 4
+    },
+    "slotsUsed": {
+      "1": 0
+    },
     "prepared": [
       "cure-light-wounds",
       "cure-light-wounds",
