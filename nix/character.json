@@ -2,7 +2,7 @@
   "meta": {
     "title": "NIX — Character Sheet",
     "ogTitle": "NIX",
-    "ogDescription": "Fetchling · Barbarian // Alchemist · Gestalt Level 3 — \"This is not your party, Ember.\"",
+    "ogDescription": "Fetchling · Barbarian // Alchemist · Gestalt Level 4 — \"This is not your party, Ember.\"",
     "ogUrl": "https://fleshbox.github.io/sheets/nix/",
     "ogImage": "https://fleshbox.github.io/sheets/nix/portrait.png"
   },
@@ -22,7 +22,7 @@
   },
   "header": {
     "name": "NIX",
-    "subtitle": "Fetchling · Barbarian // Alchemist · Gestalt Level 3",
+    "subtitle": "Fetchling · Barbarian // Alchemist · Gestalt Level 4",
     "quote": "\"This is not your party, Ember.\""
   },
   "portrait": {
@@ -106,8 +106,8 @@
       "name": "DEX",
       "score": 17,
       "primary": true,
-      "misc": 2,
-      "miscReason": "Racial +2"
+      "misc": 3,
+      "miscReason": "Racial +2/Level 4 +1"
     },
     {
       "name": "CON",
@@ -134,9 +134,9 @@
       "miscReason": "Racial +2"
     }
   ],
-  "abilityScoresNote": "Racial adjustments applied: DEX +2, CHA +2, WIS -2",
+  "abilityScoresNote": "Racial adjustments applied: DEX +2, CHA +2, WIS -2 | Level 4 Adjustment: DEX +1",
   "combat": {
-    "bab": 3,
+    "bab": 4,
     "armorBonus": 4,
     "armorMaxDex": 4,
     "hp": [
@@ -154,6 +154,11 @@
         "level": 3,
         "roll": "12",
         "class": "Barbarian"
+      },
+      {
+        "level": 3,
+        "roll": "8",
+        "class": "Barbarian"
       }
     ],
     "speed": "40 ft",
@@ -161,12 +166,12 @@
       {
         "label": "Fort",
         "stat": "CON",
-        "base": 3
+        "base": 4
       },
       {
         "label": "Reflex",
         "stat": "DEX",
-        "base": 3
+        "base": 4
       },
       {
         "label": "Will",
@@ -264,11 +269,14 @@
         {
           "name": "Throw Anything · Swift Alchemy · Brew Potion",
           "description": ""
-        }
+        },
+        {
+          "name": "Precise Bonbs",
+          "description": "Whenever the alchemist throws a bomb, they can select a number of squares equal to their Intelligence modifier that are not affected by the splash damage from their bombs. If the bomb misses, this discovery has no effect."
       ]
     }
   ],
-  "classFeaturesNote": "Precise Bombs discovery planned for Level 4, following *The Incident.*",
+  "classFeaturesNote": "",
   "feats": [
     {
       "level": "1st",
@@ -286,7 +294,7 @@
       "name": "Intimidate",
       "stat": "CHA",
       "classSkill": true,
-      "ranks": 3
+      "ranks": 4
     },
     {
       "name": "Knowledge (Nature)",
@@ -303,35 +311,48 @@
       "miscReason": "Racial +2"
     },
     {
+      "name": "Knowledge (Arcana)",
+      "stat": "INT",
+      "classSkill": true,
+      "ranks": 1,
+      "misc": 2,
+      "miscReason": "Racial +2"
+    },
+    {
       "name": "Disable Device",
       "stat": "DEX",
       "classSkill": true,
-      "ranks": 3
+      "ranks": 4
     },
     {
       "name": "Acrobatics",
       "stat": "DEX",
       "classSkill": true,
-      "ranks": 3
+      "ranks": 4
     },
     {
       "name": "Sleight of Hand",
       "stat": "DEX",
       "classSkill": true,
-      "ranks": 3
+      "ranks": 4
     },
     {
       "name": "Craft (Alchemy)",
       "stat": "INT",
       "classSkill": true,
-      "ranks": 3
+      "ranks": 4
     },
     {
       "name": "Linguistics",
       "stat": "INT",
       "classSkill": true,
       "ranks": 2
-    }
+    },
+    {
+      "name": "Spellcraft",
+      "stat": "INT",
+      "classSkill": true,
+      "ranks": 1
   ],
   "skillsNote": "Free ranks from Alchemist · 7 pts/level x 3 levels = 21 total · WIS-based skills are inaccessible. Nix does not make Perception, Sense Motive, Heal, or Survival rolls. Keith determines what Nix notices passively. Languages accumulate the same way, absorbed through exposure without deliberate study. Nix may speak or insert words from a language without registering that no one else understands it.",
   "racialTraits": {
