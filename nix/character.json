@@ -273,6 +273,7 @@
         {
           "name": "Precise Bonbs",
           "description": "Whenever the alchemist throws a bomb, they can select a number of squares equal to their Intelligence modifier that are not affected by the splash damage from their bombs. If the bomb misses, this discovery has no effect."
+        }
       ]
     }
   ],
